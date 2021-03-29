@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>移动Web开发</title>
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="image/configImage/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="image/configImage/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <script>
+
+        // <!--左侧目录的折叠-->
+        function foldTag(foldTagId,foldSignId) {
+
+            var traget = document.getElementById(foldTagId);
+
+            var signI = document.getElementById(foldSignId);
+            //style.display获取的只是行内样式表中的属性，因为我们是在css文件中写的，所以每次第一次取出来都是""
+            if(traget.style.display == "block"){
+
+                traget.style.display="none";
+                signI.style.height = "16px";
+                signI.style.width = "8px";
+                signI.style.marginTop = "-8px";
+
+            }else{
+
+                traget.style.display="block";
+                signI.style.height = "7px";
+                signI.style.width = "16px";
+                signI.style.marginTop = "-4px";
+
+
+
+            }
+            return false;
+
+        }
+
+
+        window.onload = function () {
+
+            //给<table>标签增加属性
+            var tableArr = document.getElementsByTagName('table');
+
+            for(var i = 0; i< tableArr.length; i++) {
+                var table = tableArr[i];
+
+                table.style.fontSize = "12px";
+                table.border = 1;
+                table.cellPadding = 5;
+                table.style.marginLeft = "2em";
+                table.style.margin = "0 auto"
+
+            }
+
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+
+<!--主体盒子-->
+<div style="width: 100%;height: 100%;position: absolute;overflow: auto;">
+
+    <!--左侧导航栏盒子-->
+    <div class="leftNav">
+
+        <ul>
+
+            <li>
+                <a href="#directory"><strong>0.1.</strong>目录</a>
+            </li>
+            <li>
+                <a href="#forward"><strong>0.2.</strong>引言</a>
+            </li>
+            <li>
+                <a href="#viewpoint"><strong>0.3.</strong>viewpoint属性</a>
+            </li>
+            <li>
+                <a href="#attention"><strong>0.4.</strong>移动端注意事项</a>
+            </li>
+            <li>
+                <a href="#Less"><strong>0.5.</strong>LESS语言写CSS</a>
+            </li>
+            <li>
+                <a href="#touch"><strong>0.6.</strong>移动端特有 - Touch</a>
+            </li>
+            <li>
+                <a href="#media"><strong>0.7.</strong>媒体查询技术 -> 响应式开发</a>
+            </li>
+            <li>
+                <a href="#bootstrap"><strong>0.8.</strong>bootstrap框架</a>
+            </li>
+            <li>
+                <a href="#zepto"><strong>0.9.</strong>zepto框架</a>
+            </li>
+            <li>
+                <a href="#gitbook"><strong>0.10.</strong>gitBook+markdown写笔记</a>
+            </li>
+
+            <br>
+
+
+            <li class="endLine">
+
+            </li>
+        </ul>
+
+    </div>
+
+    <!--右侧内容盒子-->
+    <div class="rightContentDiv">
+
+        <h3 id="directory">目录</h3>
+        <div>
+
+            <p>第一天：viewpoint、移动端适配的一些注意事项</p>
+            <p>第二天：京东案例的HTML/CSS部分、LESS语法</p>
+            <p>第三天：京东的JS代码、录屏软件(licecap126-install 录制gif )、MarkDown语法</p>
+            <ul class="contentUl">
+                <li>导航栏渐变色</li>
+                <li>倒计时效果</li>
+                <li>轮播图</li>
+            </ul>
+            <p>第四天：轮播图JS的抽取优化、左右滑动联动的案例、Touch事件的引入、媒体查询技术</p>
+            <p>第五天：bootstrap框架、微金所案例讲解</p>
+            <p>第六天：微金所案例、zepto模块化框架</p>
+            <p class="redColor">移动端适配的一些base.css ： 见京东案例的base.css</p>
+        </div>
+
+        <h3 id="forward">引言</h3>
+        <div>
+            <strong>移动设备：</strong>
+                <p>pad、手机</p>
+
+            <strong>移动web页面的作用：</strong>
+                <p>1. 让用户以一个轻量级的方式体验app</p>
+                <p>2. 吸引用户去安装app</p>
+                <p>3. 跟微信小程序有异曲同工之妙</p>
+
+            <br>
+            <p>公司在开发app之前可能会先做一个 移动web页面 让用户去体验,去找投资商要钱</p>
+            <p>一般来讲，适配到移动设备的web，比电脑上的web页面，简单许多，毕竟手机屏幕大小有限制</p>
+
+            <strong>移动设备上的浏览器：</strong>
+            <ul class="contentUl">
+                <li>谷歌浏览器      安卓内置</li>
+                <li>Safari         iOS内置</li>
+                <li>uc 	<span class="redColor">不支持弹性布局(又因为UC浏览器的市场占有率很高，所以我们在移动端布局中，CSS3中的弹性布局暂时不能用)</span></li>
+                <li>qq</li>
+                <li>百度</li>
+                <li>360</li>
+                <li>chrome</li>
+                <li>猎豹</li>
+            </ul>
+
+            <strong>移动设备对H5新技术的兼容</strong>
+            <p>因为移动端的APP，一般都是最新版本的，对H5 C3支持兼容，所以H5 C3的一些新增API，我们都可以使用</p>
+            <p>不过这些样式，对浏览器的兼容，我们还是需要考虑的，不过好消息就是：<span class="redColor">移动端浏览器种类虽然多，但内核都是webkit，所以只加这一种前缀就可以了</span></p>
+
+
+
+            <strong>屏幕ppi(像素密度) + 图片资源问题</strong>
+
+                <p>因为ppi，iOS分为1x、2x上，我们要切几套图，因为是一一对应的，控件加载的图片，如果大了，压缩图片显示，会消耗性能，如果小了，会失真</p>
+                <p><span class="redColor">在web中，以前也会切几套图，现在流行的是：搞一张大图2x的，就用这一张，在ppi低的屏幕上的，压缩显示</span>，反正加载网页的是浏览器，性能强</p>
+
+
+        </div>
+
+        <h3 id="viewpoint">viewpoint</h3>
+        <div>
+            <strong>viewpoint</strong>
+            <div class="marginLeftDiv">
+                <p>手机拥有了浏览器的初期,人们并没有专门为移动设备设计页面,造成的直接结果就是,访问的页面是直接将电脑页面进行缩放,操作起来有诸多不便,viewport就是用来解决这个问题的</p>
+
+                <p><span class="redColor">手机浏览器是把页面放在一个虚拟的“窗口”（viewport）中</span>，窗口可大于或小于手机的可视区域，一般手机默认viewport大于可视区域。这样不会破坏没有针对手机浏览器优化的网页的布局，用户可以通过平移和缩放来看网页的其他部分。</p>
+
+                <p>我们可以通过meta标签去修改viewport的值 ,防止滚动条出现,提升用户体验</p>
+            </div>
+
+
+            <strong>移动web常见设置</strong>
+            <div class="marginLeftDiv">
+
+                <p>emmet语法，帮我们设置了快捷键：meta:vp + tab</p>
+
+                <p><span class="bgcontent">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"></span></p>
+
+                <p class="redColor">viewport 视口属性 该属性 只在移动端浏览器上 才识别生效</p>
+
+                <strong>属性</strong>
+                <p>name ='viewport' 告诉浏览器 我这个 meta标签 设置的是 viewport属性</p>
+                <p>content设置的是 viewport属性 的值</p>
+                    <p class="fourEmContent">属性名 不是乱写的 有固定的取值</p>
+                    <p class="fourEmContent">width:宽度  device-width(设备的宽度)</p>
+                        <p class="sixEmContent">宽度 不需要给单位</p>
+                        <p class="sixEmContent">如果 设备的屏幕大小 比设置的视口大小</p>
+                        <p class="sixEmContent">大 是能够正常显示的，body的实际大小，是设备的大小</p>
+                        <p class="sixEmContent">小 用户可以通过平移来看网页的其他部分</p>
+                        <p class="sixEmContent">一般给的是device-width</p>
+                    <p class="fourEmContent">height:高度一般我们不设置 让内容 撑大</p>
+                    <p class="fourEmContent">initial-scale:视口默认的缩放比例，可以带小数，一般默认设置的是1.0</p>
+                    <p class="fourEmContent">user-scalable:设置是否支持缩放 一般设置的是 no false也可以</p>
+                        <p class="sixEmContent">在这里 可删,可保留 无所谓</p>
+                    <p class="fourEmContent">maximum-scale:最大的所放值，可以带小数，一般是1.0</p>
+                    <p class="fourEmContent">minimum-scale:最小的所放值，可以带小数，一般是1.0</p>
+
+
+            </div>
+
+            <strong>作用</strong>
+            <div class="marginLeftDiv">
+                <p class="redColor">设置了视口，相当于设置了webView的contentView，同时设置了body的宽高与视口一致</p>
+                <p>该属性最早是苹果公司在Safari中推出用来解决移动设备的viewport问题的.后来被各大安卓以及浏览器厂商效仿,所以说这个属性真的是非常有用的</p>
+            </div>
+        </div>
+
+        <h3 id="attention">移动端适配的注意事项</h3>
+        <div>
+
+            <strong>移动端开发不同于桌面端开发,需要注意一些细节</strong><br>
+
+            <strong>点击高亮效果</strong>
+                <p>在移动端，如果长按标签，可能会出现高亮效果，在某项项目是不需要这个默认的效果的。那么我们通常会把这个点击的颜色设置成透明。</p>
+                    <p class="fourEmContent"><span class="bgcontent">-webkit-tap-highlight-color:transparent;/*清除点击高亮效果*/</span></p>
+
+            <strong>盒子模型</strong>
+                <p>在移动端，我们通常会使用CSS3的新样式：box-sizing: border-box，让盒子宽高从border外侧开始算(与iOS的模式就相同了)</p>
+                    <p class="fourEmContent"><span class="bgcontent">-webkit-box-sizing: border-box;/*webkit内核兼容性写法*/</span></p>
+                    <p class="fourEmContent"><span class="bgcontent">box-sizing: border-box;</span></p>
+
+
+
+            <strong>Input默认样式清除</strong>
+                <p>在移动设备的浏览器中input标签一般会有默认的样式</p>
+                <p>比如：</p>
+                    <p class="fourEmContent">立体效果：</p>
+                        <p class="sixEmContent">border = 0; 标签扁平化</p>
+                    <p class="fourEmContent">拥有focus焦点是的边框轮廓线</p>
+                        <p class="sixEmContent">outline = none；</p>
+                    <p class="fourEmContent">还有一些特殊效果</p>
+                        <p class="sixEmContent">-webkit-appearance: none; /*在移动端清除浏览器默认样式*/</p>
+
+            <strong>最小宽度和最大的宽度：</strong>
+                <p>考虑到移动设备在大尺寸的的屏幕不会过度缩放 失去清晰度,在小尺寸的屏幕中不会出现布局错乱的问题</p>
+                    <p class="fourEmContent">max-width: 640px;  /*在行业当中的移动端的设计图一般使用的是640px*/</p>
+                    <p class="fourEmContent">min-width: 300px;  /*在移动设备当中现在最小的尺寸320px*/</p>
+
+                <p>移动端 为了在 宽度方向上 进行适配 会使用 百分比宽度</p>
+                <p>高度方向上 由于 页面的高度 是有内容 撑开的 所以高度 还是使用 具体的值</p>
+            
+                <br>
+                <p style="color: red">其他的还有：css属性：max/min - width/height/line/font-size</p>
+
+        </div>
+
+        <h3 id="Less">LESS配置以及使用</h3>
+        <div>
+            <strong>less语言的使用：</strong>
+                <p>为CSS的赋予了动态语言的特性，更方便CSS的编写和维护</p>
+
+            <strong>配置：</strong>
+                <p>1. 安装node.js 代码编辑器(因为安装它，就附带安装了npm，而我们要使用npm，进行安装less开发环境)</p>
+                <p>2. npm install -g less</p>
+                <p>3. 安装sublime插件：</p>
+                    <p class="fourEmContent">less2css插件，这时候保存.less文件，就会生成对应的.css文件</p>
+                    <p class="fourEmContent">LESS插件，然后在sublime右下角选择LESS的编辑环境，就能看到高亮效果与提示了.</p>
+                <p>4. 但是这个时候，可能会有一写提示：缺少less-plugin-clean-css插件。npm install less-plugin-clean-css，即可。如果npm集成过程中报错，建议把node.js、npm版本更新一下</p>
+
+            <p>有个软件叫考拉，Windows版本的，可以帮我们把.less文件转为.css文件，但是现在靠sublime的插件，我们也能做到</p>
+
+            <strong>使用：</strong>
+            <div class="marginLeftDiv">
+                <strong>定义变量：</strong>
+                    <p>以后可以通过修改变量，来统一修改所有用到该变量的地方</p>
+                <strong>混编：</strong>
+                    <p>将选择器名，当成函数名来用，参数：可有可无 .oneColor(@color:#0094ff){ }</p>
+                    <p>当前选择器内，可以使用该参数</p>
+                    <p>调用的时候，可以传参</p>
+                <strong>嵌套：</strong>
+                    <p>做后代、子代、交集选择器  &在当前选择器中，可以代指当前选择器(类似self)</p>
+
+
+                <strong>官方网站：</strong>
+                    <p><a href="http://lesscss.cn">http://lesscss.cn</a></p>
+            </div>
+        </div>
+
+        <h3 id="touch">Touch事件</h3>
+        <div>
+
+
+            <strong>Touch相关事件</strong>
+                <p>touchstart: 手指触摸时触发</p>
+                <p>touchmove: 手指在屏幕上滑动时连续触发</p>
+                <p>touchend: 当手指离开屏幕时触发。</p>
+                <p>touchcancel: 系统停止跟踪触摸时候会触发。(这个事件使用较少,了解即可)</p>
+                <p>事件参数中 能够获取移动的一些属性</p>
+
+
+            <strong>事件绑定：</strong>
+                <p>移动端使用的是touch事件,但是并不能直接通过ontouch等语法访问,<span class="redColor">需要使用addEventListener进行绑定</span></p>
+                <div class="bgcontent">
+                <p>dom.addEventListener('touchstart',function(e){</p>
+                <p class="fourEmContent">console.log(e.targetTouches); //目标元素的所有当前触摸</p>
+                <p class="fourEmContent">console.log(e.changedTouches);//最新更改的所有触摸</p>
+                <p class="fourEmContent">console.log(e.touches);//所有的触摸</p>
+                <p>})</p>
+            </div>
+
+
+
+            <strong>touch事件属性：</strong>
+                <p>event.touches[0].target可以判断是<span class="redColor">点击过程中，最上层的控件</span></p>
+                <p>event.touches[0].clientX/Y  点击时距离屏幕左上角的坐标值</p>
+
+
+            <strong>常见的，基于Touch的封装</strong>
+                <p>左滑,右滑</p>
+                <p>长按</p>
+                <p>捏合</p>
+                <p>等等这些事件 都是基于 touch三个事件的封装</p>
+
+
+            <strong>Tap — Touch事件的封装</strong>
+                <p class="redColor">手机端/浏览器中click事件的延迟：触发 会延迟200毫秒</p>
+                    <p class="fourEmContent">使用老版本的谷歌浏览器 刚切换到 移动端视口时,才能够看到click的延迟效果,如果刷新以后 就看不到了，一些新版的电脑浏览器可能修复了这个问题</p>
+            <br>
+                <p>一般，我们会封装一个叫tap的方法，让手指快速点击</p>
+                <p>逻辑：(手指点上去，不移动，快速松开)</p>
+                    <p class="fourEmContent">定义变量</p>
+                    <p class="fourEmContent">touchStart中，开始计时</p>
+                    <p class="fourEmContent">touchMove中，只要进入这个方法，就失效了，就不是Tap</p>
+                    <p class="fourEmContent">touchEnd中，记录与刚开始的时间差值，多少秒以内是Tap，多少秒以内是长按</p>
+
+
+
+        </div>
+
+        <h3 id="media">媒体查询技术(CSS3新技术) -> 响应式开发</h3>
+        <div>
+
+            <strong>媒体查询</strong>
+            <div class="bgcontent" style="width: 70%; font-size: 12px">
+                <p>@media screen and (min/max-width: 480px) {	// 注意格式别写错了，写错不生效，不提示</p>
+                <p class="fourEmContent">body {</p>
+                <p class="fourEmContent">}</p>
+                <p class="fourEmContent">ul {</p>
+                <p class="fourEmContent">}</p>
+                <p class="fourEmContent">……等等</p>
+                <p>}</p>
+                <br>
+                <p>@media 比较的是clientWidth(是指浏览器可视区域的大小(不算工具栏、控制台等)   , 其实好像也就是body的宽高吧？？)</p>
+                <p>viewport中的Content = “width = device-width”     deviece-width也是clientWidth（IE9 之后用window.innerWidth来获取）</p>
+                <p>当在手机上显示的时候，如果不设置viewport , 页面会缩放  +  可能居左显示</p>
+                <p>在手机上显示的时候，再缩放，body本身的px宽度还是不变的 ！！</p>
+                <br>
+                <p>注意：</p>
+                <p class="fourEmContent">min-width的使用：</p>
+                    <p class="sixEmContent">1. 当浏览器缩放的时候，限制盒子的最小宽度。但是手动写代码改小(比如上面设置min-width = 100px, 下面设置width = 10px; )，最后 = 10px是生效的。</p>
+                    <p class="sixEmContent">2.  min-width,并不会改变盒子的大小。也就是说比如：盒子width = 500px; 你设置min-width = 300px;/400px, 是改变不了盒子width = 500的显示效果的</p>
+
+                
+            </div>
+            <strong>注意事项：</strong>
+            <div class="marginLeftDiv">
+                <strong>层叠性</strong>
+                <p class="redColor">@media 这个也是可以被层叠的，所以写的时候要注意</p>
+                <p>比如：</p>
+                <p class="fourEmContent">先写min-width: 480px(即大于480的时候) ， 如果再写个min-width: 300px(大于300的时候)，这个时候min-width: 480里的样式，是不生效的。</p>
+                <p class="fourEmContent">可以这么理解，前者是定义了481 - 正无穷，后者是定义了301 - 正无穷，当然后也包括481以上，所以前者就被层叠掉了</p>
+
+            </div>
+
+            <strong>响应式布局</strong>
+                <p class="redColor">响应式：一次开发，适配所有设备，会根据设备的屏幕尺寸改变而改变布局</p>
+                <p>与之相对应的技术：移动端、电脑端各一套适配</p>
+
+            <strong>适用条件：</strong>
+                <p>看是新项目还是旧项目，如果电脑端已经做好了，这时候推荐，再单独写一套移动端的</p>
+
+                <p class="fourEmContent">如果是新项目：推荐使用响应式</p>
+                <p class="fourEmContent">在金钱、时间允许的情况下，各开一个版本，是最好的</p>
+
+            <strong>实现技术：</strong>
+                <p>1. 媒体查询(CSS3中的新技术，就是通过CSS来获取设备的一些信息，不同的设备上，设置控件的样式、甚至显示与隐藏)</p>
+                <p>2. 直接使用js 也是能够实现该效果的 只不过 可能代码较多</p>
+
+
+
+            <strong>响应式的优缺点</strong>
+                <p>优点：</p>
+                    <p class="fourEmContent">开发时间：一般情况下，是快于各一套</p>
+                <p>缺点：</p>
+                    <p class="fourEmContent">由于写媒体查询，然后里面写判断，以及各自对应的布局，代码多，维护复杂</p>
+
+
+            <strong>响应式与自适应的差别：</strong>
+            <div class="marginLeftDiv">
+                <strong>响应式：</strong>
+                    <p>对屏幕相差很多的设备，分别设置一套布局</p>
+                    <p>在不同大小的屏幕显示时，会改变一些标签的大小，样式，甚至有些标签，切换后，直接就隐藏了，在大小差别很大的屏幕上许多地方版式会发生改变</p>
+                    <br>
+                    <p>使用场景：</p>
+                        <p class="fourEmContent redColor">需要适配的屏幕：大小差异很大（web在适配手机、电脑端屏幕时）</p>
+
+                <strong>自适应：</strong>
+                    <p>是为了让页面在不同大小的屏幕上显示时，模块不减少，自动改变大小，适应屏幕。</p>
+                    <br>
+                    <p>使用场景：</p>
+                        <p class="fourEmContent redColor">需要适配的屏幕：大小差异不大 ( 移动APP开发，在考虑不同机型时 )</p>
+
+
+                <strong>自适应这个技术，有一个缺点：</strong>
+                    <p>以小屏幕做的适配  ->  当屏幕过大时：图片会失真</p>
+                    <p>以大屏幕做的适配  ->  当屏幕小时：内容过多，布局臃肿，图片过大等等</p>
+
+                <strong>理想布局：</strong><br>
+                ￼<img src="image/xizi.png" alt="" width="300">
+                    <p>响应式+自适应结合，是最完美的效果，但是会很费时费力</p>
+            </div>
+
+        </div>
+
+        <h3 id="bootstrap">前端框架 -> bootstrap</h3>
+        <div>
+            <strong>概述：</strong>
+                <p>Bootstrap 是最受欢迎的 HTML、CSS 和 JS 框架，用于开发响应式布局、移动设备优先的 WEB 项目。</p>
+                <p>封装了许多东西：HTML组件、CSS样式类、JavaScript插件</p>
+            <strong>学习方法：</strong>
+                <p>1. 见笔记--《第三方框架》-- bootstrap，中的xmind</p>
+                <p>2. 官方文档：<a href="http://v3.bootcss.com">http://v3.bootcss.com</a></p>
+
+        </div>
+
+        <h3 id="zepto">前端框架 -> zepto</h3>
+        <div>
+            <p>模块化</p>
+                <p class="fourEmContent">想要使用对应的功能 需要导入对应模块(.js文件)，减小包的大小</p>
+            <p>语法</p>
+                <p class="fourEmContent">跟jq基本一样</p>
+            <p>随着网速的增加，现在没有前几年流行了，现在还是流行: jq 自己封装一个jq 把移动事件封装进去</p>
+            <p>详情见：</p>
+                <p class="fourEmContent">笔记->第三方框架</p>
+        </div>
+
+        <h3 id="gitbook">gitbook软件+markdown语法记笔记</h3>
+        <div>
+            <strong>markdown语法，详情见ajax笔记</strong><br>
+
+            <strong>编写完成之后，导出步骤：</strong>
+                <p>1. gitbookeditor</p>
+                <p>2. node.js</p>
+                <p>3. 需要通过 npm 安装 gitbook</p>
+                <p>4. 将npm压缩包解压到  C:\Users\xxx\AppData\Roaming\npm</p>
+                <p>5. gitbook 书本的位置: C:\Users\xxx\GitBook\Library\Import</p>
+                <p>6. 打开控制台：</p>
+                     <p class="fourEmContent">1. cd 讲gitbook想要导出的书 拉入控制台，回车</p>
+                     <p class="fourEmContent">2. 输入 gitbook build --gitbook=2.5.0</p>
+                     <p class="fourEmContent">3. 等待一会 就会在C:\Users\autumnfish\GitBook\Library\Import</p>
+                     <p class="fourEmContent">4. 对应的书的目录下 有一个_book的文件夹，导出的文件就在这里面 使用index打开</p>
+
+            <strong>推荐gitbook网站</strong>
+                <p>1. <a href="https://www.gitbook.com">https://www.gitbook.com</a></p>
+                <p>2. 点击explore 可以查看别人写书     《前端工程师手册》</p>
+        </div>
+
+
+
+    </div>
+</div>
+
+</body>
+</html>

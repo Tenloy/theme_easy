@@ -1,0 +1,26 @@
+# 学习技巧介绍
+
+## 获取知识的途径
+
+### 书
+```
+《Node.js实战》（老）
+ 作者：　Mike Cantelon，Node.js核心框架贡献者、Node社区活跃分子、资深培训师和演讲人。
+　　     Marc Harter，Node.js核心框架贡献者。
+　　     T.J. Holowaychuk，参与开发了很多Node.js模块，包括流行的Express框架。
+　　     Nathan Rajlich，大名鼎鼎的TooTallNate，Node.js核心代码提交者。
+《了不起的Node.js 将JavaScript进行到底》(老)
+《Node与Express开发》（学express还不错，部分代码稍微有点老）
+《Node.js实战（双色）》（老）   一起系列
+《Node.js实战（第2季）》（不是入门书）一起系列
+《Node.js权威指南》陆凌牛 工具书，翻译api
+《深入浅出node.js》 朴灵 各种原理，吹nb必看，非入门读物。
+《更了不起的 Node 4：将下一代 Web 框架 Koa 进行到底》桑世龙
+
+  api
+```
+    
+### 推荐技术网站
+https://github.com/
+http://stackoverflow.com/
+https://cnodejs.org/

@@ -1,0 +1,11 @@
+
+1、	shell 用来操作计算机的
+
+2、	bash 命令 [-options]... [arguments]... ls -a 目录
+
+3、	vi/vim 三种模式 []
+
+4、	ssh 非对称性加密 ssh student@192.168.141.95
+
+5、	已修改、已暂存、已提交
+	工作区、暂存区、git仓库    

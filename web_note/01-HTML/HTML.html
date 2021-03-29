@@ -1,0 +1,1346 @@
+		<!DOCTYPE html>
+		<html>
+		<head>
+			<meta charset="UTF-8" >
+			<title>HTML基础</title>
+			<link rel="stylesheet" type="text/css" href="css/base.css">
+			<link rel="apple-touch-icon-precomposed" sizes="152x152" href="img/configImage/apple-touch-icon-precomposed-152.png">
+			<link rel="shortcut icon" href="img/configImage/favicon.ico" type="image/x-icon">
+			<style type="text/css">
+				a:link,a:visited{
+					text-decoration:none;  /*超链接无下划线*/
+					color: blue;
+				}
+				a:hover{
+					text-decoration:underline;  /*鼠标放上去有下划线*/
+				}
+				p{text-indent:2em}
+
+				.leftNav{
+					width: 250px;
+					position: absolute;
+					left: 0px;
+					top: 0px;
+					bottom: 0px;
+					overflow: auto;
+					border-right: #e9e9e9 1px solid;
+				}
+
+				.leftNav ul{
+					margin:0px;
+					padding: 0px;
+
+				}
+				.leftNav ul li ul{
+					padding-left: 25px;
+				}
+
+				.leftNav ul a{
+					display: block;
+					line-height: 1em;
+					padding: 10px 15px;
+					color: #333;
+				}
+
+				.leftNav ul a:hover{
+					text-decoration:none;
+					color: rgb(0,140,255);
+				}
+
+				.rightContentDiv{
+					overflow: auto;
+					position: absolute;
+					left: 250px;
+					top: 0px;
+					bottom: 0px;
+					right: 0px;
+					margin-left: 20px;
+				}
+
+				.leftNav ul .endLine{
+					height: 1px;
+					margin: 15px 0;
+					background: rgba(0,0,0,0.07);
+				}
+		</style>
+			<script>
+
+                function foldTag(foldTagId,foldSignId) {
+
+                    var traget = document.getElementById(foldTagId);
+
+                    var signI = document.getElementById(foldSignId);
+                    //style.display获取的只是行内样式表中的属性，因为我们是在css文件中写的，所以每次第一次取出来都是""
+                    if(traget.style.display == "block"){
+
+                        traget.style.display="none";
+                        signI.style.height = "16px";
+                        signI.style.width = "8px";
+                        signI.style.marginTop = "-8px";
+
+                    }else{
+
+                        traget.style.display="block";
+                        signI.style.height = "7px";
+                        signI.style.width = "16px";
+                        signI.style.marginTop = "-4px";
+
+
+
+                    }
+                    return false;
+
+                }
+
+
+			</script>
+		</head>
+		<body style="font-family:times;">
+
+		<div style="width: 99%;height: 98%;position: absolute;overflow: auto;">
+
+
+			<!--左侧导航栏盒子-->
+			<div class="leftNav">
+
+				<ul>
+
+					<li>
+						<a href="#" onclick="foldTag('foldTag2','foldTag-sign2')" class="foldClickedTag">
+							<strong>0.1.</strong>学习需知
+							<i id="foldTag-sign2">
+								<s class="foldTag-sign-s">
+									◇
+								</s>
+							</i>
+						</a>
+						<ul id="foldTag2">
+
+							<li><a href="#入门认知"><strong>0.1.1.</strong>前端/网页的概念</a></li>
+							<li><a href="#browser"><strong>0.1.2.</strong>显示、调试工具 - 浏览器</a></li>
+							<li><a href="#onlineweb"><strong>0.1.1.</strong>web上线及SEO</a></li>
+						</ul>
+
+					</li>
+
+
+					<li>
+						<a href="#HTML简介、发展"><strong>0.2.</strong>HTML简介、发展</a>
+					</li>
+					<li>
+						<a href="#认识Sublime"><strong>0.3.</strong>Sublime/emmet语法/HTML特殊字符</a>
+					</li>
+					<li>
+						<a href="#HTML标准结构"><strong>0.4.</strong>HTML标准结构及详解</a>
+					</li>
+					<li>
+						<a href="#" onclick="foldTag('foldTag3','foldTag-sign3')" class="foldClickedTag">
+							<strong>0.5.</strong>HTML标签及分类
+							<i id="foldTag-sign3">
+								<s class="foldTag-sign-s">
+									◇
+								</s>
+							</i>
+						</a>
+						<ul id="foldTag3">
+
+							<li><a href="#HTML标签"><strong>0.5.0.</strong>HTML标签概述</a></li>
+							<li><a href="#单标签"><strong>0.5.1.</strong>单标签</a></li>
+							<ul>
+								<li><a href="#水平线标记">水平线标记hr</a></li>
+								<li><a href="#换行标记">换行标记br</a></li>
+								<li><a href="#换行标记">换行标记br</a></li>
+								<li><a href="#注释标记">注释标记</a></li>
+								<li><a href="#图片标记">图片标记img</a></li>
+								<li><a href="#音乐标记">音视频标记embed object</a></li>
+							</ul>
+
+							<li><a href="#双标签"><strong>0.5.2.</strong>双标签</a></li>
+							<ul>
+								<li><a href="#标题标记">标题标记h</a></li>
+								<li><a href="#段落标记">段落标记p</a></li>
+								<li><a href="#文本样式标记">文本样式标记font</a></li>
+								<li><a href="#文本格式标记">文本格式标记strong/em/ins/del</a></li>
+								<li><a href="#超链接">超链接a</a></li>
+								<li><a href="#列表">列表: 有序ol/无序ul/自定义dt</a></li>
+								<li><a href="#表格">表格table</a></li>
+								<li><a href="#表单">表单form</a></li>
+								<li><a href="#表单">表单控件:input/textarea/select</a></li>
+								<li><a href="#滚动标签">滚动标记marquee</a></li>
+							</ul>
+						</ul>
+					</li>
+					<li>
+						<a href="#" onclick="foldTag('foldTag1','foldTag-sign1')" class="foldClickedTag">
+							<strong>0.6.</strong>补充内容
+							<i id="foldTag-sign1">
+								<s class="foldTag-sign-s">
+									◇
+								</s>
+							</i>
+						</a>
+						<ul id="foldTag1">
+
+							<li><a href="#addContent"><strong>0.6.1.</strong>计算机编码方式</a></li>
+						</ul>
+
+					</li>
+					<br>
+					<li class="endLine">
+					</li>
+				</ul>
+
+			</div>
+
+			<div class="rightContentDiv">
+
+				<h3 id="入门认知">前端、网页</h3>
+					<div>
+
+						<strong>前端是做什么的？</strong>
+							<p>前端就是利用HTML+CSS+JS等技术，将效果图做成网页，适配PC端和移动端，满足用户的体验</p>
+
+
+						<strong>认识网页</strong>
+							<p>网页主要由文字、图片和按钮等元素构成。当然，除了这些元素，网页中还可以包含音频、视频以及Flash动画等。</p>
+
+						<strong>web的编写标准</strong>
+							<p>1：w3c 万维网联盟组织     用来制定web标准的机构（组织）PS: 百度好像是中国唯一一家加入万维网组织的互联网公司</p>
+							<p>2：web标准：制作网页要遵循的规范</p>
+							<p>3：web标准规范的分类：结构标准、表现标准、行为标准</p>
+							<p>4：结构： html 、表现： css 、 行为：javascript</p>
+
+					</div>
+
+
+				<h3 id="browser">显示、调试工具 - 浏览器</h3>
+					<div>
+
+						<strong>浏览器工作原理</strong>
+						<p class="twoemcontent">因为我们的网页是显示在浏览器上的，所以就要搞清楚浏览器的工作原理/<span class="redColor">工作流程</span></p>
+						<img src="img/Browser.png" alt="" width="400px" class="acImage">
+						<p class="twoemcontent">1、User Interface  用户界面，我们所看到的浏览器</p>
+						<p class="twoemcontent">2、Browser engine  浏览器引擎，用来查询和操作渲染引擎</p>
+						<p class="twoemcontent">3、Data Persistence(持久化)  数据持久化，数据存储  cookie、HTML5中的sessionStorage</p>
+						<p class="twoemcontent redColor">4、Rendering engine（渲染引擎） 用来显示请求的内容，负责解析HTML、CSS</p>
+						<p class="twoemcontent">5、Networking   网络，负责发送网络请求</p>
+						<p class="twoemcontent redColor">6、JavaScript Interpreter(解析者，JS引擎)   JavaScript解析器，负责执行JavaScript的代码</p>
+						<p class="twoemcontent">7、UI Backend   UI后端，用来绘制类似组合框和弹出窗口</p>
+
+
+
+
+						<strong>浏览器对网页的影响</strong>
+							<table border="1" cellspacing="0" align="center" cellpadding="5">
+								<caption>浏览器内核</caption>
+								<thead>
+								<tr><td colspan="4" class="redColor">浏览器内核分成两部分渲染引擎和js引擎，由于js引擎越来越独立，内核就倾向于只指渲染引擎。</td></tr>
+								</thead>
+								<tbody>
+								<tr align="center">
+									<td>IE</td>
+									<td>谷歌/欧朋</td>
+									<td>火狐</td>
+									<td>苹果</td>
+								</tr>
+								<tr align="center">
+									<td>trident</td>
+									<td>blink</td>
+									<td>gecko</td>
+									<td>webkit</td>
+								</tr>
+								</tbody>
+								<tfoot>
+								<tr>
+									<td colspan="4">
+										渲染引擎是一种对HTML文档进行解析并将其显示在页面上的工具<br/>
+										渲染引擎决定了如何显示网页的内容，以及页面的格式信息。渲染引擎是兼容性问题出现的根本原因。<br/>
+										比如：谷歌的渲染引擎字体：宋体。火狐的字体：微软雅黑。这也是，前端非常常用的两种字体<br/>
+										PS:目前，国内没有一家浏览器是用的自己的渲染引擎，都是接入的国外的引擎
+									</td>
+								</tr>
+								</tfoot>
+
+							</table>
+
+						<strong>浏览器与服务器之间的交互</strong>
+							<div align="center"><img src="img/lfjh.png" width="600" align="center"><br/></div>
+							<span>
+							 1：常用的负责网页处理的服务器：IIS服务器、Apache服务器<br/>
+							 2：浏览器向服务器发送请求（通过http协议） <br/>
+							 3： http协议：超文本传输协议，也就是浏览器和服务器端的网页传输数据的约束和规范<br/>
+							 4： url协议:平时我们写的网址就是url地址.  url协议：规定url地址的格式<br/><br/>
+							 <table border="1" cellspacing="0" align="center" cellpadding="5">
+								<tr>
+									<td colspan="2">协议规定格式：  scheme://host.domain:port/path/filename</td>
+								</tr>
+								<tr>
+									<td>secheme</td>
+									<td>定义因特网服务的类型。常见的就是http</td>
+								</tr>
+								<tr>
+									<td>host</td>
+									<td>定义域主机（http 的默认主机是www）</td>
+								</tr>
+								<tr>
+									<td>domain</td>
+									<td>定义因特网域名 比如：w3school.com.cn</td>
+								</tr>
+								<tr>
+									<td>:port</td>
+									<td>定义端口号（网页默认端口 :80）</td>
+								</tr>
+								<tr>
+									<td>path</td>
+									<td>网页所在服务器上的路径</td>
+								</tr>
+								<tr>
+									<td>filename</td>
+									<td>文件名称</td>
+								</tr>
+							 </table>
+							</span>
+
+					</div>
+
+
+				<h3 id="onlineweb">web上线以及SEO</h3>
+					<div>
+						<strong>web上线 - 能被别人访问</strong>
+							<p>如果你的web要想让别人在网上访问到，那么首先，你需要有自己的服务器(公司的大型、自己电脑的小型都行)，然后将URL给别人即可</p>
+
+
+						<strong>使网页可以被搜索引擎搜索到</strong>
+							<p>两种方法：</p>
+								<p class="fourEmContent">1. 主动去别人网站上填写一些信息，注册自己的网页，比如百度，有一个百度站长平台，进去登记一下</p>
+								<p class="fourEmContent">2. 在自己的网页，直接被别人用URL访问的时候，有可能会被搜索网站的爬虫抓取到</p>
+							<br>
+						<strong>SEO(搜索引擎优化)</strong>
+							<p>一般公司都是第一种，那么接着又有一个问题，怎么提高自己的网页在被搜索出来的时候，在同类网页中的排名？</p>
+								<p class="fourEmContent">SEO是指通过站内优化比如网站结构调整、网站内容建设、网站代码优化等以及站外优化，比如网站站外推广、网站品牌建设等，使网站满足搜索引擎收录排名需求，在搜索引擎中提高关键词排名，从而吸引精准用户进入网站，获得免费流量，产生直接销售或品牌推广。</p>
+								<p class="fourEmContent">别人搜索的时候，排名：排在最前的，当然一般都是付费的。付费后面的，是根据SEO(搜索引擎优化这个参数)来决定的。<br/>至于具体怎么提高SEO流量，提高排名，那就不是码农的事情了，这应该是做营销的人的业务了。</p>
+
+
+					</div>
+
+				<h3 id="HTML简介、发展">HTML简介、发展</h3>
+					<div>
+
+						<strong>HTML简介</strong>
+							<p>html (Hyper Text Markup Language)中文译为“超文本标记语言”，(有超级文本，超越文本的意思)主要是通过html标记对网页中的文本，图片，声音等内容进行描述</p>
+							<p>HTML之所以称为超文本标记语言，不仅是因为他通过标记描述网页内容，同时也由于文本中包含了所谓的“超级链接”，通过超链接可以实现网页的跳转。从而构成了丰富多彩的Web页面。</p>
+
+						<strong>HTML发展</strong>
+							<p>Html 与htm是一样的。(在以前，电脑不发达，dos系统只能识别三个字母的后缀名，所以是htm，后来随着发展，就补全了，HTML)</p>
+							<p class="redColor">后缀名不能决定文件格式，只能决定打开文件打开的方式。</p>
+							<br>
+
+							<p>HTML一直从1.0发展到4.0，在当时还没HTML5的时候，一些设计师，感觉到XML的灵活性，和功能强大，可以直接操作数据库，写游戏。就想让HTML过渡到XML，但是XML一些人感觉太难学， XHTML就这样出来了，具备一些XML的特性。(不过后来HTML5出来，这个过渡也就被搁置了)</p>
+							<p>XHTML，规定了三种XML文档类型DTD(文档类型定义)：Strict(严格型)，Transitional(过渡型)，frameset(用的就很少了)</p>
+						<div align="center"><img src="img/XHTML类型.png" width="400"></div>
+
+					</div>
+
+				<h3 id="认识Sublime">Sublime&nbsp; emmet语法&nbsp; 特殊字符 </h3>
+					<div>
+						<strong>有三款软件</strong>
+							<div align="center">
+								<img src="img/DW.png" width="100" style="vertical-align: middle">&nbsp;&nbsp;
+								<img src="img/Sublime.png" width="100" style="vertical-align: middle">&nbsp;&nbsp;
+								<img src="img/WebStorm.png" width="200" style="vertical-align: middle">
+							</div>
+
+							<p>Dw  历史悠久，偏设计师使用。</p>
+							<p>Sublime   轻量级    有很多好用的插件。基础使用</p>
+							<p>Webstorm  重量级    太过智能。进阶使用</p>
+							<p>刚开始，我们用sublime，首先，我们需要安装一些插件，安装任何插件之前，我们需要安装package control 。然后有一个插件叫做emmet。Emmet里面包括许多emmet语法，比如：html:xt,html:xs, ! , table>tr*3>td*3,按tab键补全。</p>
+
+						<br>
+						<p>其他的软件，还有，比如：HBuilder、vscode、atom、brackets等</p>
+
+						<strong>代码块</strong>
+						 <p>与Xcode相同，Sublime、Webstorm也提供有代码块的功能</p>
+						 <p>Sublime</p>
+						 <p class="fourEmContent">英文版tool->developer->new snippets，文件保存的时候，后缀需要为 .sublime-snippet</p>
+						 <p class="fourEmContent">中文版:工具->新代码段</p>
+						 <p>Webstorm</p>
+						 <p class="fourEmContent">选中代码段，菜单->工具，保存为活动模板</p>
+						 <p class="sixEmContent">代码块中的占位符  $INDEX$</p>
+
+
+
+							<br>
+						<strong>sublime快捷键</strong>
+							<table border="1" cellspacing="0" align="center" width="500" cellpadding="5">
+								<tr>
+									<td>Html+tab/!+tab</td>
+									<td>HTML标准结构代码(后者是emmet插件语法)</td>
+								</tr>
+								<tr>
+									<td>tab</td>
+									<td>补全标签代码</td>
+								</tr>
+								<tr>
+									<td>command+shift+D</td>
+									<td>快速复制一行</td>
+								</tr>
+								<tr>
+									<td>command+shift+delete<br/>command+delete</td>
+									<td>快速删除一行</td>
+								</tr>
+								<tr>
+									<td>command+鼠标左键单击</td>
+									<td>可以让几个标记同时闪烁输入光标<br/>也就是集体输入</td>
+								</tr>
+								<tr>
+									<td>command+option+f</td>
+									<td>查找替换</td>
+								</tr>
+								<tr>
+									<td>command+f</td>
+									<td>查找</td>
+								</tr>
+								<tr>
+									<td>command+/</td>
+									<td>注释</td>
+								</tr>
+								<tr>
+									<td>command+L</td>
+									<td>快速选择一行</td>
+								</tr>
+								<tr>
+									<td>Command+shift+左/右箭头</td>
+									<td>快速选择光标左/右边的东西</td>
+								</tr>
+								<tr>
+									<td>选中+command+[ ]</td>
+									<td>将选中的左/右 移动</td>
+								</tr>
+								<tr>
+									<td colspan="2" align="center">view-layout-可以分成两列、行看两个项目</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+							<p>新建文件：1. 工具栏点击新建，最后需要设置保存位置。2. 打开文件夹，右击文件夹新建文件，直接保存在当前文件夹。推荐后者</p>
+							<p>打开文件：可以选择打开最近的某个文件，也可以选择打开某个文件夹，后者会将整个文件夹内的HTML文件全部找到罗列出来</p>
+							<p>最后保存文件的时候，文件名要加上后缀.html(跟xcode不一样，因为sublime还可以写.css .js，所以要指定)</p>
+							<p>如果不先保存，有些快捷键不自动补全</p>
+									</td>
+								</tr>
+							</table>
+						<br>
+						<br>
+
+						<strong>emmet语法快捷键</strong>
+						<table border="1" cellpadding="6px" cellspacing="0" align="center">
+							<thead>
+							<tr>
+								<th></th>
+								<th>写法</th>
+								<th>内容</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td rowspan="8">html</td>
+								<td>!+tab</td>
+								<td>生成HTML5标准结构代码</td>
+							</tr>
+							<tr>
+								<td>标签名.类名/标签名#id名+tab</td>
+								<td>生成相应控制器，不写标签名，默认div</td>
+							</tr>
+							<tr>
+								<td>标签名+标签名</td>
+								<td>生成同级元素</td>
+							</tr>
+							<tr>
+								<td>标签名>标签名</td>
+								<td>生成父子嵌套标签</td>
+							</tr>
+							<tr>
+								<td>标签名>标签名^^标签名>标签名</td>
+								<td>
+									^跳到前面的标签的上一级。类似文件路径中的../<br>
+									可以^^、^^^连跳，但是跳的最高等级不能超过第一个标签的层级
+								</td>
+							</tr>
+							<tr>
+								<td>ul>li*5+tab</td>
+								<td>生成固定数量的子标签</td>
+							</tr>
+							<tr>
+								<td>ul>li>a[]{item}*5 </td>
+								<td>生成带内容、属性的标签。[]内写属性，{}内写内容</td>
+							</tr>
+							<tr>
+								<td>ul>li.abc${$}*3 + tab</td>
+								<td>$是一个占位符，当生成好几个同类标签，在该处，从零依次变成数字</td>
+							</tr>
+
+							<tr>
+								<td rowspan="9">CSS</td>
+								<td>w30+tab</td>
+								<td>width:30px;</td>
+							</tr>
+							<tr>
+								<td>h30+tab</td>
+								<td>height:30px;</td>
+							</tr>
+							<tr>
+								<td>mg30+tab</td>
+								<td>margin:30px;</td>
+							</tr>
+							<tr>
+								<td>pd30+tab</td>
+								<td>padding:30px;</td>
+							</tr>
+							<tr>
+								<td>lh12px+tab</td>
+								<td>Line-height:12px;</td>
+							</tr>
+							<tr>
+								<td>bg+ +tab</td>
+								<td>background: #fff url() 0 0 no-repeat;</td>
+							</tr>
+							<tr>
+								<td>bd+ +tab</td>
+								<td>border: 1px solid #000;</td>
+							</tr>
+							<tr>
+								<td>f+  +tab</td>
+								<td>font: 1em Arial, sans-serif;</td>
+							</tr>
+							<tr>
+								<td colspan="2">最后三个，如果不加+号，后面的内容不会出现</td>
+							</tr>
+							</tbody>
+							<tfoot>
+							<tr>
+								<td colspan="3">emmet是我们在sublime中的一个插件，在这个插件中集成很多的快捷键。webstorm中自动就包括这个插件</td>
+							</tr>
+							</tfoot>
+						</table>
+
+						<br>
+						<br>
+						<strong>HTML中特殊字符对应的输入方式</strong>
+							<div align="center">
+								<img src="img/tszf.png" width="600">
+								<br/>上标下标还有一种标签表示方式：&lt;sup&gt;上标&lt;/sup&gt;、&lt;sub&gt;下标&lt;/sub&gt;
+								<br/>比如：2<sup>3</sup>：2&lt;sup&gt;3&lt;/sup&gt;。h<sub>2</sub>o：h&lt;sub&gt;2&lt;/sub&gt;o
+							</div>
+
+
+
+					</div>
+
+				<h3 id="HTML标准结构">HTML标准结构及详解</h3>
+					<div>
+
+						<strong>HTML标准结构</strong>
+							<p>在sublime中</p>
+							<p>html:xt + tab(快捷创建的HTML结构就是过渡型的)</p>
+							<p>html:xs + tab(创建的就是严格型的)(在语法和代码书写上比过渡性严格一些)</p>
+							<p>第一天都是使用html:xt创建的过渡型的版本(参考老师上课的项目，doctype html那一行里面会有xhtml1 – transitional.dtd) 标准结构</p>
+							<div align="center"><img src="img/XHTML标准结构.png" title="XHTML标准结构" width="500"></div>
+							<p>现在随着HTML5的出现，我们可以直接创建HTML5版本的(就直接<!DOCTYPE html>)，快捷键： ！+ tab(需要安装emmet插件，emmet语法) 标准结构</p>
+							<div align="center"><img src="img/HTML5标准结构.png" title="HTML5标准结构" width="200"></div>
+
+						<strong>&lt;!doctype html&gt;</strong>
+							<p>声明文档类型(对渲染引擎声明)</p>
+
+						<strong>&lt;html&gt;</strong>
+							<p>&lt;html&gt; 称为根标记，用于告知浏览器其自身是一个 HTML 文档， &lt;html&gt; 标记标志着HTML文档的开始，&lt;/html&gt; 标记标志着HTML文档的结束，在他们之间的是文档的头部和主体内容。</p>
+
+
+						<strong>&lt;html  lang="en"&gt;</strong>
+							<p>向搜索引擎表示该页面是html语言，并且语言为英文网站，其"lang"的意思就是“language”，语言的意思，而“en”即表示english</p>
+							<p style="color:blue">这个主要是给搜索引擎看的，搜索引擎不会去判断该站点是中文站还是英文站，所以这句话就是让搜索引擎知道，你的站点是中文站，对html页面本身不会有影响</p>
+
+
+						<strong class="redColor">&lt;head&gt;标记，以及写在&lt;head&gt;标记内的标记</strong><br>
+
+						<strong>&lt;head&gt; 标记</strong>
+							<p>用于定义HTML文档的头部信息，也称为头部标记，紧跟在&lt;html&gt; 标记之后，主要用来封装其他位于文档头部的标记。</p>
+							<p>一个HTML文档只能含有一对&lt;head&gt; 标记，绝大多数文档头部包含的数据都不会真正作为内容显示在页面中。</p>
+
+
+						<strong>&lt;meta&gt;标记</strong>
+							<p><ins>meta: 元数据（Metadata），又称中介数据、中继数据，为描述数据的数据（data about data），主要是描述数据属性（property）的信息，用来支持如指示存储位置、历史数据、资源查找、文件记录等功能</ins></p>
+							<br>
+							<p>&lt;meta&gt;标签是提供html文档的元数据。元数据不会在网页上显示出来，是对机器可读的。典型的就是通过meta标签可以设置网页的关键字，网页描述，文档作者等。</p>
+							<p>meta 的属性有两种：name和http- equiv。</p>
+							<p align="center"><strong>name</strong></p>
+							<p>name属性主要用于描述网页，搭配content（网页内容)一起使用 &lt;meta name="键值" content="..."&gt;</p>
+							<table border="1" cellspacing="0" cellpadding="5" align="center">
+								<tr>
+									<td>name键的类型</td>
+									<td>content内容</td>
+									<td>用途</td>
+								</tr>
+								<tr style="color:blue">
+									<td>keywords</td>
+									<td>......</td>
+									<td>向搜索引擎说明你的网页的关键词</td>
+								</tr>
+								<tr style="color:blue">
+									<td>description</td>
+									<td>......</td>
+									<td>告诉搜索引擎你的站点的主要内容</td>
+								</tr>
+								<tr>
+									<td>generator</td>
+									<td>......</td>
+									<td>用以说明生成工具</td>
+								</tr>
+								<tr>
+									<td>author</td>
+									<td>姓名</td>
+									<td>告诉搜索引擎你的站点的制作的作者</td>
+								</tr>
+								<tr>
+									<td rowspan="6">robots</td>
+									<td>all</td>
+									<td>文件将被检索，且页面上的链接可以被查询</td>
+								</tr>
+								<tr>
+									<td>none</td>
+									<td>文件将不被检索，且页面上的链接不可以被查询</td>
+								</tr>
+								<tr>
+									<td>index</td>
+									<td>文件将被检索</td>
+								</tr>
+								<tr>
+									<td>noindex</td>
+									<td>文件将不被检索，但页面上的链接可以被查询</td>
+								</tr>
+								<tr>
+									<td>follow</td>
+									<td>页面上的链接可以被查询</td>
+								</tr>
+								<tr>
+									<td>nofollow</td>
+									<td>文件将不被检索，页面上的链接可以被查询</td>
+								</tr>
+							</table>
+
+							<p>补充：</p>
+							<p style="color:blue">关键字keywords：给搜索引擎看的，别人搜索某个词汇的时候，搜索引擎搜索这个关键字，而且网页优化SEO做的越好，搜索出来越靠前
+							</p>
+							<p>&lt;meta&gt;description的显示效果</p>
+							<div align="center"><img src="img/metadescription.png" width="500"></div>
+
+							<p align="center"><strong>http-equiv</strong></p>
+							<p>http-equiv也是需要搭配参数content一起使用 &lt;meta http-equiv="键值" content="..."&gt;</p>
+							<table align="center" border="1" cellspacing="0" cellpadding="5">
+								<tr>
+									<td>http-equiv键的类型</td>
+									<td>content内容</td>
+									<td>用途</td>
+								</tr>
+								<tr>
+									<td>Content-Type</td>
+									<td>content="text/html;charset="UTF-8""</td>
+									<td>定义当前网页格式，以及编码格式</td>
+								</tr>
+								<tr>
+									<td>Refresh</td>
+									<td>content="秒数;url="""</td>
+									<td>网页重定向，多少秒之后跳转content中的URL</td>
+								</tr>
+							</table>
+
+
+						<strong>&lt;link&gt; 标记</strong>
+							<p>常用的两个重点用途</p>
+							<p>link链接外部样式表：&lt;link rel="stylesheet" href="某个CSS文件路径"</p>
+							<p>link设置网页title名字前面显示的图标：&lt;link rel="icon" href="图片路径"</p>
+
+
+						<strong>&lt;title&gt; 标记</strong>
+							<p>用于定义HTML页面的标题，即给网页取一个名字，必须位于&lt;head&gt; 标记之内。一个HTML文档只能含有一对&lt;title&gt; &lt;/title&gt; 标记，&lt;title&gt; &lt;/title&gt; 之间的内容将显示在浏览器窗口的标题栏中。其基本语法格式如下：&lt;title&gt; 网页名称&lt;/title&gt; </p>
+
+							<br/>
+
+						<strong class="redColor">&lt;body&gt;标记，以及写在&lt;body&gt;标记内的标记</strong>
+
+						<strong>&lt;body&gt; 标记</strong>
+							<p>用于定义HTML文档所要显示的内容，也称为主体标记。浏览器中显示的所有文本、图像、音频和视频等信息都必须位于&lt;body&gt; 标记内，&lt;body&gt; 标记中的信息才是最终展示给用户看的。</p>
+							<p>一个HTML文档只能含有一对&lt;body&gt; 标记，且&lt;body&gt; 标记必须在&lt;html&gt; 标记内，位于&lt;head&gt; 头部标记之后.</p>
+							<p>下面我们要讲的标签都是写在&lt;body&gt;中的</p>
+							<br/>
+					</div>
+
+				<h3 id="HTML标签">HTML标签、语义化及属性</h3>
+					<div>
+						<strong>概念</strong>
+							<p>标签其实和标记算是一个意思，两种叫法而已。</p>
+							<p class="redColor">html中叫标签/标记 -- 对应js中的元素节点</p>
+
+						<strong>标签分类</strong>
+							<p>标签的分类：单标签、双标签</p>
+							<p>标签之间的关系：并列、嵌套</p>
+
+
+						<strong>标签语义化</strong>
+							<p class="redColor">好的语义化的网站标准就是去掉样式表文件之后，结构依然很清晰。</p>
+							<p>概念</p>
+							<p class="fourEmContent">根据内容的结构化（内容语义化），选择合适的标签（代码语义化）</p>
+							<br/>
+							<p>-标签语义化意义：</p>
+								   <p class="fourEmContent">1:网页结构合理</p>
+								   <p class="fourEmContent">2:有利于SEO：和搜索引擎建立良好沟通，有了良好的结构和语义你的网页内容自然容易被搜索引擎抓取；</p>
+										<p class="sixEmContent redColor">爬虫：是一种按照一定的规则，自动地抓取万维网信息的程序或者脚本</p>
+								   <p class="fourEmContent">3:方便其他设备解析（如屏幕阅读器、盲人阅读器、移动设备）</p>
+								   <p class="fourEmContent">4:便于团队开发和维护</p>
+								   <p class="redColor">让浏览器更可读、写代码的时候看着更清晰</p>
+							<br/>
+
+						<strong>-代码书写注意：</strong>
+							<p>1：尽可能少的使用无语义的标签div和span；</p>
+								<p class="fourEmContent">div就是一个盒子，span就是一个行内元素，可以给文字、图片加span，用span可以修饰里面的内容，但是它自己是没有任何语义的。</p>
+							<p>2：在语义不明显时，既可以使用div或者p时，尽量用p, 因为p在默认情况下有上下间距，对兼容特殊终端有利；</p>
+							<p>3：不要使用纯样式标签，如：b、font、u等，改用css设置。</p>
+							<p>4：需要强调的文本，可以包含在strong或者em标签中strong默认样式是加粗（不要用b），em是斜体（不用i），下划线是ins（不用u）；</p>
+							<p>5：导航栏用li，更有语义化然后转行内块或者浮动也行，</p>
+
+					</div>
+
+				<!--标签们-->
+				<div>
+
+					<h4 class="redColor" id="单标签">单标签</h4>
+						<div>
+							<p>单标记也称空标记，是指用一个标记符号即可完整地描述某个功能的标记。其基本语法格式如下：<span class="bgcontent">&lt;标记名/&gt;</span></p>
+						</div>
+
+
+								<h4 id="水平线标记">水平线标记</h4>
+									<div>
+										<p>在网页中常常看到一些水平线将段落与段落之间隔开，使得文档结构清晰，层次分明。这些水平线可以通过插入图片实现，也可以简单地通过标记来完成，&lt;hr/&gt;就是创建横跨网页水平线的标记。其基本语法格式如下：</p>
+										<p>书写格式：&lt;hr/&gt;</p>
+										<p>显示效果<hr/></p>
+									</div>
+
+
+
+								<h4 id="换行标记">换行标记</h4>
+									<div>
+										<p>在HTML中，一个段落中的文字会从左到右依次排列，直到浏览器窗口的右端，然后自动换行。如果希望某段文本强制换行显示，就需要使用换行标记&lt;br/&gt;，这时如果还像在word中直接敲回车键换行就不起作用了。</p>
+									</div>
+
+
+								<h4 id="注释标记">注释标记</h4>
+									<div>
+										<p>在HTML中还有一种特殊的标记——注释标记。如果需要在HTML文档中添加一些便于阅读和理解但又不需要显示在页面中的注释文字，就需要使用注释标记。其基本语法格式如下：</p>
+										<p>注释内容不会显示在浏览器窗口中，但是作为HTML文档内容的一部分，也会被下载到用户的计算机上，查看源代码时就可以看到。</p>
+										<div class="bgcontent">
+											<p>	注释标记：</p>
+											<p class="fourEmContent">		html中</p>
+											<p class="sixEmContent">			只有：&lt;!--注释--&gt;</p>
+											<p class="fourEmContent">		css中</p>
+											<p class="sixEmContent">			只有 /*注释*/</p>
+											<p class="fourEmContent">		js中</p>
+											<p class="sixEmContent">			单行注释：//注释</p>
+											<p class="sixEmContent">			多行注释：/* 注释 */</p>
+											<p>	快捷键都是： Ctrl + /</p>
+										</div>
+									</div>
+
+
+								<h4 id="图片标记">图片标记</h4>
+									<div>
+										<p>HTML网页中任何元素的实现都要依靠HTML标记，要想在网页中显示图像就需要使用图像标记，接下来将详细介绍图像标记&lt;img/&gt;以及和他相关的属性。其基本语法格式如下：</p>
+										<p>&lt;img src=""&gt;</p>
+
+										<strong>属性</strong>
+										<p>该语法中src属性用于指定图像文件的路径和文件名，他是img标记的必需属性。</p>
+										<table border="1" cellpadding="5" cellspacing="0" align="center">
+											<tr>
+												<td>src</td>
+												<td>是个URL</td>
+												<td>图像的路径</td>
+											</tr>
+											<tr>
+												<td>alt</td>
+												<td>文字内容</td>
+												<td>图片不能显示时候的替换文本</td>
+											</tr>
+											<tr>
+												<td>title</td>
+												<td>文本内容</td>
+												<td>鼠标悬停在图片上时的文本</td>
+											</tr>
+											<tr>
+												<td>width</td>
+												<td>像素（XHTML不支持%页面百分比）</td>
+												<td>图片的宽度</td>
+											</tr>
+											<tr>
+												<td>height</td>
+												<td>像素（XHTML不支持%页面百分比）</td>
+												<td>图片的高度</td>
+											</tr>
+											<tr>
+												<td colspan="3">图片没有定义宽高的时候，图片按照百分之百比例显示，如果只更改图片的宽度或者高度，图片等比例缩放。</td>
+											</tr>
+										</table>
+
+										<strong>相对路径</strong>
+										<p style="color:blue">相对路径：相对路径不带有盘符，通常是以HTML网页文件为起点，通过层级关系描述目标图像的位置。</p>
+										<p>例如：</p>
+										<p>&lt;img src="img/logo.gif"&gt;</p>
+
+										<p>相对路径设置一般分为三种：</p>
+											<p class="fourEmContent">图像文件和html文件位于同一文件夹：只需输入图像文件的名称即可</p>
+												<p class="sixEmContent"><span class="bgcontent">如&lt;img src="logo.gif"&gt;</span></p>
+											<p class="fourEmContent">图像文件位于html文件的下一级文件夹：输入文件夹名和文件名，之间用“/”隔开</p>
+												<p class="sixEmContent"><span class="bgcontent">如&lt;img src="img/img01/logo.gif"&gt;</span></p>
+											<p class="fourEmContent">图像文件位于html文件的上一级文件夹：在文件名之前加入“../” ，如果是上两级，则需要使用 “../ ../”，以此类推</p>
+												<p class="sixEmContent"><span class="bgcontent">如&lt;img src="../logo.gif"&gt;</span></p>
+
+										<br/>
+										<strong>绝对路径</strong>
+										<p style="color:blue">绝对路径：绝对路径一般是指带有盘符的路径。</p>
+										<p>例如：</p>
+										<p class="fourEmContent"><span class="bgcontent">&lt;img src="D:\HTML+CSS网页制作\chapter02\img\logo.gif"&gt;</span></p>
+
+										<h4 id="音乐标记">音视频标记&lt;embed>、&lt;object></h4>
+										<p>在HTML5之前，我们都是使用embed、object标签，来盛放音视频，然后嵌入flash，这种手段来播放视频的。html5之后，增加了标签，但是由于兼容性，我们还是需要了解embed、object标签的</p>
+										<p><span class="bgcontent">&lt;embed src="" hidden="true/false"&gt;</span></p>
+										<p>hidden，如果不设置，就会在这个标签的地方，显示一个播放器设置了hidden，播放器就隐藏了，只播放音乐</p>
+
+										<br/>
+									</div>
+
+
+					<h4 class="redColor" id="双标签">双标签</h4>
+						<div>
+								<p>双标记也称体标记，是指由开始和结束两个标记符组成的标记。其基本语法格式如下：<span class="bgcontent">&lt;标记名&gt;&lt;/标记名&gt;</span></p>
+									<p class="fourEmContent">该语法中“&lt;标记名&gt;”表示该标记的作用开始，一般称为“开始标记（start tag）”，“&lt;/标记名&gt;” </p>
+									<p class="fourEmContent">表示该标记的作用结束，一般称为“结束标记（end tag）”。和开始标记相比，结束标记只是在前面加了一个关闭符“/”。</p>
+						</div>
+
+							<h4 id="标题标记">标题标记</h4>
+								<div>
+									<p>为了使网页更具有语义化，我们经常会在页面中用到标题标记，HTML提供了6个等级的标题，即&lt;h1&gt;、&lt;h2&gt;、&lt;h3&gt;、&lt;h4&gt;、&lt;h5&gt;和&lt;h6&gt;，从&lt;h1&gt;到&lt;h6&gt;重要性递减。</p>
+									<p class="redColor">h1 在一个页面里只能出现一次，H2和h6不限。出于SEO 搜索引擎优化，这是常识</p>
+								</div>
+
+
+							<h4 id="段落标记">段落标记</h4>
+								<div>
+									<p>在网页中要把文字有条理地显示出来，离不开段落标记，就如同我们平常写文章一样，整个网页也可以分为若干个段落，而段落的标记就是&lt;p&gt;</p>
+									<p>&lt;p&gt;是HTML文档中最常见的标记，默认情况下，文本在一个段落中会根据浏览器窗口的大小自动换行。&lt;bt/&gt;不行</p>
+								</div>
+
+
+							<h4 id="文本样式标记">文本样式标记</h4>
+								<div>
+									<p>多种多样的文字效果可以使网页变得更加绚丽，为此HTML提供了文本样式标记&lt;font&gt;，用来控制网页中文本的字体、字号和颜色。其基本语法格式如下：&lt;font&gt;&lt;/font&gt;</p>
+									<p>早期用这个，现在一般都有样式表</p>
+								</div>
+
+
+							<h4 id="文本格式标记">文本格式标记</h4>
+								<div>
+									<p>在网页中，有时需要为文字设置粗体、斜体或下划线效果，这时就需要用到HTML中的文本格式化标记，使文字以特殊的方式显示。</p>
+
+									<div align="center">
+										文本格式化常用标记<br/>
+
+										<img src="img/wbgsh.png" width="500">
+									</div>
+								</div>
+
+
+							<h4 id="超链接">超链接</h4>
+								<div>
+									<strong>属性</strong>
+										<p>href   去往的路径（跳转的页面） 必写属性</p>
+										<p>title    提示文本   鼠标放到链接上显示的文字，一般都不用写</p>
+										<p>target=”_self”    默认值    在自身页面打开（关闭自身页面，打开链接页面）  </p>
+										<p>target=”_blank”   (用的较多)打开新页面 （自身页面不关闭，打开一个新的链接页面）</p>
+
+										<dl>
+											<dt class="redColor">a连接href的内容：</dt>
+											<dd># 跳转到顶端，不刷新界面</dd>
+											<dd>http: 跳转界面</dd>
+											<dd>什么都不写，  刷新界面</dd>
+											<dd>写“Javascript：；” 或者  “Javascript：void(0)”   点击什么效果都没有(又叫JS手法关闭超链接跳转)</dd>
+										</dl>
+									<strong>a标签的内部 不能嵌套a标签，浏览器会自动帮助我们 将 嵌套的a标签  转化为 兄弟关系的 a标签</strong>
+									<br>
+									<strong>用途</strong>
+										<p>1.跳转网页</p>
+										<p>2.锚链接</p>
+											<p class="fourEmContent">Ⅰ.先定义一个锚点：给一个标记设置id <div style="color: blue; text-indent: 4em">一个标记只能有一个id,如果书写：id="" id=""，那么先设置的生效，后设置的无效</div></p>
+											<p class="fourEmContent">Ⅱ.超链接到锚点</p>
+
+										<p>3.空链  </p>
+											<p class="fourEmContent">不知道链接到那个页面的时候，又因为href是必须要写的属性，这个时候就要用空链#</p>
+
+										<p>4.压缩文件下载  </p>
+											<p class="fourEmContent">不推荐使用</p>
+
+									<strong>超链接优化写法</strong>
+											<p class="fourEmContent">&lt;base target="_blank"&gt; 写在&lt;head&gt;中，意思是：让所有的超链接都在新窗口打开</p>
+
+									<strong>注意:</strong>
+											<p>暂时没有确定链接目标时，通常将<a>标记的href属性值定义为“#”(即href="#")，表示该链接暂时为一个空链接。</a>
+											<p>不仅可以创建文本超链接，在网页中各种网页元素，如图像、表格、音频、视频等都可以添加超链接。</p>
+
+								</div>
+
+
+							<h4 id="列表">列表</h4>
+								<div>
+									<p>列表:一种包含文字或者图片的容器。可以让文字或者图片有规律的整齐的排列显示。</p>
+									<p style="color:blue">在下面，我们会讲到"列表项目符号"，通过type来设置，不过在学完CSS后，我们一般都是通过CSS来设置的。</p>
+									<div align="center"><img src="img/lb.png" width="500"></div>
+
+
+									<strong>无序列表</strong>
+										<p>无序列表的各个列表项之间没有顺序级别之分，是并列的。其基本语法格式如下：</p>
+										<div align="center"><img src="img/wxlb.png" width="400"></div>
+										<p>无序列表中type属性的常用值有三个，它们呈现的效果不同.</p>
+										<p>默认值:disc</p>
+										<p>方块:square</p>
+										<p>空心圆:circle</p>
+										<br/>
+
+									<strong>有序列表</strong>
+										<p>有序列表即为有排列顺序的列表，其各个列表项按照一定的顺序排列定义，有序列表的基本语法格式如下：</p>
+										<div align="center"><img src="img/yxlb.png" width="400"></div>
+										<p>type="1,a,A,i,I"</p>
+										<p>start=".."(不管type是什么，这个都是阿拉伯数字)  决定了开始的字符。</p>
+										<br/>
+
+									<strong>自定义列表</strong>
+									<p>定义列表常用于对术语或名词进行解释和描述，定义列表的列表项前没有任何项目符号。其基本语法如下：</p>
+									<div align="center"><img src="img/zdylb.png" width="400"></div>
+
+									<br/>
+									<br/>
+								</div>
+
+
+
+							<h4 id="表格">表格</h4>
+								<div>
+									<p>生活中会遇到哪些表格 （课程表,值日表…）。用途：展示数据。是对网页重构( CSS+div )的一个有益补充。</p>
+
+									<strong>表格的呈现形式：</strong>
+									<div align="center"><img src="img/bgcx.png" width="400"></div>
+
+									<strong>表格的语法格式：</strong>
+									<div align="center"><img src="img/bgyf.png" width="500"></div>
+
+									<strong>表格的属性：</strong>
+									<div align="center"><img src="img/bgsx.png" width="500"></div>
+
+									<strong>表格的标准结构：</strong>
+
+									<p>在使用表格进行布局时，可以将表格划分为头部、主体和页脚，具体 如下所示：</p>
+									<p>&lt;thead&gt;&lt;/thead&gt;：用于定义表格的头部，必须位于&lt;table&gt;&lt;/table&gt;标记中，一般包含网页的logo和导航等头部信息。</p>
+									<p>&lt;tfoot&gt;&lt;/tfoot&gt;：用于定义表格的页脚，位于&lt;table&gt;&lt;/table&gt;标记中&lt;thead&gt;&lt;/thead&gt;标记之后，一般包含网页底部的企业信息等。</p>
+									<p>&lt;tbody&gt;&lt;/tbody&gt;：用于定义表格的主体，位于&lt;table&gt;&lt;/table&gt;标记中&lt;tfoot&gt;&lt;/tfoot&gt;标记之后，一般包含网页中除头部和底部之外的其他内容。</p>
+
+									<strong>注意：</strong>
+									<p>1：&lt;thead&gt;、&lt;tbody&gt; 以及 &lt;tfoot&gt; 很少被使用，这是因为糟糕的浏览器支持。</p>
+									<p>2：如果使用 thead、tfoot 以及 tbody 元素，就必须使用全部的元素。它们的出现次序是：thead、tfoot、tbody</p>
+
+
+									<br/>
+									<strong>表头caption</strong>
+									<p>&lt;caption&gt;&lt;/caption&gt; 写在紧随&lt;table&gt;的下面一行，就是在表格的上面加了一行字，区别&lt;thead&gt;，后者就是在单元格最上面加了一行表格
+									<p>一个表格只能有一个表头</p>
+									<br/>
+									<strong>表格标题th</strong>
+									<p>&lt;th&gt;&lt;/th&gt;用法和td一样，表现形式：标题的文字自动加粗水平居中对齐</p>
+									<br/>
+									<strong>单元格合并</strong>
+									<p>colspan=”2”  合并同一行上的单元格，找到想合并的那几个单元格最左边那一个，写上这句话</p>
+									<p>rowspan=”2”  合并同一列上的单元格，找到想合并的那几个单元格最上边的哪一个，写上这句话</p>
+									<p class="redColor">注意：我们想合并几个单元格就将数字改成几，另外需要注意的一点是：记得将原先那个位置上的单元格如下图，给注释掉，否则，就被挤到其他地方了，就乱了</p>
+									<br/>
+									<strong>细线表格的实现：</strong>
+									<p>注意: border是设置的每个单元格边框以及最外面表格的宽度，最小值为1，这个时候，我们设置cellspacing = 0 ,这样相邻单元格的边框紧挨着，线的宽度就变成了2。</p>
+									<p>所以，设置属性的方法，就实现不了 “细线表格”</p>
+									<p>实现思路：不要边框，分别在&lt;table&gt;、&lt;tr&gt;中设置整个表格、单元格的背景颜色，然后设置cellspacing = 1。此处有个课程表表格的案例</p>
+
+									<br/>
+									<br/>
+								</div>
+
+
+							<h4 id="表单">表单</h4>
+								<div>
+									<strong>用途：</strong>
+									<p>收集信息。对比于表格的展示信息。语法格式：&lt;form&gt;&lt;/form&gt;</p>
+
+									<strong>表单的组成:表单标签form+提示信息+表单域(input/textarea/select)</strong>
+									<br>
+									<strong>表单标签form:存储表单内的信息，提交给action</strong>
+										<p>它相当于一个容器，用来容纳所有的表单控件，和提示信息，可以通过他定义处理表单数据所用程序的url地址，以及数据提交到服务器的方法。如果不定义表单域，表单中的数据就无法传送到后台服务器。</p>
+									<br>
+										<p class="redColor">语法上就是form的两个属性决定的：action,Method</p>
+										<p>action: 指定表单处理程序的位置(服务器端脚本处理程序) ，信息传给谁</p>
+										<p>Method=”get | post”   </p>
+										<p>Get通过地址栏提供（传输）信息，安全性差。</p>
+										<p>Post 通过1.php来处理信息，安全性高。</p>
+
+									<strong>提示信息</strong>
+										<p>表单控件之前的一些文字</p>
+
+									<strong>表单域：</strong>
+
+									<h4>&lt;input&gt;控件</h4>
+											<table border="1" cellpadding="5" cellspacing="0" align="center" style="font-size: 12px">
+												<tr>
+													<th>属性</th>
+													<th>属性值</th>
+													<th>描述</th>
+													<th>表现样式</th>
+													<th>说明补充</th>
+												</tr>
+
+												<tr>
+													<td rowspan="10">type</td>
+													<td>text</td>
+													<td>单行文本输入框，输入是明文</td>
+													<td><input type="text" maxlength="6"></td>
+													<td rowspan="2">1.一般会搭配maxlength属性一起用<br/>2.设置size属性，可以改变控件宽度<br/>3.设置value属性，可以起到占位符的作用</td>
+												</tr>
+												<tr>
+													<td>password</td>
+													<td>密码输入框，输入是暗文</td>
+													<td><input type="password" maxlength="6"></td>
+												</tr>
+												<tr>
+													<td>radio</td>
+													<td>单选按钮</td>
+													<td>
+														<input type="radio" name="1" checked="checked">男
+														<input type="radio" name="1">女
+													</td>
+													<td>1.只有当name，设置相同的时候，才能实现单选<br/>2.checked="checked"设置默认选中项，后设置的生效</td>
+												</tr>
+												<tr>
+													<td>checkbox</td>
+													<td>多选/复选框</td>
+													<td>
+														<input type="checkbox" name="2">读书
+														<input type="checkbox" name="2">看报
+													</td>
+													<td>
+														1.name相同时，达到多选效果<br/>2.checked="checked"设置默认选中项
+													</td>
+												</tr>
+												<tr>
+													<td>file</td>
+													<td>文本上传按钮/文件域</td>
+													<td><input type="file"></td>
+													<td>样式固定，宽度固定</td>
+												</tr>
+												<tr>
+													<td>submit</td>
+													<td>提交按钮</td>
+													<td><input type="submit" value="value值"></td>
+													<td>value设置字体，宽度自适应</td>
+												</tr>
+												<tr>
+													<td>button</td>
+													<td>普通按钮</td>
+													<td><input type="button" value="value值"></td>
+													<td>
+														同上。不能提交信息，需要配合JS使用<br>
+														<span style="color: blue">显示效果：同&lt;button&gt;我是button&lt;/button&gt;是一样的</span>
+
+													</td>
+												</tr>
+
+												<tr>
+													<td>image</td>
+													<td>图片提交按钮</td>
+													<td>没有小图，暂定搁置</td>
+													<td>大小根据图片自适应。能提交信息</td>
+												</tr>
+												<tr>
+													<td>reset</td>
+													<td>重置按钮</td>
+													<td><input type="reset"></td>
+													<td>value设置字体，宽度自适应</td>
+												</tr>
+												<tr>
+													<td>hidden</td>
+													<td>隐藏域</td>
+													<td colspan="2">隐藏了输入框，name自己设置，value通过默认赋值或者JS来获取</td>
+												</tr>
+												<tr>
+													<td>name</td>
+													<td>开发者自定义</td>
+													<td>控件的名称</td>
+													<td rowspan="2" bgcolor="silver"></td>
+													<td rowspan="2" style="color:blue">这是input控件的两个核心属性，最后提交的时候，name对应value，传值给action</td>
+												</tr>
+												<tr>
+													<td>value</td>
+													<td>自定义/用户输入</td>
+													<td>控件的值</td>
+												</tr>
+												<tr>
+													<td>size</td>
+													<td>正整数</td>
+													<td>控件的宽度</td>
+													<td colspan="2" rowspan="5"> 这些属性，需要搭配不同的type类型，来使用。并不是&lt;input&gt;的通用属性</td>
+												</tr>
+												<tr>
+													<td>disabled</td>
+													<td>disabled</td>
+													<td>禁用该控件</td>
+												</tr>
+												<tr>
+													<td>readonly</td>
+													<td>readonly</td>
+													<td>设置控件为只读</td>
+												</tr>
+												<tr>
+													<td>checked</td>
+													<td>checked</td>
+													<td>设置默认选中项</td>
+												</tr>
+												<tr>
+													<td>maxlength</td>
+													<td>正整数</td>
+													<td>控件的最大输入数</td>
+												</tr>
+											</table>
+											<br/>
+
+											<strong>label标签</strong>
+											<p>&lt;label> 标签为 input 元素定义标注（标记）。</p>
+											<p>label 元素不会向用户呈现任何特殊效果。不过，它为鼠标用户改进了可用性。如果您在 label 元素内点击文本，就会触发此控件。就是说，当用户选择该标签时，浏览器就会自动将焦点转到和标签相关的表单控件上。</p>
+											<br>
+											<p>使用方式：label for id</p>
+											<p class="fourEmContent">label绑定input控件，点击label，帮助input控件，获取：focus键盘输入焦点</p>
+											<p>
+											<span style="background: rgb(245,247,255); color: rgb(52,55,151); font-style: italic;">
+												&lt;label for="username"&gt;点击label&lt;/label&gt;&lt;input type="text" id="username"&gt;
+											</span>
+											</p>
+											<p>显示效果:
+												<label for="username">用户名：</label><input type="text" name="username" id="username"></p>
+
+											<strong>占位符：</strong>
+											<p style="text-indent: 2em;">input有placehold属性，但是不建议用，说是ie不兼容这个属性</p>
+											<br>
+
+
+									<h4>下拉列表</h4>
+											<p>语法格式：</p>
+											<img src="img/xllb.png" width="500" class="acImage">
+											<p>显示效果：
+												<select>
+													<option>北京</option>
+													<option>上海</option>
+													<option>深圳</option>
+												</select></p>
+											<strong>&lt;select&gt;属性：</strong>
+											<p>size   下拉列表的可见选项数</p>
+											<p>Multiple=”multiple”  将下拉列表设置为多选项，按住common/ctrl多选 </p>
+
+											<strong>&lt;option&gt;属性：</strong>
+											<p>Selected=”selected”  设置默认选中项目，默认显示在这个控件上的值</p>
+
+											<strong>下拉列表分组</strong>
+											<p>&lt;optgroup label = “分组名称”&gt;&lt;/optgroup&gt;  对下拉列表的选择项们进行分组，写在&lt;select&gt;&lt;/select&gt;内，&lt;option&gt;&lt;/option&gt;外面。</p>
+											<br/>
+
+									<h4>多行文本框：显示效果同UITextView</h4>
+											<strong>语法格式：</strong>
+											<p>&lt;textarea cols="10" rows="1"&gt;&lt;/textarea&gt;</p>
+											<strong>表现样式：</strong>
+											<p><textarea cols="10" rows="1"></textarea></p>
+											<strong>属性：</strong>
+											<p>Cols  控制输入字符的长度，也就是宽度</p>
+											<p>Rows  控制该控件能显示的行数，多就是高度</p>
+											<p class="redColor">添加滚动条: &lt;textarea style="scrollbar:overflow"&gt;&lt;/textarea&gt;</p>
+
+											<br/>
+
+									<strong>表单信息分组/组合表单：</strong>
+									<p>显示效果：</p>
+									<p>就是将&lt;fieldset&gt;中的标签，用一个线条宽度大约为1的长方形圈起来。&lt;legend&gt;内的”名称”显示在左上角</p>
+									<fieldset>
+										<legend>信息采集</legend>
+										<input type="text"><br/>
+										<input type="file">
+									</fieldset>
+									<p>&lt;fieldset&gt;&lt;/fieldset&gt;    对表单信息分组</p>
+									<p>&lt;legend&gt;&lt;/legend&gt;      表单信息分组名称</p>
+
+									<br/>
+									<h4>html5补充表单控件：</h4>
+									<p>1.	在Safari中查看有的无效，在谷歌浏览器中看的</p>
+									<p>网址、邮箱只能输入相应的。否则，会提示错误。但是有个bug，空也能提交，而且不会提示。</p>
+									<p>2.</p>
+									<p>网址控件：&lt;input type="url"&gt;</p>
+									<p><input type="url"></p>
+									<p>日期控件：&lt;input type="date"&gt;</p>
+									<p><input type="date"></p>
+									<p>时间控件：&lt;input type="time"&gt;</p>
+									<p><input type="time"></p>
+									<p>数字控件：&lt;input type="number" step="5"&gt;</p>
+									<p><input type="number" step="5"></p>
+									<p>设置step属性= 5，那么输入的数字只能是5的倍数，右边的调节箭头，每次改变的量都是5。默认是1.</p>
+									<p>滑块控件 &lt;input type="range"&gt;</p>
+									<p><input type="range"></p>
+									<p>也有step属性，如果为50,那一滑就是50</p>
+
+									<br/>
+								</div>
+
+
+
+
+								<h4 id="滚动标签">滚动标签</h4>
+										<div>
+											<p>页面自动滚动效果之：&lt;marquee&gt;...&lt;/marquee&gt; </p>
+											<p>中间的内容可以为 文字，图片，也可以是由程序生成的文字或图片</p>
+											<table border="1" cellspacing="0" cellpadding="5" align="center">
+												<tr>
+													<td>height</td>
+													<td colspan="2">设置滚动区域的高度，scrollView.frame.height</td>
+												</tr>
+												<tr>
+													<td>width</td>
+													<td colspan="2">设置滚动区域的宽度，scrollView.frame.width</td>
+												</tr>
+												<tr>
+													<td>bgcolor</td>
+													<td colspan="2">设置背景颜色</td>
+												</tr>
+												<tr>
+													<td>loop</td>
+													<td colspan="2">设置滚动次数，=-1一直滚下去</td>
+												</tr>
+												<tr>
+													<td>behavior</td>
+													<td colspan="2">设定滚动的方式</td>
+												</tr>
+												<tr>
+													<td rowspan="3"></td>
+													<td>alternate</td>
+													<td>右到左，左到右，重复</td>
+												</tr>
+												<tr>
+													<td>scroll</td>
+													<td>右到左，右到左，会重复</td>
+												</tr>
+												<tr>
+													<td>slide</td>
+													<td>右到左，然后停在左边，不会重复</td>
+												</tr>
+												<tr>
+													<td>direction</td>
+													<td colspan="2">设定滚动的方向</td>
+												</tr>
+												<tr>
+													<td rowspan="4"></td>
+													<td>down</td>
+													<td>向下滚动</td>
+												</tr>
+												<tr>
+													<td>left</td>
+													<td>向左滚动</td>
+												</tr>
+												<tr>
+													<td>right</td>
+													<td>向右滚动</td>
+												</tr>
+												<tr>
+													<td>up</td>
+													<td>向上滚动</td>
+												</tr>
+											</table>
+										</div>
+
+				</div>
+
+
+
+				<h3 id="addContent">补充内容</h3>
+					<div>
+						<h4>编码方式</h4>
+						<div>
+							<p>计算机中储存的信息都是用二进制数表示的；而我们在屏幕上看到的英文、汉字等字符是二进制数转换之后的结果。通俗的说，按照何种规则将字符存储在计算机中，如'a'用什么表示，称为"编码"；反之，将存储在计算机中的二进制数解析显示出来，称为"解码"，如同密码学中的加密和解密。在解码过程中，如果使用了错误的解码规则，则导致'a'解析成'b'或者乱码。</p>
+							<p>字符集(charset)</p>
+							<p>下面是一些常见的编码库，是个一个个的库</p>
+							<table border="1" cellpadding="5" cellspacing="0" align="center">
+
+								<tr>
+									<td>Ascll</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>Ansi</td>
+									<td>这两个是刚开始的编码格式，只支持数字和英文</td>
+								</tr>
+								<tr>
+									<td>Gb2312</td>
+									<td>简体中文</td>
+								</tr>
+								<tr>
+									<td>Big5</td>
+									<td>繁体中文</td>
+								</tr>
+								<tr>
+									<td>Gbk</td>
+									<td>包括gb2312全部中文，还有繁体，字符等</td>
+								</tr>
+								<tr>
+									<td>Unicode</td>
+									<td>统一码，万国码，单一码</td>
+								</tr>
+								<tr style="color:blue">
+									<td>Utf-8</td>
+									<td>通用字符集，支持180-200个国家的语言</td>
+								</tr>
+								<tr>
+									<td colspan="2">UTF-8以字节为单位对Unicode进行编码。</td>
+								</tr>
+							</table>
+
+
+							<p class="redColor">
+								最初是ASCII码，只有128个，满足不了我们的需求，逐渐扩展到现在Unicode(万国码，统一的语言二进制编码)，现在是UTF-8、16后面的编码都是有ASCII演变过来的，都包含ASCII
+							</p>
+
+
+							<strong>不同的编码方式中，一个英文/中文字符占用的字节数也是不一样的</strong>
+								<p>字符是指计算机中使用的字母、数字、字和符号，包括：1、2、3、A、B、C、~！·#￥%……—*（）——+等等。</p>
+								<p>在 ASCII 编码中，一个英文字母字符存储需要1个字节。</p>
+								<p>在 GB 2312 编码或 GBK 编码中，一个汉字字符存储需要2个字节。</p>
+								<p>在UTF-8编码中，一个英文字母字符存储需要1个字节，一个汉字字符储存需要3到4个字节。</p>
+								<p>在UTF-16编码中，一个英文字母字符或一个汉字字符存储都需要2个字节（Unicode扩展区的一些汉字存储需要4个字节）。</p>
+								<p>在UTF-32编码中，世界上任何字符的存储都需要4个字节</p>
+
+
+						</div>
+					</div>
+			</div>
+
+
+
+		</div>
+
+
+		</body>
+
+</html>
+
+
+

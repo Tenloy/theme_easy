@@ -1,0 +1,23 @@
+{
+  "name": "calculator",
+  "version": "0.0.1",
+  "description": "A example of module",
+  "main": "index.js",
+  "keywords": [
+  ],
+  "author": "KingNigel",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KingNigel/calculator1.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KingNigel/calculator1/issues"
+  },
+  "license": "MIT",
+  "devDependencies": {
+   },
+  "dependencies": {
+  }
+}
