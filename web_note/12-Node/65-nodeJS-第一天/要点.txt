@@ -1,4 +1,0 @@
-1.理解node.js与js的关系
-2.理解node版本选择
-3.系统全局变量（path）的配置
-4.node模块化的使用（require、module、exports的使用）
