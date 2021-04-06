@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>LESS浏览器使用</title>
+	<!-- 1、修改link标签的rel属性 -->
+	<!-- <link rel="stylesheet" href="demo.css"> -->
+	<link rel="stylesheet/less" href="./demo.less">
+	<!-- js不能直接读取本文件的，这个js是less官网自己的，而且因为script没有访问本地文件的能力，所以必须通过网络请求加载，意思就是我们必须放在自己本地的服务器里，才能达到效果，不能直接双击打开-->
+	<script src="js/less.js"></script>	
+	
+
+
+	<script>
+
+		// less.js 内部可以发送ajax请求
+
+		// 通过一系列正则表达式进行替换操作
+
+		// 然后将替换的结果，生成一个<style>
+
+		// style = document.createElement('style');
+
+		// style.innerHTML = 替换的结果;
+
+		// document.querySelector('head').appendChild(style);
+
+		// 此种方式适用于开发阶段
+		// 
+		// 
+		// 
+		// 
+		// // 这么做的前提是less 转css不方便.  可是现在sublime有个插件可以做到实时转换呀，所以，感觉好没意义
+	</script>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>
