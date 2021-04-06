@@ -18,7 +18,7 @@ favicon: favicon.ico
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "iOS Developer"
+sidebar-about-description: "你有多自律，就会有多自由"
 sidebar-avatar: /img/avatar.png      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
