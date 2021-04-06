@@ -807,6 +807,8 @@ NSThread、GCD、NSOperationQueue的区别？各自的一些优点，以及应�
 
 例如runloop能检测卡顿 是在runloop哪个阶段 多线程runloop收集到卡顿 如何告诉主线程
 
+- [iOS 性能优化 - TimeProfiler分析代码耗时](https://blog.csdn.net/Hello_Hwc/article/details/84311933?utm_source=app&app_version=4.5.7)
+
 ### 7.2 内存
 
 > OOM，是 Out of Memory 的缩写，指的是 App 占用的内存达到了 iOS 系统对单个 App 占用内存上限后，而被系统强杀掉的现象
@@ -918,6 +920,9 @@ NSThread、GCD、NSOperationQueue的区别？各自的一些优点，以及应�
 - 崩溃率有统计过吗？万2左右(Keep)算不错了
 - 应用安全方面？
   - ptrace 防lldb 远程debug
+- APM （Application Performance Management，即应用性能管理，在分布式领域也称为分布式跟踪管理）对企业的应用系统进行实时监控，它是用于实现对应用程序性能管理和故障管理的系统化的解决方案。
+  - matrix(矩阵、模型)  —— 微信开源的工具 https://github.com/Tencent/matrix
+- [微信高性能线上日志系统xlog剖析 — SatanWoo](https://satanwoo.github.io/2017/07/30/xlog/)
 
 
 
@@ -1017,6 +1022,14 @@ https://www.jianshu.com/p/7b4fe125aa92
 
 - 如果多个组件，还有 弹窗，前后台切换，页面push等等 都可能 控制 播放器的播放和停止，那么你怎么设计一个无依赖的方案
 
+  ```
+  1. 通知。但通知有一个大问题，就是不好管理，然后没有传递链(抖音应该不会用这么low的方案...)
+  2. 中间状态 statefulwidget（题目的意思可能在考察组件化的概念）
+  3. 但感觉面试官不满意答案2...
+  ```
+
+  
+
 
 
 ## 待归类
@@ -1086,19 +1099,11 @@ iOS7及以上系统默认：
 - self.edgesForExtendedLayout = UIRectEdgeAll
 - 此时，self.view.frame.origin.y从0开始（屏幕最上部、navigationBar的顶部）。
 
-设置translucent=NO、与edgesForExtendedLayout=UIRectEdgeNone 都会使self.view.frame.origin.y下移64像素至navBar下方开始
+设置translucent=NO、与edgesForExtendedLayout=UIRectEdgeNone 都会使self.view.frame.origin.y下移(navBar高度)个像素，即self.view中的子控件布局从navBar下方开始
 
 - 如果只设置后者，由于navBar是透明的，会出现64像素的黑色区域。设置背景色、背景图片都有点问题，所以最好设置前者
 
-  
 
-iOS7之后也增加了一个self.tabBarController.tabBar.translucent的属性，默认为YES。当应用同时使用navBar和TabBar的时候：
+iOS7之后也增加了一个self.tabBarController.tabBar.translucent的属性，默认为YES。效果同上
 
-- 设置self.tabBarController.tabBar.translucent=NO并且self.navigationController.navigationBar.translucent=NO时候，self.view.frame—>{{0, 64}, {320, 455}}。视图的高度也改变为navBar和tabBar之间的455像素。
-- 设置self.navigationController.navigationBar.translucent=YES并且self.tabBarController.tabBar.translucent=NO的时候，self.view.frame—>{{0, 0}, {320, 519}}；其都为YES的时候self.view.frame—>{{0, 0}, {320, 568}}；
-
-注意：设置self.edgesForExtendedLayout = UIRectEdgeNone;的时候会使得navBar和tabBar都不占空间。self.view.frame—>{{0, 64}, {320, 455}}。此时iOS7默认navBar和tabBar都是透明的。截图的时候需要注意。
-
-
-
-TODO：关于布局是否从导航栏底部开始，结论是正确的，不过self.view.frame的结论不对，始终都是屏幕宽高，看CSDN的文章，读一下
+注意：在viewDidLoad中打印self.view.frame是屏幕宽高，在viewWillAppear及之后的生命周期方法中，才会因为上面的设置而改变
