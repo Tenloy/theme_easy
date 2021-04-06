@@ -19,11 +19,7 @@
 
 
 ## 二、OC相关知识
-* TOC
-{:toc}
 ### 2.1 TaggedPointer
-* TOC
-{:toc}
 ```objective-c
 @property (nonatomic, strong) NSString *strongString;
 @property (nonatomic, weak)   NSString *weakString;
