@@ -3,7 +3,7 @@ layout:     post
 title:      "团队开发时应该要遵守的git提交规范"
 subtitle:   ""
 author:     "wml"
-header-img: "img/headerImg/header_bg_2.jpg"
+header-img: "img/headerImg/hello-world.jpg"
 header-mask:  0.5
 catalog: true
 tags:
