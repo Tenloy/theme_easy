@@ -489,7 +489,7 @@ https://www.jianshu.com/p/bc16a644784d
 
 ## 三、运行库与三方库API
 
-### 3.1 UIKit、Foundation、QuartzCore
+### 3.1 UIKit、QuartzCore
 
 #### 3.1.1 触摸事件的分发机制
 
@@ -552,7 +552,12 @@ UIView的显示是通过CALayer实现的，CALayer的显示则是通过contents�
 
 
 
-### 3.2 WebKit — WKWebview
+### 3.2 Foundation
+
+- NSString、NSArray相关的类簇概念了解一下
+  - 当hook方法时，要用真正的类名，不能用这个类簇名
+
+### 3.3 WebKit — WKWebview
 
 - cookie同步
 - post body
@@ -561,11 +566,18 @@ UIView的显示是通过CALayer实现的，CALayer的显示则是通过contents�
 - 除了NSURLProtocol还有什么方式能拦截请求：说hook ajax xmlhttprequest的open set方法
 - 白屏检测：为什么会白屏，怎么监测，webViewWebContentProcessDidTerminate触发了就是白屏？因为其他问题，WK进程崩溃了，这个方法就不会调用吗
 - 白屏优化
-- WKWebview进程是单独的，启动时涉及内核，所以耗时？要进行相关的优化吗？really？还是扯呢
+- BRBridge的通信机制
+  - 数据是怎么传递的，复杂数据是怎么编码、序列化、反序列化的
+  - 为什么要用iframe，原生的API message那一套行不行。不够灵活，且有兼容性，UIWebView、WKWebView之间不能无缝衔接
+- webview的优化点：
+  - 缓存
+  - WKWebview进程是单独的，启动时涉及内核，所以耗时？要进行相关的优化吗？进程开始就创建一个，really？还是扯呢
+  - HTTP2.0 相比HTTP1.1，报文压缩，加快传输速度
+  - Webp图片压缩
 
 
 
-### 3.3 常见三方库
+### 3.4 常见三方库
 
 - 看过什么源码
 - 是带着问题看的，还是系统得看
@@ -575,7 +587,7 @@ UIView的显示是通过CALayer实现的，CALayer的显示则是通过contents�
 
 
 
-### 3.4 图像处理相关
+### 3.5 图像处理相关
 
 - png图片压缩机制
 - jpg png sd底层能够是如何解析的
@@ -585,6 +597,15 @@ UIView的显示是通过CALayer实现的，CALayer的显示则是通过contents�
 
 
 ## 四、计算机网络
+
+### 4.1 HTTP（霜神的HTTP网络全套的blog）
+
+- HTTPS与HTTP的关系，就是加了个SSL？SSL与TLS的关系
+- HTTP2.0了解吗，相比之前的优化
+  - 报文压缩
+  - 请求头压缩，是怎么压缩的？
+  - 多路复用、分用
+  - 服务器推送？
 
 ### 4.1 HTTPS
 
@@ -600,12 +621,14 @@ https://juejin.cn/post/6844903901037084686
   3. 客户端确认数字证书有效，然后生成一个新的随机数，并使用数字证书中的公钥加密这个随机数，发送给服务端。
   4. 服务端使用自己的私钥，解密出随机数。 
   5. 客户端和服务端根据约定的加密方法，使用前面的三个随机数生成对话密钥，用来加密接下来的对话。
+- 预备主密钥？？
+- 如果第4步失败了，两端会怎么办？不知道是不是下面这个答案 https://halfrost.com/https_tls1-2_handshake/#toc-6
+  - Server 拿到 EncryptedPreMasterSecret 以后，用自己的 RSA 私钥解密。解密以后还需要再次校验 PreMasterSecret 中的 ProtocolVersion 和 ClientHello 中传递的 ProtocolVersion 是否一致。如果不相等，校验失败，Server 会根据下面说的规则重新生成 PreMasterSecret，并继续进行握手。
+  - 在任何情况下，如果处理一个 RSA 加密的预备主密钥消息失败的时候，或版本号不是期望的时候，一个 TLS Server 一定不能产生一个警报。作为替代，它必须以一个随机生成的预备主密钥继续握手流程。出于定位问题的意图将失败的真正原因记录在日志中可能是有帮助的。但必须注意避免泄露信息给攻击者（例如，计时，日志文件或其它渠道）
 
 #### 4.1.2 CA证书
 
 其中有什么内容：颁发机构、过期时间、密钥
-
-
 
 ### 4.2 TCP
 
@@ -813,7 +836,15 @@ NSThread、GCD、NSOperationQueue的区别？各自的一些优点，以及应�
 
 - [iOS中Crash采集及PLCrashReporter使用](https://www.jianshu.com/p/930d7f77df6c)
 
-- 防崩溃组件、崩溃SDK两码事，后者是做采集、可视化转换之类的
+- 自己编写防崩溃组件，功能：
+
+  - 常见崩溃的预防拦截
+    - 比如给NSArray、NSDictionary添加分类，hook方法，处理insert nil的crash
+    - 运用消息转发机制，处理unrecognized selector的方法
+    - 这些拦截，是一直开着，还是只debug开着，线上开着这个，会造成其它未知的错误吗  
+  - 其它崩溃的采集、崩溃信息的可视化、统计
+    - 都上传了什么数据：backtrace C函数获取调用堆栈。是什么时机调用的呢？
+    - 怎么可视化
 
 - bugly无法获取的崩溃有哪些
 
@@ -824,6 +855,10 @@ NSThread、GCD、NSOperationQueue的区别？各自的一些优点，以及应�
 ### 7.4 网络层优化
 
 - 安全性
+  - 防中间人攻击？单向校验，双向校验还是双向认证
+  - AFN中关于安全校验的一些API
+  - 了解榕树贷款的证书机制
+  - 了解别人能抓包的原因，配置的什么证书就可以了？为什么可以？处于证书信任链中？
 
 ### 7.5 启动速度优化
 
@@ -1037,3 +1072,33 @@ APP安装包都有什么，怎么瘦身，背后怎么做的，哪些场景可�
 
 - https://tech.meituan.com/2018/12/06/waimai-ios-optimizing-startup.html
 
+
+
+多个非系统动态库的合并？需要合并么，如果需要，怎么合并
+
+
+
+iOS6以下系统，默认navBar和tabBar都不占空间。
+
+iOS7及以上系统默认：
+
+- self.navigationController.navigationBar.translucent(半透明)为YES
+- self.edgesForExtendedLayout = UIRectEdgeAll
+- 此时，self.view.frame.origin.y从0开始（屏幕最上部、navigationBar的顶部）。
+
+设置translucent=NO、与edgesForExtendedLayout=UIRectEdgeNone 都会使self.view.frame.origin.y下移64像素至navBar下方开始
+
+- 如果只设置后者，由于navBar是透明的，会出现64像素的黑色区域。设置背景色、背景图片都有点问题，所以最好设置前者
+
+  
+
+iOS7之后也增加了一个self.tabBarController.tabBar.translucent的属性，默认为YES。当应用同时使用navBar和TabBar的时候：
+
+- 设置self.tabBarController.tabBar.translucent=NO并且self.navigationController.navigationBar.translucent=NO时候，self.view.frame—>{{0, 64}, {320, 455}}。视图的高度也改变为navBar和tabBar之间的455像素。
+- 设置self.navigationController.navigationBar.translucent=YES并且self.tabBarController.tabBar.translucent=NO的时候，self.view.frame—>{{0, 0}, {320, 519}}；其都为YES的时候self.view.frame—>{{0, 0}, {320, 568}}；
+
+注意：设置self.edgesForExtendedLayout = UIRectEdgeNone;的时候会使得navBar和tabBar都不占空间。self.view.frame—>{{0, 64}, {320, 455}}。此时iOS7默认navBar和tabBar都是透明的。截图的时候需要注意。
+
+
+
+TODO：关于布局是否从导航栏底部开始，结论是正确的，不过self.view.frame的结论不对，始终都是屏幕宽高，看CSDN的文章，读一下
