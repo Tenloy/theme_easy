@@ -3,8 +3,6 @@ layout:     post
 title:      "dns-prefetch"
 subtitle:   ""
 author:     "wml"
-header-img: "img/present/1.jpg"
-header-mask:  0.5
 catalog: true
 tags:
 

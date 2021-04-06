@@ -3,7 +3,7 @@ layout:     post
 title:      "[今日算法] 经典的数据结构实现（js版）"
 subtitle:   ""
 author:     "wml"
-header-img: "img/algorithm/bg.jpg"
+header-img: "img/headerImg/header_bg_2.jpg"
 header-mask:  0.5
 catalog: true
 tags:

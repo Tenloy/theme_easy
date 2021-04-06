@@ -3,8 +3,6 @@ layout:     post
 title:      "【读书笔记】设计模式与继承"
 subtitle:   ""
 author:     "wml"
-header-img: "img/bg-1.png"
-header-mask:  0.5
 catalog: true
 tags:
     - js

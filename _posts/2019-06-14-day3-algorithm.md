@@ -3,8 +3,6 @@ layout:     post
 title:      "[今日算法] 两数相加"
 subtitle:   ""
 author:     "wml"
-header-img: "img/algorithm/bg.jpg"
-header-mask:  0.5
 catalog: true
 tags:
 
