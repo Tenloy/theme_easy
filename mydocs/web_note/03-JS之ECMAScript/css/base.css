@@ -1,0 +1,297 @@
+    body{
+      font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+      color: #364149;
+
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .rightContentDiv strong {
+        /*font-size: 1.1em;*/
+        /*display: block;*/
+        border-bottom: 1px solid #000;
+        line-height: 2.5em;
+    }
+
+    h1,h2,h3,h4 {
+        text-align: center;
+        margin: 0em auto 1em auto;
+        padding-top: 2em;
+        width: 50%;
+        border-bottom: 1px solid #c9c9c9;
+    }
+
+    h4 {
+        width:25%;
+    }
+
+    ul{
+        list-style: none;
+        line-height: 1.5;
+    }
+
+    s,i,em {
+        font-style: normal;
+        text-decoration: none;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    p{
+        text-indent: 4em;
+        line-height: 1.5em;
+        margin-bottom: -0.5px;
+        margin-top: -0.5px;
+
+    }
+
+    .clearfix:before, .clearfix:after {
+        content: "";
+        display: table;
+    }
+
+    .clearfix:after {
+        clear: both;
+    }
+
+    .clearfix {
+        *zoom: 1; /*IE/7/6*/
+    }
+
+
+    a:link,a:visited{
+      text-decoration: none;
+      color: blue;
+      font: 14px microsoft yahei;
+    }
+    a:hover{
+      text-decoration: underline;
+
+    }
+
+
+
+    ul a:link,ul a:visited{
+      color: black;
+    }
+
+    .leftNav{ 
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 250px;
+        height: 95%;
+        overflow: auto;
+        border-right: #e9e9e9 1px solid;
+        margin-top: 8px;
+    }
+
+    .leftNav ul{
+      margin:0px;
+      padding: 0px;
+
+    }
+    .leftNav ul li ul{
+      padding-left: 25px;
+    }
+
+    table caption{
+      font-size: 1.2em;
+      margin-bottom: 5px;
+    }
+
+    .leftNav ul a{
+      display: block;
+      line-height: 1em;
+      padding: 10px 15px;
+    }
+    .leftNav ul strong{
+      margin-right: 4px;
+      font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    }
+
+    .leftNav ul .endLine{
+      height: 1px;
+      margin: 15px 0;
+      background: rgba(0,0,0,0.07);
+    }
+
+    .leftNav ul a:hover{
+      text-decoration:none;
+      color: rgb(0,140,255);
+    }
+
+    .leftNav ul .foldClickedTag:hover {
+        color: black;
+    }
+
+    .rightContentDiv{
+      overflow: auto;
+      position: absolute;
+      left: 250px;
+      top: 0px;
+      bottom: 0px;
+      right: 0px;
+        padding: 40px;
+    }
+
+    .rightContentDiv .tencent,
+    .rightContentDiv .sina,
+    .rightContentDiv .taobao {
+        margin: 0 auto;
+        color: #333;
+        width: 70%;
+        background: RGB(238,238,238);
+        overflow: scroll;
+        height: 100px;
+        border: 1px solid #e1e1e1;
+        border-radius: 4px;
+        font-size: 12px;
+    }
+
+    .emContent{
+      font-weight: 700;
+      font-style: italic;
+    }
+
+    div.bgcontent {
+        background-color: rgb(245,247,255);
+        color: rgb(52,55,151);
+        margin-left: 4em;
+        /*width: 500px;*/
+        padding: 10px;
+    }
+
+    div.bgcontent p {
+        line-height: 1.2em;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .bgcontent {
+      background-color: rgb(245,247,255);
+      color: rgb(52,55,151);
+    }
+
+
+    .twoemcontent{
+      text-indent: 2em;
+    }
+    .sixemcontent{
+      text-indent: 6em;
+    }
+
+
+    .scrollDivImage {
+        margin: 0 auto;
+        width: 70%;
+        overflow: scroll;
+        height: 300px;
+        border: 1px solid #e1e1e1;
+        border-radius: 4px;
+        padding: 10px;
+    }
+
+    .acImage {
+        display: block;
+        margin: 0 auto;
+    }
+    .redColor {
+        color: red;
+    }
+
+
+    .dataType {
+        padding-top: 10px;
+        padding-bottom: 25px;
+        background: #eee;
+        width:90%;
+        margin:0 auto;
+    }
+
+    .dataType p {
+        line-height: 1.2em;
+        margin-bottom: -10px;
+    }
+
+
+
+    .foldClickedTag {
+        position: relative;
+        cursor: pointer;
+        line-height: 1em;
+        padding: 10px 15px;
+        font: 14px microsoft yahei;
+
+    }
+
+    #foldTag1,
+    #foldTag2,
+    #foldTag3,
+    #foldTag4,
+    #foldTag5 {
+        display: none;
+        background: rgb(245,245,245);
+        margin-left: -8px;
+    }
+
+    /*#foldTag3 {*/
+        /*display: block;*/
+        /*background: rgb(245,245,245);*/
+        /*margin-left: -8px;*/
+    /*}*/
+
+    /*#foldTag-sign3 {*/
+        /*position: absolute;*/
+        /*right: 20px;*/
+        /*top: 50%;*/
+        /*margin-top: -4px;*/
+        /*height: 8px;*/
+        /*width: 16px;*/
+        /*overflow: hidden;*/
+    /*}*/
+
+    #foldTag-sign1,
+    #foldTag-sign2,
+    #foldTag-sign3,
+    #foldTag-sign4,
+    #foldTag-sign5 {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        margin-top: -8px;
+        height: 16px;
+        width: 8px;
+        overflow: hidden;
+
+    }
+
+    .foldTag-sign-s {
+        font-size: 27px;
+        line-height:16px;
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+
+    }
+
+    .regexp p {
+        text-indent: 2em; !important;
+    }
+
+    .regexp .fourEmContent {
+        text-indent: 4em;
+    }
+
+    .regexp .sixemcontent {
+        text-indent: 6em;
+    }
+
+    .strongfont p {
+        color: rgb(114,168,216);
+        font-family: SimSum;
+        font-size: 14px;
+
+    }

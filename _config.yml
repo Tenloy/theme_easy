@@ -3,7 +3,7 @@
 # Site settings
 title: Tenloy's Blog
 SEOTitle: Tenloy's Blog
-header-img: https://tenloy.github.io/img/favicon.ico
+header-img: img/head_bg/head_bg_1.png
 email: luotengoto@163.com
 description: "iOS开发 | Tenloy，iOS Developer | Tenloy的个人博客"
 keyword: "Tenloy, iOS, Tenloy Blog, 博客，Swift, 编译, 计算机"
@@ -14,7 +14,7 @@ baseurl: ""                             # for example, '/blog' if your blog host
 
 # avatar and Favicon
 # avatar: http://7u2ho6.com1.z0.glb.clouddn.com/site-avatar.png
-favicon: ./img/favicon.ico
+favicon: https://tenloy.github.io/img/favicon.ico
 
 
 # Sidebar settings

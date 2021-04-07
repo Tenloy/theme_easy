@@ -1,0 +1,2081 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>css基础笔记</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/base.css">
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="configImage/apple-touch-icon-precomposed-152.png">
+  <link rel="shortcut icon" href="configImage/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+
+    <div style="width: 100%;height: 100%;position: absolute;overflow: auto;">
+        <div  class="leftNav">
+            <ul>
+
+              <li><a href="#CSS概述"><strong>0.1.</strong>CSS概述</a></li>
+              <li><a href="#CSS书写位置"><strong>0.2.</strong>书写位置</a></li>
+              <li style="margin-top: 15px;">
+                    <!--<a href=""><strong>0.2.</strong>选择器</a>-->
+                    <a href="#" onclick="foldTag('foldTag2','foldTag-sign2')" class="foldClickedTag">
+                      <strong>0.3.</strong>核心:选择器
+                      <i id="foldTag-sign2">
+                        <s class="foldTag-sign-s">
+                          ◇
+                        </s>
+                      </i>
+                    </a>
+                    <ul id="foldTag2">
+
+                          <li>
+                              <a href="#基础选择器"><strong>0.3.1.</strong>基础选择器</a>
+                               <ul>
+                                   <li><a href="#标签选择器">标签选择器</a></li>
+                                   <li><a href="#类选择器">类选择器</a></li>
+                                   <li><a href="#ID选择器">ID选择器</a></li>
+                                   <li><a href="#通配符选择器">通配符选择器</a></li>
+                                   <li><a href="#属性选择器">属性选择器</a></li>
+                               </ul>
+                          </li>
+                          <li>
+                              <a href="#复合选择器"><strong>0.3.2.</strong>复合选择器</a>
+                              <ul>
+                                <li><a href="#交集选择器">交集选择器</a></li>
+                                <li><a href="#后代选择器">后代选择器</a></li>
+                                <li><a href="#子代选择器">子代选择器</a></li>
+                                <li><a href="#并集选择器">并集选择器</a></li>
+                                <li><a href="#brother">兄弟选择器</a></li>
+                              </ul>
+                          </li>
+                          <li><a href="#伪类"><strong>0.3.3.</strong>伪类选择器</a></li>
+                          <li><a href="#CSS三大特性"><strong>0.3.4.</strong>CSS三大特性</a></li>
+                          <li><a href="#codeStyleRule"><strong>0.3.5.</strong>选择器代码规范</a></li>
+
+                    </ul>
+              </li>
+              <li>
+                <a href="#" onclick="foldTag('foldTag5','foldTag-sign5')" class="foldClickedTag">
+                  <strong>0.4.</strong>CSS样式汇总
+                  <i id="foldTag-sign5">
+                    <s class="foldTag-sign-s">
+                      ◇
+                    </s>
+                  </i>
+                </a>
+                <ul id="foldTag5">
+                  <li><a href="#选择器概述、及属性汇总"><strong>0.4.1.</strong>所学属性汇总</a></li>
+                  <li><a href="#overflow"><strong>0.4.2.</strong>overflow</a></li>
+                  <li><a href="#verticalalign"><strong>0.4.3.</strong>vertical-align</a></li>
+                  <li><a href="#文本属性及连写"><strong>0.4.4.</strong>文本属性及连写</a></li>
+                  <li><a href="#背景属性及连写"><strong>0.4.5.</strong>背景属性及连写</a></li>
+                  <li><a href="#色值"><strong>0.4.6.</strong>色值</a></li>
+                </ul>
+              </li>
+              <li style="margin-top: 15px;">
+                    <!--<a href="盒子模型.html"><strong>0.3.</strong>元素分类与盒子模型</a>-->
+                    <a href="#" onclick="foldTag('foldTag3','foldTag-sign3')" class="foldClickedTag">
+                      <strong>0.5.</strong>元素分类与盒子模型
+                      <i id="foldTag-sign3">
+                        <s class="foldTag-sign-s">
+                          ◇
+                        </s>
+                      </i>
+                    </a>
+                    <ul id="foldTag3">
+                      <li><a href="#标签分类"><strong>0.5.1.</strong>行内、块、行内块元素</a></li>
+                      <li><a href="#盒子模型"><strong>0.5.2.</strong>盒子模型</a></li>
+                    </ul>
+              </li>
+              <li style="margin-top: 15px;">
+                <!--<a href="css布局.html"><strong>0.4</strong>CSS布局</a>-->
+                    <a href="#" onclick="foldTag('foldTag4','foldTag-sign4')" class="foldClickedTag">
+                      <strong>0.6.</strong>CSS三大布局技术
+                      <i id="foldTag-sign4">
+                        <s class="foldTag-sign-s">
+                          ◇
+                        </s>
+                      </i>
+                    </a>
+                    <ul id="foldTag4">
+
+                        <li><a href="#文档流"><strong>0.6.1.</strong>文档流</a></li>
+
+                        <li>
+                          <a href="#浮动"><strong>0.6.2.</strong>浮动</a>
+                          <ul>
+                            <li><a href="#clearboth">清除浮动</a></li>
+                          </ul>
+                        </li>
+
+                        <li>
+                          <a href="#定位"><strong>0.6.3.</strong>定位</a>
+                          <ul>
+                            <li><a href="#static">静态定位</a></li>
+                            <li><a href="#absolute">绝对定位</a></li>
+                            <li><a href="#relative">相对定位</a></li>
+                            <li><a href="#fixed">固定定位</a></li>
+                            <li class="clearfix"><a href="#personalsummary" style="color: gray;float: right; margin-right: 10px;"><del>定位个人总结</del></a></li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="#arrange"><strong>0.6.4.</strong>布局总结</a>
+                          <ul>
+                            <li><a href="#arrange">布局用途</a></li>
+                            <li><a href="#zindex">三大技术盒子层级</a></li>
+                            <li><a href="#sortRule">三大技术盒子排列规则</a></li>
+                            <li><a href="#sizeSetting">盒子宽高设置</a></li>
+                          </ul>
+
+                        </li>
+                    </ul>
+
+
+              </li>
+              <li>
+                <!--<a href="css布局.html"><strong>0.4</strong>CSS布局</a>-->
+                <a href="#" onclick="foldTag('foldTag1','foldTag-sign1')" class="foldClickedTag">
+                  <strong>0.7.</strong>布局知识点补充
+                  <i id="foldTag-sign1">
+                    <s class="foldTag-sign-s">
+                      ◇
+                    </s>
+                  </i>
+                </a>
+                <ul id="foldTag1">
+                      <li><a href="#addContent"><strong>0.7.1.</strong>CSS初始化</a></li>
+                      <li><a href="#centerbox"><strong>0.7.2.</strong>脱标盒子居中</a></li>
+                      <li><a href="#container"><strong>0.7.3.</strong>标签之间的包含</a></li>
+                      <li><a href="#auto"><strong>0.7.4.</strong>规避脱标</a></li>
+                      <li><a href="#visibility"><strong>0.7.5.</strong>标签的隐藏显示</a></li>
+                      <li><a href="#alogo"><strong>0.7.6.</strong>logo内容移除</a></li>
+                      <li><a href="#jinglingtu"><strong>0.7.7.</strong>精灵图</a></li>
+                </ul>
+              </li>
+
+                <!--<a href="#JD" style="color: gray; float: right;margin-right: 10px; margin-top: 8px;">京东案例宝贵总结</a>-->
+              <li style="margin-top: 15px;">
+                <a href="#" onclick="foldTag('foldTag6','foldTag-sign6')" class="foldClickedTag">
+                  <strong>0.8.</strong>实战开发步骤
+                  <i id="foldTag-sign6">
+                    <s class="foldTag-sign-s">
+                      ◇
+                    </s>
+                  </i>
+                </a>
+                <ul id="foldTag6">
+                  <li><a href="#built-project">Ⅰ.WebStorm的使用及项目搭建</a></li>
+                  <li><a href="#ico">Ⅱ.ico图标</a></li>
+                  <li><a href="#init">Ⅲ.初始化解析</a></li>
+                  <li><a href="#framework">Ⅳ.实战中的盒子框架</a></li>
+                  <li><a href="#tagSelected">Ⅴ.实战中标签的选择</a></li>
+                  <li><a href="#textSign">Ⅵ.实战中特殊符号的使用</a></li>
+                  <li><a href="#studyPoint">Ⅶ.京东技术点+css调试</a></li>
+                </ul>
+              </li>
+              <li class="endLine">
+
+              </li>
+            </ul>
+        </div>
+
+
+        <div class="rightContentDiv">
+
+
+            <!--0.1. CSS概述部分开始-->
+            <div>
+
+                <h3 id="CSS概述" style="margin-top: -40px;">Css概述 </h3>
+
+                <p class="twoemcontent">web的 衰落：</p>
+                  <div style="margin-left: 4em;">
+                     <p>在web早期（1990-1993）,html是一个很局限的语言。几乎完全由用于描述段落，超链接，列表和标题的结构化元素组成。随着万维网的出现（用户交互体验的加强），对html的要求越来越大，人们迫切需要html增加新的元素，去完成一个特定的功能。</p>
+                  </div>
+                <p class="twoemcontent">一片混乱：</p>
+                  <div style="margin-left: 4em;">
+                     <p>迫于压力，html开始出现&lt;font&gt;，&lt;i&gt; , &lt;s&gt; 等标签。但是html是一种描述结构的语言，也开始描述外在表现了。</p>
+                     <p>几年之后这种随便的做法暴露出严重的问题：1：由于html既写结构又写样式，导致页面缺乏结构性，降低了网页的可访问性。2：页面维护越来越困难</p>
+                  </div>
+                <p class="twoemcontent">Css大救星：</p>
+                     <div style="margin-left: 4em;">
+                     <p>当html中存斥着的表现标记问题，W3c并没有忽视。在1995年，w3c开始发布一种正在进行的计划（work-in-pr0gress） 称之为css。</p>
+                     <p>与html相比，Css支持更丰富的文档外观，Css可以为任何元素的文本和背景设置颜色；允许在任何元素外围设置边框；允许改变文本的大小，装饰（如下划线），间隔，甚至可以确定是否显示文本。</p>
+                     </div>
+
+              <p class="twoemcontent redColor">HTML中设置的叫做标签属性，CSS中设置的叫做标签样式，这点需要区分开，DOM中操作标签属性和样式是明确分开的。</p>
+
+                <br>
+                <h3>CSS的定义</h3>
+                <p class="twoemcontent">CSS通常称为CSS样式表或层叠样式表(Cascading Style Sheets)（级联样式表），主要用于设置HTML页面中的文本内容（字体、大小、对齐方式等）、图片的外形（宽高、边框样式、边距等）以及版面的布局等外观显示样式。</p>
+                <p class="twoemcontent">以HTML为基础，提供了丰富的功能，如字体、颜色、背景的控制及整体排版等，而且还可以针对不同的浏览器设置不同的样式。</p>
+                <p class="twoemcontent">CSS就是控制页面布局和样式，用来美化html标签的，相当于页面化妆。</p>
+
+                <br/>
+
+            </div>
+
+
+            <!--0.2. CSS书写位置部分开始-->
+            <div>
+
+                <h3 id="CSS书写位置">样式表书写位置</h3>
+              <strong>内嵌式写法</strong>
+                <div class="bgcontent" style="width: 300px; margin-left: 4em;">
+                    <p class="twoemcontent">&lt;head&gt;</p>
+                    <p>&lt;style type=”text/css”&gt;</p>
+                    <p>样式表写法</p>
+                    <p>&lt;/style&gt;</p>
+                    <p class="twoemcontent">&lt;/head&gt;</p>
+                </div>
+                <strong>外链式写法</strong>
+                <p>写在head里，<span class="bgcontent">&lt;link rel="stylesheet" href=”1.css”&gt;</span></p>
+
+                <strong>行内样式表</strong>
+                <p>比如h标签，<span class="bgcontent">&lt;h1 style="font-size:30px; color:red;"&gt; 标题h1 &lt;/h1&gt;</span></p>
+
+                <strong>三种写法特点:</strong>
+                <p>内嵌式写法，样式只作用于当前文件，没有真正实现结构表现分离。</p>
+                <p>外链式写法，作用范围是当前站点，谁调用谁生效，范围广，真正实现结构表现分离。</p>
+                <p>行内样式表，作用范围仅限于当前标签，范围小，结构表现混在一起。  （不推荐使用）</p>
+
+              <strong>注意：</strong>
+              <p>我们写css样式文件，分为：公共样式css文件以及特殊功能样式css文件。引进的时候，公共样式写在上面，特殊样式写在下面，因为CSS的层叠性。</p>
+
+          <br/>
+            </div>
+
+
+            <!--0.3. 选择器部分开始-->
+
+            <!--CSS核心：选择器-->
+            <div>
+              <h3 id="基础选择器">选择器</h3>
+              <p>选择器是一个选择谁（标签）的过程。（学CSS最重要的就是学习选择器）</p>
+              <p>实现CSS对HTML页面样式的控制，如果要让这些样式对HTML页面中的元素实现一对一，一对多或者多对一的控制，这就需要用到CSS选择器，HTML页面中的元素就是通过CSS选择器进行控制的。</p>
+              <p>选择器{属性:值； 属性:值;}</p>
+
+              <h3>基础选择器</h3>
+              <dl style="margin-left: 10em;">
+                <dd>标签选择器</dd>
+                <dd>类选择器（重点）：谁调用谁生效</dd>
+                <dd>ID选择器：谁调用谁生效，只能用一次。</dd>
+                <dd>通配符选择器(不推荐使用这个)</dd>
+                <dd>属性选择器</dd>
+              </dl>
+
+              <p class="twoemcontent">写样式的时候，大部分都是用类，极少的使用id。 不提倡用id 去写样式，因为他的权重太高。 Id 主要是为了js做准备。
+              </p>
+              <br/>
+
+              <h4 id="标签选择器">标签选择器</h4>
+              <p class="twoemcontent"><span class="bgcontent">语法：标签{属性：值;}</span></p>
+              <p>特点：标签选择器定义之后，会将页面所有的元素都执行这个标签样式。</p>
+              <div align="center"><img src="img/bqxzq.png" width="300"></div>
+
+              <h4 id="类选择器">类选择器（重点）</h4>
+              <p class="twoemcontent">写法</p>
+              <p><span class="bgcontent">.自定义的类名{属性:值;  属性:值；}</span></p>
+              <div align="center"><img src="img/lxzq.png" width="300"></div>
+              <p class="twoemcontent">特点： 谁调用，谁生效。</p>
+              <p>一个标签可以调用多个类选择器。 比如：<span class="bgcontent">&lt;div class="box miss"&gt;</span>调用多个类&lt;/div&gt;</p>
+              <p>多个标签可以调用同一个类选择器。</p>
+              <p class="twoemcontent">类选择器命名规则</p>
+              <p> 不能用纯数字或者数字开头来定义类名（不生效）</p>
+              <p> 不能使用特殊符号或者特殊符号开头（_特殊，可以用）来定义类名</p>
+              <p> 不建议使用汉字来定义类名（生效，只是不建议）</p>
+              <p> 不推荐使用属性或者属性的值来定义类名</p>
+              <p class="twoemcontent">总结：最好用英文，而且最好能表达是适用在哪里的。</p>
+              <table border="1" cellspacing="0" cellpadding="5" align="center">
+                <caption>类选择器常见命名规范</caption>
+                <tr>
+                  <td>头</td>
+                  <td>header</td>
+                  <td rowspan="8" colspan="2"> <img src="img/lxzqmm.png" width="250"></td>
+                </tr>
+                <tr>
+                  <td>内容</td>
+                  <td>content/container</td>
+                </tr>
+                <tr>
+                  <td>尾</td>
+                  <td>footer</td>
+                </tr>
+                <tr>
+                  <td>导航</td>
+                  <td>nav</td>
+                </tr>
+                <tr>
+                  <td>侧栏</td>
+                  <td>sidebar</td>
+                </tr>
+                <tr>
+                  <td>标志</td>
+                  <td>logo</td>
+                </tr>
+                <tr>
+                  <td>广告</td>
+                  <td>banner</td>
+                </tr>
+                <tr>
+                  <td>页面主体</td>
+                  <td>main</td>
+                </tr>
+                <tr>
+                  <td colspan="4">并不是都以这个为标准，有些公司会有专门的命名规范文档，统一命名，方便维护。</td>
+                </tr>
+              </table>
+
+
+
+
+              <h4 id="ID选择器">ID选择器</h4>
+              <p class="twoemcontent">写法</p>
+              <p><span class="bgcontent">#自定义名称{属性:值;}</span></p>
+              <p class="twoemcontent">特点：</p>
+              <p>ID选择器和类选择器用法一样，区别是同一个HTML页面中不能有相同的ID名称(使用多个相同的ID选择器，浏览器不会报错但是不符合W3C标准了，所以ID选择器命名必须要唯一性)，经常配合JS使用，如果不唯一，JS调用会有问题。</p>
+
+              <p class="bgcontent emContent">一个标签只能有一个ID，如果id="" id=""，前设置的生效。且一个ID名称，在一个HTML页面中，只能被用一次。相当于人与身份证的关系，一一对应。 </p>
+              <p>一个ID对应一个ID选择器，因为ID在一个HTML中是唯一的。所以一个标签也就只能调用一个ID选择器。对应的，一个ID选择器，也只能被调用一次</p>
+              <p class="twoemcontent">一个标签可以同时调用类选择器和ID选择器。</p>
+
+              <h4 id="通配符选择器">通配符选择器</h4>
+              <p class="twoemcontent">写法：</p>
+              <p><span class="bgcontent">*{属性:值;}</span></p>
+              <p class="twoemcontent">特点：</p>
+              <p>给所有的标签都使用相同的样式。</p>
+              <p class="twoemcontent">★不推荐使用，初始化慢，浪费性能，增加浏览器和服务器负担。</p>
+
+              <h4 id="属性选择器">属性选择器</h4>
+              <p><span class="bgcontent">p[title]{ }</span> 所有p标签中，设置了title属性的都生效</p>
+              <p><span class="bgcontent">p[title="xx"]{ } </span>  p标签中设置title=xx的生效</p>
+              <p><span class="bgcontent">p[title="xx"][width]{ } </span> 两个条件：设置title=xx,且设置了width属性的 </p>
+
+              <br/>
+
+              <h3 id="复合选择器">复合选择器</h3>
+              <p class="twoemcontent">概念：</p>
+              <p>两个或者两个以上的基础选择器通过不同的方式连接在一起。</p>
+              <ul type="square">
+                <li>交集选择器（即调用了前面那个选择器，又调用了后面那个选择器的标签设置属性生效）  标签.类{ }、标签#ID{ }</li>
+                <li>后代选择器（调用了前面那个选择器的标签，儿子、孙子、重孙子标签调用了后面那个选择器的生效，只要是它的后代都行，可以隔代）（重点）</li>
+                <li>子代选择器（与后代选择器区别，在于不能隔代，必须是标签调用前面那个选择器，儿子标签调用了后面那个。 ）</li>
+                <li>并集选择器（调用了中间任何一个选择器的都生效）</li>
+              </ul>
+
+
+              <h4 id="交集选择器">交集选择器</h4>
+              <p class="twoemcontent">写法：</p>
+              <p><span class="bgcontent">标签+类/ID选择器{属性：值；}  </span></p>
+              <p class="twoemcontent">特点：</p>
+              <p>即要满足使用了某个标签，还要满足使用了类（id）选择器。</p>
+              <div align="center"><img src="img/jjxzq.png" width="300"></div>
+
+              <h4 id="后代选择器">后代选择器（重点）</h4>
+              <strong>写法：</strong>
+              <p><span class="bgcontent">选择器+空格+选择器{属性：值;}</span></p>
+              <strong>解释说明：</strong>
+              <p>后代选择器用来选择元素或元素组的后代，其写法就是把外层标记写在前面，内层标记写在后面，中间用空格分隔。当标记发生嵌套时，内层标记就成为外层标记的后代。</p>
+              <p>后代选择器首先要满足包含（嵌套）关系 也就是前面的选择器包含后面的选择器。</p>
+              <p>定义的属性是生效在最后一级的选择器中。</p>
+              <p>父集元素在前边，子集元素在后边。</p>
+              <strong>特点：</strong>
+              <p>无限制隔代，前后选择器中间可以有其他的选择器。</p>
+              <p>标签选择器、类选择器、ID选择器自由组合。</p>
+              <div align="center"><img src="img/hdxzq.png" width="300"></div>
+
+              <strong>后代选择器的使用</strong>
+              <p class="twoemcontent">1.避免代码污染</p>
+              <p>因为我们遇到的最多的就是后代选择器，使用后代选择器的时候，注意不要牵扯到其他地方的代码。</p>
+              <p>比如：.box div ul  li  a { }。这种就很容易污染到其他地方的代码。因为其他地方也可能有这种嵌套。</p>
+              <p class="sixemcontent">这个时候可以改一下我们的类名，改成独特一点的。</p>
+              <p class="sixemcontent">轻易不要用base.css中的类选择器，来做后代选择器。base.css中的类选择器，很多地方会调用的</p>
+
+              <p class="twoemcontent">2.不要超过三层</p>
+              <p>一般我们的后代选择器不要超过三个，否则的话，当我们想要层叠这个样式，提高优先级的时候，就太困难了，你三个，层叠你，我得四个，然后五个。一般来说三个就行了，超过了4个就该ID选择器、!improtant 出场了</p>
+
+              <p class="twoemcontent">3.后代选择器大量出现的原因 — 优先级层叠</p>
+              <p>一旦出现第一个后代选择器，那么以后这个标签里层的子标签再调用的类控制器，为了提高控制器优先级，不被层叠掉，只能把它父标签对应的控制器加上形成后代选择器，以增加优先级</p>
+
+              <strong>选择器复用</strong>
+              <p class="twoemcontent">1.内容一样  2. 标签的样式设置成一样  2.如果牵扯到需要设置父标签，那将父标签的一些属性也设置一样。</p>
+              <p class="twoemcontent">注意：</p>
+              <p>比如：加入已有模块，是调用的后代选择器： .nav-site ul . 第三步中，设置父标签样式一样时，别图简单，直接调用.nav-site。因为取名都有语义化的。自己再起个名，然后加上去，并集选择器。</p>
+
+
+
+
+              <h4 id="子代选择器">子代选择器</h4>
+              <p class="twoemcontent">写法：</p>
+              <p><span class="bgcontent">选择器>选择器{属性:值;}</span></p>
+              <p class="twoemcontent">选中直接下一代元素。</p>
+              <div align="center"><img src="img/zdxzq.png" width="300"></div>
+
+              <h4 id="并集选择器">并集选择器</h4>
+              <p class="twoemcontent">写法：</p>
+              <p><span class="bgcontent">选择器，.选择器，#选择器{属性:值;}</span></p>
+              <div align="center"><img src="img/bjxzq.png" width="300"></div>
+
+              <h4 id="brother">兄弟选择器</h4>
+              <div>
+                <p class="twoemcontent">div+p: 兄弟选择器</p>
+                  <p>div后面紧邻的第一个p，如果div span p 这个时候是不生效的</p>
+                <p class="twoemcontent">div~p: 兄弟选择器</p>
+                  <p>div后面所有的兄弟p</p>
+              </div>
+
+            </div>
+
+            <!--伪类选择器-->
+            <div>
+              <h3 id="伪类">CSS伪类</h3>
+              <p class="twoemcontent">  CSS 伪类用于向某些选择器添加特殊的效果。</p>
+              <p class="twoemcontent">伪类的顺序：L-V-H-A(如果都写，务必按照顺序来写)</p>
+              <div class="bgcontent">
+                <ul>
+                  <li>:link 链接未被访问过的时候（a标签）  </li>
+                  <li>:visited   链接被访问之后的时候（a标签）</li>
+                  <li>:hover    鼠标放到标签上的时候（所有选择器通用） </li>
+                  <li>:active   鼠标点击标签，没松开的时候（所有选择器通用）</li>
+                  <li>:focus   拥有键盘输入焦点的时候（input标签，这个设置的时候会覆盖active状态）</li>
+                </ul>
+              </div>
+              <p>a:visited这个状态，界面刷新也会保持着，清了缓存就会变过来了</p>
+
+              <p class="twoemcontent redColor">a:hover也可以看成一个类选择器，伪类，优先级算11，它里面的样式也是可以被层叠掉的</p>
+
+              <strong>还有一种用法：</strong>
+              <p>鼠标放在div上的时候改变a连接的颜色，选择器写法：<span class="bgcontent">.box:hover a {  }</span></p>
+
+              <br>
+              <p class="twoemcontent">文本修饰(常用属性)</p>
+              <p>超链接经常配合hover状态来设置的下划线属性</p>
+              <p>text-decoration: none  |   underline   |     line-through</p>
+              <p>在a:link，a:hover中对应设置</p>
+            </div>
+
+            <!--CSS样式三大特性-->
+            <div>
+
+              <h3 id="CSS三大特性">css三大特性</h3>
+              <p class="twoemcontent">层叠性</p>
+              <p>当同一个（同一类）标签调用了多个选择器样式时，样式发生了冲突，总是执行后边的代码(后边代码层叠前边的代码)。和标签调用选择器的顺序没有关系。（这个层叠需要参考第三个特性，优先级）</p>
+
+
+              <p class="twoemcontent">继承性</p>
+              <p>继承性发生的前提是包含（嵌套关系）</p>
+              <div style="margin-left: 4em">
+                <ul>
+                  <li>文字颜色可以继承</li>
+                  <li>文字大小可以继承</li>
+                  <li>字体可以继续</li>
+                  <li>字体粗细可以继承</li>
+                  <li>文字风格可以继承</li>
+                  <li>行高可以继承</li>
+                </ul>
+              </div>
+              <p>总结：文字的所有属性都可以继承。</p>
+              <p>◆特殊情况：</p>
+              <p class="sixemcontent">h系列不能继承文字大小。(其实是继承了，但是浏览器内核给了h标签还有一个属性，比如h1, font-size = 2em，也就是是你继承的文字大小的2倍，h2 ,font-size = 1.5em)</p>
+              <p class="sixemcontent">a标签不能继承文字颜色。（浏览器内核，规定的就是超链接 color = blue）</p>
+              <p class="twoemcontent">优先级(通配符选择器仅大于继承样式，但是不推荐使用)</p>
+              <table style="margin-left: 4em" border="1" cellpadding="5" cellspacing="0">
+                <tr>
+                  <th>选择器</th>
+                  <td>默认/继承样式</td>
+                  <td>标签选择器</td>
+                  <td>类选择器</td>
+                  <td><"ID"选择器</td>
+                  <td>行内样式</td>
+                  <td><"!important"修饰符 </td>
+                </tr>
+                <tr align="center">
+                  <th>权重</th>
+                  <td>0</td>
+                  <td>1</td>
+                  <td>10</td>
+                  <td>100</td>
+                  <td>1000</td>
+                  <td>1000以上</td>
+                </tr>
+                <tr>
+                  <td colspan="7">
+                    1.权重数字仅供参考，实际上100个标签选择器权重相加，也比不上一个类选择器。<br/>
+                    2.通配符选择器的权重仅大于继承样式。
+                  </td>
+                </tr>
+              </table>
+
+              <p class="twoemcontent">优先级特点</p>
+              <p>继承的权重为0，优先级最低。权重相同时，后面的生效</p>
+              <p>权重会叠加：这个是针对复合选择器来说的，以上面的权重数值来说</p>
+              <p class="sixemcontent">p.son{ }   权重为1+10 = 11</p>
+              <p class="sixemcontent">.father  .son{ }  权重为10+10 = 20</p>
+              <p class="sixemcontent">#father  .son{ }  权重为100+10 = 110</p>
+
+            </div>
+
+
+            <!--选择器代码规范-->
+            <h3 id="codeStyleRule">选择器代码规范</h3>
+            <div>
+            <table border="1" cellpadding="8" cellspacing="0">
+              <thead>
+              <tr>
+                <th width="100px">模块</th>
+                <th width="400px">规范</th>
+                <th>补充内容</th>
+              </tr>
+              </thead>
+              <tbody style="font-size: 13px;">
+              <tr>
+                <th>文件</th>
+                <td>css文件使用无BOM的UTF-8编码</td>
+                <td>这个BOM是：ByteOrderMark</td>
+              </tr>
+              <tr>
+                <th>缩进</th>
+                <td>使用 4 个空格做为一个缩进层级</td>
+                <td>不允许使用 2 个空格 或 tab 字符</td>
+              </tr>
+              <tr>
+                <th rowspan="3">空格</th>
+                <td>选择器与&nbsp; { &nbsp;之间必须包含空格</td>
+                <td rowspan="3">
+                  <div class="bgcontent" style="width: 250px; text-indent: 0;margin: 0 auto">
+                    <p class="twoemcontent">.box(空格){</p>
+                    <p>font:(空格)14px SimSun;</p>
+                    <p class="twoemcontent">}</p>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>属性名与之后的&nbsp; : &nbsp;之间不允许包含空格，<br>
+                  : &nbsp;与属性值之间必须包含空格</td>
+              </tr>
+              <tr>
+                <td>列表型属性值书写在单行时，&nbsp;, &nbsp;后必须跟一个空格。</td>
+              </tr>
+
+              <!--选择器-->
+              <tr>
+                <th rowspan="4">选择器</th>
+                <td colspan="2">注意类选择器的命名，根据语义化，用-连接，比如foot-top-slogen，另一方面也可防止重名，而造成代码污染。</td>
+                <!--<td rowspan="4"></td>-->
+              </tr>
+              <tr>
+                <td colspan="2">并集选择器：集体声明多个 selector 时，每个选择器声明必须独占一行。</td>
+              </tr>
+              <tr>
+                <td colspan="2">后代选择器：嵌套层级应不大于 3 级，位置靠后的限定条件应尽可能精确。(层级多了，优先级太大，后面的样式不容易层叠)</td>
+              </tr>
+              <tr>
+                <td colspan="2"> >、+、~ 选择器的两边各保留一个空格。</td>
+              </tr>
+
+              <!--属性-->
+              <tr>
+                <th rowspan="4">属性</th>
+                <td colspan="2">属性定义必须另起一行。</td>
+                <!--<td rowspan="4"></td>-->
+              </tr>
+              <tr>
+                <td colspan="2">属性定义后必须以分号结尾。</td>
+              </tr>
+              <tr>
+                <td colspan="2">选择器中有定位的，建议先写定位样式，容易阅读</td>
+              </tr>
+              <tr>
+                <td colspan="2">在可以使用缩写的情况下，尽量使用属性缩写。比如font:/background:/border:/padding:/margin:/色值#000等</td>
+              </tr>
+
+              <!--颜色属性-->
+              <tr>
+                <th rowspan="3">颜色属性</th>
+                <td colspan="2">
+                  RGB颜色值必须使用十六进制记号形式 #rrggbb<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;颜色值可以缩写时，必须使用缩写形式。<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;颜色值中的英文字符采用小写。如不用小写也需要保证同一项目内保持大小写一致。
+              </tr>
+              <tr>
+                <td colspan="2">不允许使用 rgb()</td>
+              </tr>
+              <tr>
+                <td colspan="2">不允许使用命名色值(red,blue等)</td>
+              </tr>
+
+
+
+              <!--其他-->
+              <tr>
+                <th rowspan="6">其他属性</th>
+                <td colspan="2">文本内容：文本内容必须用双引号包围。</td>
+              </tr>
+              <tr>
+                <td colspan="2">数值：当数值为 0 - 1 之间的小数时，省略整数部分的0 ( .2 / .3)。</td>
+              </tr>
+              <tr>
+                <td colspan="2">长度：长度为 0 时须省略单位。 (也只有长度单位可省)</td>
+              </tr>
+              <tr>
+                <td colspan="2">url()：url() 函数中的路径不加引号。</td>
+              </tr>
+              <tr>
+                <td colspan="2">font-weight： font-weight 属性必须使用数值方式描述，不要用bold。</td>
+              </tr>
+              <tr>
+                <td colspan="2">z-index：层级(z-index)必须清晰明确，页面弹窗、气泡为最高级（最高级为999），不同弹窗气泡之间可在三位数之间调整；</td>
+              </tr>
+
+              <!--清除浮动-->
+              <tr>
+                <th>清除浮动</th>
+                <td colspan="2">
+                  &nbsp;&nbsp;&nbsp;&nbsp;当元素需要撑起高度以包含内部的浮动元素时，通过对伪类设置 clear 或触发 BFC 的方式进行 clearfix。尽量不使用增加空标签的方式。<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;另需注意，对已经触发 BFC 的元素不需要再进行 clearfix。
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="3" align="center">CSS检测地址：http://jigsaw.w3.org/css-validator/</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+
+
+            <!--0.4.  选择器的所有学到的css样式属性汇总-->
+            <div>
+
+              <h3 id="选择器概述、及属性汇总">CSS基础中学到的所有CSS样式属性</h3>
+              <br>
+                  <table align="center" border="1" cellpadding="8" cellspacing="0" style="font-size: 12px">
+                    <tr>
+                      <th colspan="2">属性</th>
+                      <th>解释</th>
+                      <th>补充</th>
+                    </tr>
+                    <tr>
+                      <td rowspan="5" width="100px" align="center">标签通用属性</td>
+                      <td width="150">Color&nbsp;:&nbsp;red;</td>
+                      <td>文字颜色</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Background-color&nbsp;:&nbsp;red;</td>
+                      <td>背景颜色</td>
+                      <td>可以用rgb()、rgba()、十六进制来表示</td>
+                    </tr>
+                    <tr>
+                      <td>opacity</td>
+                      <td>标签透明度</td>
+                      <td>注意：里面的内容也会变透明。<br>
+                          所以如果要透明背景，一般用上面的背景色，改变背景色的透明度 <br>
+                        (IE8以前filter: alpha(opacity=xx))
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>vertical-align</td>
+                      <td>设置标签垂直的对齐方式</td>
+                      <td>默认是baseline,常用来设置图片和文字的垂直对齐。<a href="#verticalalign">点击查看</a></td>
+                    </tr>
+                    <tr>
+                      <td>cursor</td>
+                      <td>鼠标移动到标签上的显示图标</td>
+                      <td>pointer:小手；move:四角箭头；<br>text:输入条光标；default:小白箭头；</td>
+                    </tr>
+
+
+                    <tr>
+                      <td colspan="4" height="5px" style="background-color: #ddd"></td>
+                    </tr>
+                    <tr>
+                      <!--<td rowspan="13" align="center">块、行内块<br>元素属性</td>-->
+                      <td rowspan="14" align="left">
+                          <a href="#盒子模型">
+                              盒子模型属性
+                          </a><br><br>
+                            块、行内块元素都可以看做盒子<br><br>
+                            工作中用的最多的盒子就是div
+                      </td>
+                      <td>text-align&nbsp;:&nbsp;left | center| right</td>
+                      <td>内容的水平对齐方式</td>
+                      <td>
+                        对图片和文字都适用 <br>
+                        <span class="bgcontent">此外也可以通过margin、padding、定位实现内容居中</span>
+                      </td>
+                    </tr>
+
+                    <tr>
+
+                      <td>text-indent&nbsp;:&nbsp;<strong>px、2em、%</strong>;</td>
+                      <td>内容首行缩进(不是标签本身缩进)</td>
+                      <td>对图片和文字都实用<br>
+                          行内元素的宽高是被内容撑开的，所以也就没法缩进<br>
+                          注意带单位：不管是em,还是px
+                        </td>
+                    </tr>
+                    <tr>
+                      <td>Width:<strong>20px、em、%</strong>;</td>
+                      <td>宽</td>
+                      <td rowspan="2" class="emContent">
+                        写的时候，注意写单位.<br>
+                        只有行高才有不带单位的那种表示方法
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Height:<strong>20px、em、%</strong>;</td>
+                      <td>高</td>
+                    </tr>
+
+                    <tr>
+                      <td colspan="3" height="5px" style="background-color: #ddd"></td>
+                    </tr>
+                    <tr>
+                      <td rowspan="4" align="center">border边框<br/>border-top|bottom|left|right<br>边框增大盒子大小</td>
+                      <td>border-top-style边框线型</td>
+                      <td>solid实线、dotted点线、dashed虚线</td>
+                    </tr>
+                    <tr>
+                      <td>border-top-color颜色</td>
+                      <td>默认黑色</td>
+                    </tr>
+                    <tr>
+                      <td>border-top-width边框宽度</td>
+                      <td>默认3px</td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">
+                        边框属性连写：<br/>
+                        border-top:red solid 6px 没有顺序要求，线型必写<br/>
+                        border:red solid 6px. 四个边框设置一样时的简写。顺序没要求，线型必写
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td align="center">padding内边距<br/>Padding-top|bottom|left|right<br/>内边距撑大盒子</td>
+                      <td colspan="2">
+                        padding连写&nbsp;&nbsp;&nbsp;&nbsp;<span class="bgcontent">上右下左，顺时针</span><br>
+                        Padding: 20px;  &nbsp;&nbsp; 上右下左内边距都是20px<br>
+                        Padding: 20px 30px;  &nbsp;&nbsp; 上下20px   左右30px<br>
+                        Padding: 20px  30px  40px;  &nbsp;&nbsp; 上20px  左右30px 下40px<br>
+                        Padding:  20px  30px   40px  50px; &nbsp;&nbsp;  上20px 右30px  下40px  左50px
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="center">margin外边距<br/>margin-left|right|top|bottom</td>
+                      <td colspan="2">
+                        <p>margin连写:同内边距一模一样</p>
+                        <p><span class="bgcontent">上右下左，顺时针</span></p>
+                        <p style="text-indent: 0em">margin: 0 auto 让盒子居中(text-align:center ，让标签内的内容居中)</p>
+                        <p style="text-indent: 0em">外边距合并：两个盒子垂直一个设置上外边距，一个设置下外边距，取的设置较大的值。</p>
+                        <p style="text-indent: 0em">外边距塌陷：给子盒子设置边距，子盒子和父盒子同时移动了，且相对不变</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>border-collapse</td>
+                      <td>边框合并</td>
+                      <td>设置为collapse，边框合并，一般用于&lt;table&gt;标签</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        border-radius <br>
+                        单位：px、em、50%(宽高一半)
+                      </td>
+                      <td>边框圆角</td>
+                      <td>
+                        border-radius: 左上|右上|右下|左下 四个值，只写一个表示四个值相同，都为此数值。 <br>
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>overflow</td>
+                      <td>当内容超出盒子范围时</td>
+                      <td>
+                        解决外边距塌陷问题。清楚浮动(不推荐)<br>
+                        <a href="#overflow">点击查看</a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td colspan="4">
+                        补充：<br>
+                        行内元素设置border/padding/margin：&nbsp;&nbsp;border会全生效，padding、margin只有左右生效，上下padding、margin会被忽略。<br>
+                        其实设置上下padding，也会有一点效果的，那就是背景色的高度会被撑开，但是丝毫不会影响到布局, 自身、兄弟盒子、父盒子还是在原有的位置<br>
+                        很好用的一个属性，早就感觉行内元素之间间隙加空格low了，span应该很经常用
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td colspan="4" height="5px" style="background-color: #ddd"></td>
+                    </tr>
+                    <tr>
+                      <td rowspan="6" align="center"><a href="#文本属性及连写">文本属性</a></td>
+                      <td>font-style:normal|italic;</td>
+                      <td>文字风格</td>
+                      <td>normal正常、italic斜体</td>
+                    </tr>
+                    <tr>
+                      <td>font-weight</td>
+                      <td>文字线条粗细</td>
+                      <td>100-900，700相当于bold</td>
+                    </tr>
+                    <tr>
+                      <td>font-size:24px;</td>
+                      <td>文字大小</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>line-height：<strong>px、2em、%、2</strong></td>
+                      <td>行高</td>
+                      <td>
+                        <span class="emContent">对超链接也生效，常被用来设置文字和超链接垂直居中</span><br>
+                        <a href="#行高">点击查看详解</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>font-family</td>
+                      <td>字体类型</td>
+                      <td>常用：微软雅黑、宋体</td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">文本属性连写：font&nbsp;:&nbsp;italic 700 16px/40px  微软雅黑;
+                    </td>
+                      <td>1.必须按上面顺序&nbsp;&nbsp;2.font-size、font-family必写</td>
+                    </tr>
+                    <tr>
+                      <td colspan="4" height="5px" style="background-color: #ddd"></td>
+                    </tr>
+
+
+                    <tr>
+                      <td rowspan="6" align="center"><a href="#背景属性及连写">背景属性</a></td>
+                      <td>background-color</td>
+                      <td>背景颜色</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>background-image:url()</td>
+                      <td>背景图片</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>background-repeat </td>
+                      <td>背景图片是否平铺</td>
+                      <td>repeat(默认平铺) | no-repeat| repeat-x | repeat-y</td>
+                    </tr>
+                    <tr>
+                      <td>background-position</td>
+                      <td>背景图片的位置</td>
+                      <td>left | right | center | top | bottom</td>
+                    </tr>
+                    <tr>
+                      <td>background-attachment</td>
+                      <td>背景是否滚动</td>
+                      <td><a href="#background-attachment">scroll | fixed</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">背景属性连写：background:red url() no-repeat 20px 30px scroll</td>
+                      <td>没有顺序要求</td>
+                    </tr>
+                    <tr>
+                      <td colspan="4" height="5px" style="background-color: #ddd"></td>
+                    </tr>
+
+                    <tr>
+                      <td align="center">超链接属性</td>
+                      <td>text-decoration</td>
+                      <td>文本修饰</td>
+                      <td>none | underline | line-through</td>
+                    </tr>
+                    <tr>
+                      <td colspan="4" height="5px" style="background-color: #ddd"></td>
+                    </tr>
+                    <tr>
+                      <td align="center">列表属性</td>
+                      <td>list-style</td>
+                      <td>列表项目编号</td>
+                      <td>none去掉编号</td>
+                    </tr>
+                    <tr>
+                      <td colspan="4" height="5px" style="background-color: #ddd"></td>
+                    </tr>
+                    <tr>
+                      <td align="center" rowspan="3">input控件属性</td>
+                      <td>border</td>
+                      <td>边框</td>
+                      <td>默认自带边框，设置为"0&nbsp;none"，去边框</td>
+                    </tr>
+                    <tr>
+                      <td>outline-style</td>
+                      <td>拥有键盘输入焦点时的轮廓线</td>
+                      <td>none，去掉蓝色轮廓线</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3"><span class="bgcontent">input:focus{}</span>表单控件在拥有键盘输入焦点的时候状态。补充：<span class="bgcontent"> label for id 获取焦点</span></td>
+                    </tr>
+                    <tr>
+                      <td colspan="4" height="5px" style="background-color: #ddd"></td>
+                    </tr>
+
+                    <tr>
+                      <td align="center">textarea</td>
+                      <td>resize</td>
+                      <td>右下角的拖拽放大缩小</td>
+                      <td>none- 禁止文本框拖拽</td>
+                    </tr>
+
+
+                  </table>
+                  <br>
+                    <p class="twoemcontent">补充：</p>
+                    <p>1. 文本属性，行高问题</p>
+                        <p class="sixemcontent">同一个选择器，行高写在font:18px 宋体; 前。或者继承父元素的行高，然后自己设置font:18px 宋体;</p>
+                        <p class="sixemcontent">行高设置不起作用，原因:连写font:18px 宋体;将行高层叠了(font连写，不写的属性，默认表示用默认的数值)</p>
+                        <p class="sixemcontent">如果fontsize,fontfamily分开写，不连写，是不会有问题的</p>
+
+                    <p>2. web开发中的单位 - px</p>
+                    <p class="sixemcontent">移动端写布局都是考虑的屏幕的物理点位，因为手机的ppi相差很大，所以导致相同屏幕，分辨率也差很多，这时候，如果布局用px的话，那么一个相同的布局，在两个屏幕上的显示会差很多很多。而如果使用物理点位，就保证了布局一致</p>
+                    <p class="redColor">web中的单位px，其实底层是转换为了dip/dp，也就说与APP开发时是一样的</p>
+<br>
+                    <p style="color: red">3. body默认宽高是0，有内容才会被撑起来有具体宽高</p>
+            </div>
+
+
+            <!--overflow / vertical-align -->
+            <div>
+                  <!--overflow-->
+                  <h3 id="overflow">Overflow属性</h3>
+                  <p class="twoemcontent">overflow 属性规定当内容溢出元素框时发生的事情。</p>
+                  <div align="center"><img src="img/overflow.png" alt="" width="500px"></div>
+                  <p>scroll 会一直显示滚动条，而auto，只有当内容过多的时候才显示</p>
+                  <p class="twoemcontent">overflow :hidden其他用途：</p>
+                      <p>1. 解决外边距塌陷</p>
+                      <p>2. 清除浮动(不推荐,因为超出的就不显示了，还是伪元素清除浮动)</p>
+                      <p>3. 阻止文本饶图效果 <a href="#overNO">点击查看详情</a></p>
+                  <br>
+
+                    <!--图片文字居中对齐-->
+                  <div>
+                    <h3 id="verticalalign">vertical-align使图片和文字居中对齐</h3>
+
+                    <strong>概述</strong>
+                    <p class="twoemcontent">默认属性是:vertical-align:baseline;即同一行元素，默认底部对齐着。vertical-align对inline-block最敏感。也就是说一般用于行内块。</p>
+
+                    <strong>使用：</strong>
+                    <p class="twoemcontent">vertical-align，设置元素的竖直上的坐标，y坐标对齐方式，iOS里也是老是混淆，vertical就理解为y轴、y坐标吧)</p>
+                    <p class="twoemcontent">标签的这个属性，可以理解为，用自己身体的那个地方，跟同行的其他元素对齐。设置为middle，意思就是用自己的中部，跟同行的其他标签的底部(因为标签的这个属性，默认是baseline)对齐。</p>
+                    <p class="twoemcontent">如果一行元素，四个行内块，设置一个为middle，就会发现这个元素的centerY跟其他三个的底部对齐</p>
+                    <div align="center">
+                      <img src="img/verticalalign.png" style="vertical-align: middle;" alt="" width="500px">
+                    </div>
+
+                    <strong>注意：</strong><br/>
+                    <p class="twoemcontent">行内元素是以自己的底部跟其他元素的设置(baseline/bottom)对齐的。</p>
+                    <p class="twoemcontent">行内块元素偶尔底部距离其他盒子(包括父盒子)会有3px的距离，通过设置vertical-align:bottom可以消除这3px.</p>
+                  </div>
+            </div>
+
+
+            <!--文本属性、背景属性、色值-->
+            <div>
+
+                <h3 id="文本属性及连写">文本属性及属性连写</h3>
+              <strong>属性</strong>
+                <p>font-size:16px;  文字大小</p>
+                <p>Font-weight: 700  ;  值从100-900，700约等于bold，文字粗细，不推荐使用font-weight:bold;</p>
+                <p>Font-family:微软雅黑;  文本的字体</p>
+                <p>Font-style: normal | italic;      normal 默认值  italic  斜体</p>
+                <p>line-height: 行高 <a href="#行高">点击下面看行高详解</a></p>
+
+                <strong>文本属性连写</strong>
+                <p class="twoemcontent">语法：</p>
+                  <p><span class="bgcontent">font: font-style font-weight  font-size/line-height  font-family;</span></p>
+                  <p>比如：<span class="bgcontent">font:italic 700 16px/40px  微软雅黑;</span></p>
+              <strong>注意：</strong>
+                  <p class="twoemcontent">font:后边写属性的值。一定按照书写顺序（前面两个可以换，但是最好还是按照这个顺序。一旦写乱了，是不生效的）。</p>
+                  <p class="twoemcontent">文本属性连写，文字大小和字体为必写项。</p>
+              <p>当行内元素，继承了父标签(不管是行内元素还是块元素)的行高，然后在自己的选择器中又单设置了font-family为黑体或者宋体，行高会加一</p>
+
+
+                <strong>文字的表达方式</strong>
+                 <p class="twoemcontent">最常用的宋体、微软雅黑，顶多再加个黑体</p>
+                <p>1.直接写中文名称。</p>
+                <p>2.写字体的英文名称。</p>
+                <p>3.unicode 编码</p>
+              <p class="twoemcontent">比如：宋体：Arial, Verdana, "\5b8b\4f53”都是宋体。以后讲到Unicode事细说</p>
+              <p class="twoemcontent">谷歌不支持12号以下的字体最小12号</p>
+
+                <table border="1" cellspacing="0" cellpadding="5" align="center">
+                  <tr>
+                    <th>字体名称</th>
+                    <th>英文名称</th>
+                    <th>Unicode编码</th>
+                  </tr>
+                  <tr class="emContent">
+                    <td>宋体</td>
+                    <td>SimSun</td>
+                    <td>\5B8B\4F53</td>
+                  </tr>
+                  <tr class="emContent">
+                    <td>微软雅黑</td>
+                    <td>microsoft yahei</td>
+                    <td>\5FAE\8F6F\96C5\9ED1</td>
+                  </tr>
+                  <tr class="emContent">
+                    <td>黑体</td>
+                    <td>SimHei</td>
+                    <td>\9ED1\4F53</td>
+                  </tr>
+                  <tr>
+                    <td>新宋体</td>
+                    <td>NSimSun</td>
+                    <td>\65B0\5B8B\4F53</td>
+                  </tr>
+                  <tr>
+                    <td>楷体_GB2312</td>
+                    <td>KaiTi_GB2312</td>
+                    <td>\6977\4F53_GB2312</td>
+                  </tr>
+                  <tr>
+                    <td>隶书</td>
+                    <td>LiSu</td>
+                    <td>\96B6\4E66</td>
+                  </tr>
+                  <tr>
+                    <td>幼圆</td>
+                    <td>YouYuan</td>
+                    <td>\5E7C\5706</td>
+                  </tr>
+                  <tr>
+                    <td>华文细黑</td>
+                    <td>STXihei</td>
+                    <td>\534E\6587\7EC6\9ED1</td>
+                  </tr>
+                  <tr>
+                    <td>细明体</td>
+                    <td>MingLiU</td>
+                    <td>\7EC6\660E\4F53</td>
+                  </tr>
+                  <tr>
+                    <td>新细明体</td>
+                    <td>PMingLiU</td>
+                    <td>\65B0\7EC6\660E\4F53</td>
+                  </tr>
+                </table>
+
+                <p class="twoemcontent">或者：</p>
+                <p>第一步：f12/打开代码审查</p>
+                <p>第二步：找到console</p>
+                <p>第三步：输入escape(“宋体”)  注意英文的括号和双引号。</p>
+                <div align="center"><img src="img/Unicodebm.png" width="300"></div>
+
+
+
+
+
+                <h3 id="行高">行高</h3>
+
+                <p>浏览器默认为文字大小</p>
+                <p>浏览器默认文字大小：16px</p>
+                <p>行高的标准定义：是基线与基线之间的距离</p>
+                <p>行高的表现：行高=文字高度+上下边距。<span class="bgcontent">决定了上下边距,一行文字行高和父元素高度一致的时候，垂直居中显示。</span></p>
+                <div align="center"><img src="img/hg.png" width="400"></div>
+
+
+
+                <h3>缩进和行高的数值设置</h3>
+                <p class="twoemcontent">首行缩进 text-indent 的单位：em，%，px，不支持行高那样直接写数值比如：2 ，3 </p>
+                <p>px，是固定的数值，下面继承的子元素也是这个数值，不必多说</p>
+                <p>%，当前标签宽度的百分比，下面继承的是算出来的数值</p>
+                <p>em，当前标签内一个文字的大小，下面继承的是数值</p>
+                <p class="twoemcontent">行高有四个单位：em，%，px，数字2，3。前三个同上，第四个多出来的，也是不一样的</p>
+                <p>2，当前文字大小* 2，下面继承的是这个比例2，而不是具体行高数值。也就是说子元素的行高 = 2 * 子元素的文字大小</p>
+                <p><span class="bgcontent emContent">推荐使用像素作为单位</span></p>
+
+
+
+
+                <h3 id="背景属性及连写">背景属性及属性连写</h3>
+                <p class="twoemcontent">属性：</p>
+                      <p>background-color     背景颜色</p>
+                      <p>background-image    背景图片</p>
+                      <p>background-repeat    repeat(默认平铺)  |  no-repeat |   repeat-x   |  repeat-y     背景平铺</p>
+                      <p>background-position  left|right|center|top|bottom 背景定位（背景图片不平铺的时候，背景图片从标签的哪个位置开始铺展开。换句话说就是背景图片的左上角在标签中的坐标点）</p>
+
+                <p class="sixemcontent">方位值只写一个的时候，另外一个值默认居中。</p>
+                <p style="text-indent: 6em"><span class="bgcontent">比如：background-position: right;</span></p>
+
+                <p class="sixemcontent">写2个方位值的时候，顺序没有要求。</p>
+                <p style="text-indent: 6em"><span class="bgcontent">比如：background-position: right bottom;</span></p>
+
+                <p class="sixemcontent">写2个具体数值的时候，第一个值代表水平方向，第二个值代表垂直方向。</p>
+                <p style="text-indent: 6em"><span class="bgcontent">比如：background-position:20px 30px;</span></p>
+                <br>
+                <p id="background-attachment">background-attachment   背景是否滚动   scroll  |  fixed</p>
+                <p class="sixemcontent">scroll，表示，前面的坐标，是在设置背景图片在这个标签上的位置</p>
+                <p class="sixemcontent">fixed，表示，前面的坐标，是在设置图片在这个浏览器显示页面上的位置</p>
+                <p>注意：</p>
+                <p style="text-indent: 6em">1.如果是fixed，且设置的right，而标签本身没这么宽，那么这个背景图片是看不见的 </p>
+                <p style="text-indent: 6em">2.因为坐标是设置的在图片在浏览器显示页面上的位置，那么即使这个标签很长，能够一直滚动，那么也是一直能看见的(参考scrollview理解，fixed相当于加在了scrollview.frame上，而不是contentsize上。scroll相当于加到了scrollview里面的标签上)</p>
+              <br>
+              <p class="twoemcontent">背景属性连写</p>
+                <p class="twoemcontent">语法：</p>
+                <p><span class="bgcontent">background: red url("..") no-repeat 30px 40px scroll;</span></p>
+                <p class="twoemcontent">连写的时候没有顺序要求。</p>
+
+
+                <h3 id="色值">颜色的显示方式</h3>
+                  <p class="twoemcontent">1.直接写颜色的名称</p>
+                  <p class="twoemcontent">2.十六进制显示颜色(常用): 0-9  a-f</p>
+                    <p>1.前2为代表红色，中间2位代表绿色，后边2位代表蓝色。</p>
+                    <p>2.#000000是黑色，#ffffff 是白色，三对数值一样的是灰色</p>
+                    <p>3.如果6个数值一样，写三个就行了，#fff,#000。iOS中那个色值工具类不行，不支持</p>
+                    <p>windows系统里有个软件fireworks可以吸取颜色，Mac系统有自带的工具</p>
+                  <p class="twoemcontent">3.rgb</p>
+                    <p>语法：<span class="bgcontent">color：rgb(120,120,120);</span></p>
+                  <p class="twoemcontent">4.rgba      A代表alpha 不透明度   值 0-1</p>
+                    <p>语法：<span class="bgcontent">color：gbga(120,120,120,0.5)</span></p>
+
+            </div>
+
+
+            <!--0.4. 元素分类与盒子模型部分开始-->
+            <div>
+              <h3 id="标签分类">标签分类(显示方式)</h3>
+              <strong>块元素</strong><br>
+              <p>典型代表,Div，h1-h6，p，form，ul，li，address，blockquote，table</p>
+              <p>特点: </p>
+              <p class="sixemcontent">独占一行</p>
+              <p class="sixemcontent">可以设置宽高</p>
+              <p class="sixemcontent"><span class="bgcontent">嵌套（包含）下，子块元素如果没有定义宽高，宽度继承父元素宽度(不脱标的盒子才能继承)。高度自己设置，不设置为0</span></p>
+              <br>
+              <strong>行内元素(内联元素)</strong><br>
+              <p>典型代表 span，a，strong ， em，  del，  ins，br，label</p>
+              <p>特点：</p>
+              <p class="sixemcontent">在一行上显示</p>
+              <p class="sixemcontent">不能直接设置宽高</p>
+              <p class="sixemcontent">元素的宽和高就是内容撑开的宽高，跟父元素的宽高没关系。</p>
+              <br>
+              <strong>行内块元素(内联块元素):</strong><br>
+              <p>严格来说，是没有这个分类的，明确分类只有块元素和行内元素，这个是便于理解，总结出来的。是转换的（那个老师说的，记录）</p>
+              <p>典型代表  input，img</p>
+              <p>特点：</p>
+              <p class="sixemcontent">在一行上显示</p>
+              <p class="sixemcontent">可以设置宽高      </p>
+              <br>
+              <strong>块元素、行内元素、行内块元素之间的转换</strong><br>
+              <p class="twoemcontent">块元素转行内元素</p>
+              <p><span class="bgcontent">display:inline;</span></p>
+              <p>比如：</p>
+              <div class="bgcontent" style="width: 300px; margin-left: 4em">
+                <p class="twoemcontent">div,p{</p>
+                <p>display: inline;</p>
+                <p class="twoemcontent">}</p>
+              </div>
+
+              <p class="twoemcontent">行内元素转块元素</p>
+              <p><span class="bgcontent">display:block;</span></p>
+              <p>比如：</p>
+              <div class="bgcontent" style="width: 300px; margin-left: 4em">
+                <p class="twoemcontent">span{</p>
+                <p>display:block</p>
+                <p class="twoemcontent">}</p>
+              </div>
+
+
+              <p class="twoemcontent">块和行内元素转行内块元素（最、很常用）</p>
+              <p><span class="bgcontent">display:inline-block;</span></p>
+              <p>比如：</p>
+              <div class="bgcontent" style="width: 300px; margin-left: 4em">
+                <p class="twoemcontent">div,a,span,strong{</p>
+                <p>display: inline-block;</p>
+                <p>width:200px;</p>
+                <p>height:200px;</p>
+                <p class="twoemcontent">}</p>
+              </div>
+
+              <strong>注意：</strong><br>
+                <p class="twoemcontent">一旦转化，原先的特性就没了</p>
+              <strong>补充：</strong><br>
+                <p class="twoemcontent">行内块盒子</p>
+                  <p>左右：与行内块/行内标签 有3px的距离。设置左/右margin = -3；可以消除。</p>
+                  <p>底部：与其他盒子(包括父盒子)有3px的距离，这个可以通过设置vertical-align: bottom；来消除。（这个偶尔会没有，不晓得咋回事）</p>
+                <p class="twoemcontent">行内元素：</p>
+                  <p>左右：与行内块/行内标签 有3px的距离。</p>
+
+
+
+
+
+
+              <h3 id="盒子模型">盒子模型</h3>
+              <p class="twoemcontent">所谓盒子模型就是把HTML页面中的元素看作是一个矩形的盒子，也就是一个盛装内容的容器。每个矩形都由元素的内容、内边距（padding）、边框（border）和外边距（margin）组成。</p>
+              <p class="twoemcontent">块元素、行内块元素都是盒子。</p>
+              <p class="twoemcontent">css中盒子模型由三部分组成: 1边框（border） 2 内边距（padding） 3外边距（margin）</p>
+              <div align="center"><img src="img/hzmx.png" width="300px"></div>
+
+              <p class="twoemcontent">影响盒子宽度的因素</p>
+              <p>内边距影响盒子的宽度</p>
+              <p>边框影响盒子的宽度</p>
+              <p class="twoemcontent bgcontent">盒子的宽度=定义的宽度+边框宽度+左右内边距(margin也是盒子的一部分，但是它不影响盒子宽高，不显示盒子背景色/图片)</p>
+              <br>
+              <p class="twoemcontent">继承的盒子一般不会被撑大</p>
+              <p>包含（嵌套）的盒子，如果子盒子没有定义宽度，那么继承父盒子的宽度，此时给子盒子设置左右内边距，只要设置的内边距不大于父盒子的宽度，就撑大盒子。(这个必须理解，用到的地方不少)</p>
+              <p> 因为高度是不继承的，所以设置上下内边距，是可以任意撑大的。</p>
+              <p>父盒子在定义宽高的情况下，是不会被子盒子padding/margin撑大的。</p>
+              <p>如果没说定义宽高的时候，那么padding和margin都会撑大父盒子。</p>
+              <br>
+
+
+              <h4>边框:边框增大盒子</h4>
+              <p class="twoemcontent"><span class="bgcontent">border:border-width border-style border-color</span></p>
+              <p class="twoemcontent">边框属性</p>
+              <p>Border-style:  solid   实线  dotted  点线   dashed  虚线</p>
+              <p>Border-color   边框颜色</p>
+              <p>Border-width   边框粗细</p>
+              <br>
+
+              <p class="twoemcontent">边框属性的连写：<span class="bgcontent">border-top|bottom|left|right&nbsp;:&nbsp;red 1px solid;</span></p>
+              <p class="twoemcontent">特点：没有顺序要求，线型为必写项。颜色默认黑色，宽度默认3px</p>
+              <br>
+
+              <p class="twoemcontent">四个边框值相同的写法：<span class="bgcontent">border: red 1px solid;</span></p>
+              <p class="twoemcontent">特点：没有顺序要求，线型为必写项。</p>
+              <br>
+
+              <p class="twoemcontent">边框合并   </p>
+              <p><span class="bgcontent">border-collapse:collapse;</span></p>
+              <div class="bgcontent" style="width: 300px; margin-left: 4em">
+                <p class="twoemcontent">table{</p>
+                <p>border-collapse:collapse;</p>
+                <p class="twoemcontent">}</p>
+              </div>
+              <br>
+
+              <h4>内边距:内边距撑大盒子</h4>
+              <p class="twoemcontent"><span class="bgcontent">Padding-top  |  bottom | left | right</span></p>
+              <br>
+              <p class="twoemcontent">padding连写</p>
+              <p>Padding: 20px;   上右下左内边距都是20px</p>
+              <p>Padding: 20px 30px;   上下20px   左右30px</p>
+              <p>Padding: 20px  30px  40px;   上内边距为20px  左右内边距为30px   下内边距为40</p>
+              <p>Padding:  20px  30px   40px  50px;   上20px 右30px  下40px  左  50px</p>
+              <br>
+
+
+              <h4>外边距</h4>
+              <p class="twoemcontent">外边距概述：</p>
+              <p>margin是指：</p>
+              <p class="sixemcontent">该盒子四边相邻的盒子，距离该盒子上右下左四条边的距离。</p>
+              <p class="sixemcontent">如果相邻盒子本身就已经有了间隔，margin的设置，我们可以理解为将间距增大或者减小多少px</p>
+              <p class="twoemcontent">如果是行内块元素设置了上下margin，会将这一行的高度撑高，见图</p>
+              <div align="center"><img src="img/hzmargin.png" width="300"></div>
+
+
+
+              <p class="twoemcontent"><span class="bgcontent">margin-top  |  bottom | left | right</span></p>
+              <br>
+              <p class="twoemcontent">外边距连写</p>
+              <p>Margin: 20px;    上下左右外边距20PX</p>
+              <p>Margin: 20px 30px;   上下20px  左右30px</p>
+              <p>Margin: 20px  30px  40px;     上20px  左右30px   下  40px</p>
+              <p>Margin: 20px  30px   40px  50px; 上20px   右30px   下40px  左50px</p>
+              <p class="twoemcontent">margin: 0 auto 让盒子居中(text-align:center ，让标签内的内容居中)</p>
+              <p class="twoemcontent">auto属性：</p>
+              <p>left:auto将盒子推向右边。right:auto将盒子推向左边。左右都用，让盒子居中。但是如果盒子脱标了，这个auto就不起作用了，必须得设置具体的数值，来调整盒子位置了</p>
+              <br>
+              <p class="twoemcontent emContent">垂直方向外边距合并</p>
+              <p>简单地说，外边距合并指的是，当两个垂直外边距相遇时，它们将形成一个外边距。合并后的外边距的高度等于两个发生合并的外边距的高度中的较大者。</p>
+              <p>当一个元素出现在另一个元素上面时，第一个元素的下外边距与第二个元素的上外边距会发生合并。</p>
+              <p><span class="bgcontent">边距合并问题只发生在块级元素之间</span></p>
+              <br>
+              <p class="twoemcontent emContent">嵌套的盒子外边距塌陷</p>
+              <p>给子盒子设置边距，子盒子和父盒子同时移动了，且相对不变</p>
+              <p class="twoemcontent">解决方法:  1.给父盒子设置边框(不太推荐使用)</p>
+              <p class="sixemcontent">2.给父盒子overflow:hidden;  原理：overflow触发了bfc，格式化上下文。bfc(block formatting context)：成立了一个bfc独立渲染区域，在这个区域内，自成一个风格，不受外部影响(面试用)(说到这一步就行了，再往里就涉及css设计原理了)</p>
+              <p class="twoemcontent">bfc详解：<a href="http://www.w3cplus.com/css/understanding-bfc-and-margin-collapse.html" class="emContent">http://www.w3cplus.com/css/understanding-bfc-and-margin-collapse.html</a></p>
+
+              <br>
+              <h4>行内元素的margin和padding</h4>
+
+              <p>行内元素有上右下左的padding，有左右的margin，上下margin会被忽略。</p>
+
+
+              <br>
+              <h3>Fireworks的基本使用(相当于一个简化版的PS)</h3>
+
+              <p>新建文件   ctrl+n</p>
+              <p>打开文件  ctrl+o </p>
+              <p>调出和隐藏标尺 ctrl+r</p>
+              <p>清除辅助线：  视图---辅助线----清除辅助线</p>
+              <p>放大镜  z   放大镜状态下alt+鼠标左键 缩小</p>
+              <p>抓手   快捷键   空格</p>
+              <p>V		切换黑鼠标</p>
+              <p>U		画图</p>
+              <p>K		切片</p>
+              <p>I		吸色</p>
+              <p>空格   移动</p>
+              <p>测量距离</p>
+              <p class="sixemcontent">先拉出2根辅助线</p>
+              <p class="sixemcontent">切换到指针工具</p>
+              <p class="sixemcontent">将光标放到2根辅助线之间，按住shift键</p>
+
+              <dl class="twoemcontent">
+                <dt>firework作用</dt>
+                <dd>吸颜色</dd>
+                <dd>标注图，量取宽高</dd>
+                <dd>精灵图新建图层获取精确坐标，以及制作精灵图</dd>
+              </dl>
+
+              <p class="twoemcontent">补充</p>
+              <p>放大的只是我们看的视图，不管怎么放大缩小，测量的距离是不变的额</p>
+              <p>firework小技巧，右下角图层选项里，点击选中位图，点击位图选项上面，上个锁，防止在放大测量过程中，图片被拖动
+              </p>
+              <p class="emContent">在我们工作中，一般需要美工给我们一张psd图，用fireworks打开，点击每个元素，在属性栏中会显示有详细全面的美图标注的属性。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+            <!--0.5. CSS布局技术：标准流、浮动、定位。-->
+            <div>
+
+              <h3 id="文档流">css网页布局</h3>
+              <p>网页布局，也有人称网页重构、CSS+div。有一种很极端的人，使用css+div技术时，绝大多数部分都用div，超链接都用div+js来做，有这种人存在…</p>
+              <p>三大布局技术：文档流(标准流) 默认的、浮动布局、定位布局</p>
+
+              <h4>文档流（标准流）(Flow)</h4>
+              <p>元素自上而下，自左而右，块元素独占一行，行内元素在一行上显示，碰到父集元素的边框换行。</p>
+
+              <h4 id="浮动">浮动布局</h4>
+              <div>
+              <p><span class="bgcontent">float:  left | right</span></p>
+
+              <p class="twoemcontent">特点：</p>
+              <p>★元素浮动之后不占据原来的位置（脱离标准流，脱标）</p>
+              <p class="sixemcontent">本来是xy二维布局，浮动，相当于改变了Z轴坐标。</p>
+              <p class="sixemcontent">不占据本来的位置了，标准流里的元素，会重新排序，排在下面。但是需要注意：浏览器内核是不会让标签内容之间覆盖的，意思也就是，下面的元素会避开浮动布局的元素，在它的后面显示，这也就是应用1：文字饶图的原理。</p>
+              <p>★浮动的盒子在一行上显示</p>
+              <p>★行内元素浮动之后转换为行内块元素。（不推荐使用，转行内元素最好使用display: inline-block;）</p>
+              <p class="twoemcontent">总结：</p>
+              <p>比display：inline-block 强大的两点：</p>
+              <p class="sixemcontent">1. 可以从右向左布局</p>
+              <p class="sixemcontent">2. 文字饶图，是行内块做不到的</p>
+
+              <p class="twoemcontent">浮动的作用</p>
+              <p>文本绕图</p>
+              <p>制作导航</p>
+              <p>网页布局</p>
+
+                <p class="twoemcontent redColor" id="overNO">overflow:hidden设置阻止文本饶图效果：当A盒子设置float：left后，下面的B盒子上移，但是B盒子设置了overflow：hidden之后，B与A盒子左右相邻，各不干涉。</p>
+                <img src="img/floverflow.png" alt="" width="300" style="display: block;margin: 0 auto;">
+
+              <h4 id="clearboth">清除浮动</h4>
+              <p>当父盒子没有定义高度，嵌套的盒子浮动之后，子盒子因为浮动，会正常显示，但是父盒子下边的元素就会发生位置错误。</p>
+              <p>清除浮动不是不用浮动，是清除浮动产生的不利影响。</p>
+
+
+              <p class="twoemcontent">清除浮动的方法</p>
+              <p><span> clear: left  |  right  | both  让左右抗拒浮动（工作里用的最多的是clear:both）</span></p>
+
+              <p class="twoemcontent">1. 额外标签法(不推荐使用，因为浮动太多，需要加的额外标签太多)</p>
+              <p>在最后一个浮动元素后添加标签,style = "clear:both"。</p>
+
+              <p class="twoemcontent">2. 给父集元素使用overflow:hidden; （不推荐）   bfc</p>
+              <p>如果有内容出了盒子，不能使用这个方法。超出部分就不显示了。</p>
+
+              <p class="twoemcontent">3. 单伪元素清除浮动</p>
+              <div class="bgcontent">
+
+                <p class="twoemcontent">.clearfix:after {</p>
+                <p>content: ".";</p>
+                <p>display: block;</p>
+                <p>height: 0px;</p>
+                <p>line-height: 0px;</p>
+                <p>visibility: hidden;</p>
+                <p>clear: both;</p>
+                <p class="twoemcontent">}</p>
+
+                <p class="twoemcontent">/*兼容ie浏览器*/</p>
+                <p class="twoemcontent">.clearfix {</p>
+                <p>zoom: 1;</p>
+                <p class="twoemcontent">}</p>
+
+              </div>
+
+
+              <p class="twoemcontent">4.双伪元素清除浮动(用的居多，新网站都开始用这个)</p>
+              <div class="bgcontent">
+                <p class="twoemcontent">  .clearfix:before, .clearfix:after {</p>
+                <p>  content: "";</p>
+                <p>  display: table;</p>
+                <p class="twoemcontent">  }</p>
+
+                <p class="twoemcontent">  .clearfix:after {</p>
+                <p>  clear: both;</p>
+                <p class="twoemcontent">  }</p>
+
+                <p class="twoemcontent">  .clearfix {</p>
+                <p>  *zoom: 1; /* IE/7/6 */</p>
+                <p class="twoemcontent">  }</p>
+              </div>
+
+              <p>.clearfix一般都叫这个名字，语义化</p>
+              <p>:after 尾部</p>
+              <p>visibility: hidden  隐藏</p>
+              <p>*zoom：1 兼容IE浏览器，前面的*可写可不写</p>
+              <p>content：可以是. , 也可以是"" , 也可以是" " ，两种(不过反正也看不见~)</p>
+            </div>
+
+              <h3 id="定位">定位</h3>
+              <div>
+              <p>position： 定位，前面讲到背景图片定位，这里讲元素定位，都很重要，特别是后面的精灵图</p>
+
+              <p><span class="bgcontent">定位方向: left|right|top|bottom，单位：em、px、%</span></p>
+              <strong>注意：</strong>
+              <p class="twoemcontent redColor">设置了定位不给left/top，会出现bug</p>
+              <p class="twoemcontent redColor">定位的盒子，left比right的权限高，top高于bottom。left:0 ,right:0，盒子是在左边的</p>
+
+              <h4 id="static">静态定位</h4>
+              <p><span class="bgcontent">position:static;</span></p>
+              <p>静态定位。默认值，就是文档流。是不会动的，设置left、right….也不会动</p>
+
+
+
+              <h4 id="absolute">绝对定位</h4>
+              <p><span class="bgcontent">Position:absolute;</span></p>
+
+              <p class="twoemcontent">特点：</p>
+              <p>★元素使用绝对定位之后不占据原来的位置（脱标）</p>
+              <p>★元素使用绝对定位，位置是从浏览器出发。</p>
+              <p>★嵌套的盒子，父盒子没有使用定位，子盒子绝对定位，子盒子位置是从浏览器出发。</p>
+              <p>★嵌套的盒子，父盒子使用定位，子盒子绝对定位，子盒子位置是从父元素位置出发。</p>
+              <p>★给行内元素使用绝对定位之后，转换为行内块。（不推荐使用，推荐使用display:inline-block;）</p>
+                <br>
+                <p class="redColor">注意：如果父盒子有margin和border，padding，子盒子定位是以父盒子border内侧(也可以说是padding外侧)为基准的。</p>
+
+              <h4 id="relative">相对定位</h4>
+              <p><span class="bgcontent">Position: relative;</span></p>
+
+              <p class="twoemcontent">特点：</p>
+              <p>★使用相对定位，位置从自身出发。</p>
+              <p>★还占据原来的位置。(就算position设置，移动了很多，原本的位置还是留在那里的，空白着)</p>
+              <p>★子绝父相（父元素相对定位，子元素绝对定位）(工作中基本上都是用这个，至于为什么不用子绝父绝，担心父盒子绝对定位，脱标之后，会被其他的元素顶上来，造成布局混乱。尽量不要让元素脱标)</p>
+              <p>★行内元素使用相对定位不能转行内块</p>
+
+
+              <h4 id="fixed">固定定位</h4>
+              <p><span class="bgcontent">Position:fixed;</span> </p>
+
+              <p class="twoemcontent">特点：</p>
+              <p>★固定定位之后，不占据原来的位置（脱标）</p>
+              <p>★元素使用固定定位之后，位置从浏览器出发。</p>
+              <p>★元素使用固定定位之后，会转化为行内块（不推荐，推荐使用display:inline-block;）</p>
+              </div>
+
+              <!--0.5.n 定位知识点个人总结-->
+              <div id="personalsummary">
+                <h3>个人总结</h3>
+                <p class="twoemcontent"> 脱标：浮动布局、绝对定位、固定定位都脱标，但是有所区别(static/relative不脱标，不转行内块)</p><br>
+
+                <strong> 绝对定位、浮动布局</strong><br/>
+                <p class="twoemcontent">     位置：</p>
+                <p>       虽然是浮在上面，但是是浮在html里的，还都是加在html页面上的。scrollview.contentview</p>
+                <p class="twoemcontent">     坐标：</p>
+                <p>       另外绝对定位，老师说是从浏览器出发，其实不太精确，可以说是从整个html网页(0,0)点出发。</p>
+                <p class="sixemcontent">         设置left、top是设置离html页面(0,0)点的距离。</p>
+                <p class="sixemcontent">         而设置right、bottom，则是设置的是离浏览器窗口的距离。比如bottom：10px，那么它的下面则是浏览器窗口的高度-10px;</p>
+                <p>       如果这个元素的距离html顶部的距离都已经大于浏览器窗口高度了，那这个时候就不能设置right、bottom了，或者设置bottom ：-200px??</p>
+                <br>
+
+                <strong> 背景：fixed、固定定位</strong><br/>
+                <p class="twoemcontent">     位置：</p>
+                <p>       脱标是浮在浏览器窗口上的，我们可以认为是加在scrollview.frame上的。</p>
+                <p class="twoemcontent">     坐标：</p>
+                <p>       位置是从浏览器窗口(0,0)点出发的</p>
+                <p class="twoemcontent">     注意：</p>
+                <p>       前者只有当位于盒子内部时，我们才能看见。后者只有设置的坐标不大于浏览器窗口的宽高我们才能看见。如果设置top = 1200px，大于了浏览器窗口，那么即使整个html界面有2000px长，这个fixed定位的盒子，还是看不见</p>
+
+                <strong> 总结：</strong><br/>
+                <p class="twoemcontent">     相对定位，任何时候都是从自身位置出发的</p>
+                <p class="twoemcontent">     固定定位，任何时候都是从浏览器窗口(不是body)出发的</p>
+                <p class="twoemcontent">     绝对定位：</p>
+                      <p>如果父盒子绝对定位，那么子盒子绝对定位是从父盒子位置出发的</p>
+                      <p>如果父盒子相对定位，那么子盒子绝对定位是从父盒子位置出发的</p>
+                      <p>如果父盒子固定定位，那么子盒子绝对定位是从父盒子位置出发的</p>
+                <p class="redColor">如果子盒子是绝对定位，父盒子没有定位，那就找爷爷盒子，然后找祖爷爷盒子，一直向上依次寻找，直到找到一个有定位的，然后参考上面三条规则。如果连body了都没有定位，那么这个盒子就以html(0,0)为基准来定位。</p>
+                <p class="redColor">注意：html(0,0)跟以body为基准是不一样的，html(0,0) = body去掉8px margin之后的大小</p>
+                <br>
+                <p class="redColor">注意：如果父盒子有margin和border，padding，子盒子定位是以父盒子border内侧(也可以说是padding外侧)为基准的。</p>
+
+                <strong> 应用：</strong><br/>
+
+                <p class="twoemcontent"> ★子绝父相（父元素相对定位，子元素绝对定位。原因也是尽量规避脱标）</p>
+                <p class="twoemcontent"> 工作中用到的最多的就是这个。</p>
+                <p class="twoemcontent"> 语法：</p>
+
+                <div class="bgcontent">
+                  <p class="twoemcontent"> .father{</p>
+                  <p>     margin: 0 auto;  // 用其他的方式，定位好自己这个标签</p>
+                  <p>     position: relative;	//设置相对定位，但是不设置left/right/top/bottom 数值，也就不会移动</p>
+                  <p class="twoemcontent"> }</p>
+                  <p class="twoemcontent"> .son{</p>
+                  <p>     position: absolute;</p>
+                  <p>     left: xx px;</p>
+                  <p>     top:xx px;</p>
+                  <p class="twoemcontent"> }</p>
+                </div>
+                <p class="twoemcontent"> 工作中大多是这种模式。</p>
+
+                <p class="twoemcontent"> 但是如果父盒子，也需要用到绝对定位，那也就只能用子绝父绝了。这种也没什么，只不过偶尔需要留意清除浮动。</p>
+
+              </div>
+
+
+              <h3 id="arrange">布局</h3>
+              <div>
+                <p class="twoemcontent">前端是在浏览器窗口上显示。</p>
+                <p>1. 浏览器的窗口可以随意改变大小(完美适配，那窗口很小时，内容肯定就无法显示)</p>
+                <p>2. 一张网页那么多元素(很耗时耗力)</p>
+                <p class="twoemcontent">这两个原因导致，在网页上使用iOS的完美适配—设置比例，是不可能实现的。</p>
+                <p class="twoemcontent">所以在前端中，我们必须使用<span class="redColor">标准流、浮动、定位三大布局技术特性</span>，让盒子按照<span class="redColor">html规定的盒子排列规则</span>，进行排列。然后<span class="redColor">设置盒子的坐标宽高、内容</span>。从而达到效果。</p>
+              </div>
+
+              <h3 id="zindex">三大技术的盒子层级</h3>
+              <div>
+                <p class="twoemcontent">层级问题（谁高）</p>
+                  <p>定位的盒子(除去static) > 浮动的盒子 > 标准流的盒子(盒子层级与占不占位置无关)</p>
+                  <p>同为标准流、浮动、定位的盒子，从左向右，从上到下的层级越来越高。（左右/上下两个盒子重合，重合部分看到的是右/下边的）</p>
+
+                <p class="twoemcontent">z-index用法：</p>
+                  <p>1、必须有定位。（除去static之外，不搭配定位，无效）。</p>
+                  <p>2、给定z-index的值为层级的值。（不给默认为0，不取小数）</p>
+
+                <img src="img/hzcj.png" alt="" width="300px" style="margin: 0 auto;display: block;">
+                <p class="twoemcontent redColor">浮动没有标准流里文字层级高，浮动盒子压不住标准流的内容</p>
+
+              </div>
+
+              <h3 id="sortRule">盒子的排列规则</h3>
+
+              <h4>行内块盒子的排列规则</h4>
+              <div>
+                <p class="twoemcontent">分为：标准流行内块(display:inline-block;或者input、img)、浮动行内块</p>
+                <p class="twoemcontent">行元素盒子变为行内块，在同行展示的时候，老师一般用float:left用浮动，而不是display:inline-block，顶部对齐比较符合我们的布局。</p>
+
+                <strong>Ⅰ.标准流行内块之间</strong>
+
+                <p class="twoemcontent">标准流行内块，同行排列（display: inline-block 转成的行内块，或者img/input本身就是的行内块）</p>
+                  <p class="twoemcontent">Y值</p>
+                    <p>标准流的行内块，底部baseline排列对齐</p>
+                  <p class="twoemcontent">X值</p>
+                    <p>如果一行盛不下：被挤下来的那个盒子，肯定是重开一行，从左到位重新开始排列 — 标准流的做法。</p>
+
+                <strong>Ⅱ.浮动行内块之间</strong>
+
+                <p class="twoemcontent">浮动转成的行内块，同行排列</p>
+                  <p class="twoemcontent">Y值</p>
+                    <p>浮动转成的行内块，顶部对齐排列</p>
+                  <p class="twoemcontent">X值</p>
+                    <p>如果一行撑不下：被挤下来的那个盒子，不能与左边紧邻的盒子顶部对齐，就会用自己的顶部与左边紧邻的那个盒子的底部对齐，Y坐标已定，至于X坐标，能多靠左就多靠左</p>
+                    <p>如果被挤下来的那个是float：right的盒子，那Y值照样是与紧邻的左边的盒子底部对齐，X左边是能多靠右就多靠右</p>
+
+                <strong>Ⅲ.浮动与标准流行内块之间</strong>
+                <p class="twoemcontent">浮动的行内块与标准流的行内块，同行排列</p>
+                  <p class="twoemcontent">Y值</p>
+                    <p>浮动行内块跑到最左边，除了占个位置，就当它不存在。然后标准流行内块从左到右开始baseline对齐排列。</p>
+                  <p class="twoemcontent">X值</p>
+                    <p>那说来就很复杂了，如下：下面都是一行时候排列，至于不一行，也懒得研究了。反正同一个盒子内的盒子要么浮动，要么都别浮动。</p>
+
+                <div class="scrollDivImage">
+                  <p>下面是几个情形：</p>
+                  <p class="twoemcontent redColor">1块（里面可以有任意内容）</p>
+                  <p class="twoemcontent redColor">2块（里面可以有任意内容）</p>
+                  <p>上面的盒子设置浮动，下面的盒子会顶上去，被1盖在下面。但是2内的内容：行内块，行内元素，都会在1的最右边开始显示，也就是看起来1好像变成了2里面的一个最左边的行内块 <span class="redColor">(文本饶图的原理)</span>。</p>
+                  <p>注意：如果2盒子没有1大，那么2的所有内容，都会被挤到1盒子的bottom下面。如果下面有内容，那就盖上了，重叠显示</p>
+                      <p>下面的设置浮动，两个盒子相对位置不变</p>
+
+                  <p class="twoemcontent">12行内块</p>
+                  <p class="twoemcontent">3块</p>
+                      <p>1盒子浮动之后，三个盒子位置不变</p>
+                      <p>2盒子浮动之后，1、2交换位置</p>
+                      <p>12盒子都浮动之后，3盒子顶上去了。同第一种那种情况了。</p>
+
+                  <p class="twoemcontent">1块</p>
+                  <p class="twoemcontent">2行内块</p>
+                      <p>上面的盒子设置浮动，下面的盒子会移动到上方，盒子的右边</p>
+
+                  <p class="twoemcontent">1块</p>
+                  <p class="twoemcontent">23行内块</p>
+                      <p>1设置浮动，23移动到1的右边</p>
+                </div>
+
+
+
+                <p class="twoemcontent">由上面可知：</p>
+                  <p>1. 浮动与不浮动盒子之间的关系非常复杂，所以一个盒子里的元素，要么都浮动，要么都别浮动。</p>
+                  <p>2. 浮动的盒子虽说脱标，不占据原来的位置，但是从上面的几种情形来说，好像只有第一种情况，才能说不占据原来的位置，即使如此，顶上去的盒子，内容还被迫做出了调整。说到底还是在占地方。所以有人也叫半脱标。(浮动的盒子是不会盖住内容的)</p>
+
+                  <p>至于定位就简单多了，一定位，盒子脱标了，就是在最上面。我原先的地方，你们虽然拿出用，一点不用顾忌，一点不占地方。当然下面的东西被遮住了，它也是不管的。被遮住就看不见</p>
+              </div>
+
+              <h4>不同盒子之间的元素也存在一些相互影响</h4>
+              <div>
+                <strong>标准流行内块之间排列时：</strong>
+                  <p>同一行的内容，默认是baseline对齐的，不管是不是在同一个盒子里</p>
+                  <p>如图：</p>
+                ￼<img src="img/leadto1.png" width="300" style="margin: 0 auto;display: block;">
+                  <p>如果红蓝是浮动的行内块不会这样，还是保持顶对齐</p>
+
+                <br>
+                <strong>超出父盒子的浮动盒子，影响叔伯级盒子里的浮动盒子</strong>
+                  <p>浮动的盒子会影响到其他的浮动盒子，不管是不是在同一个盒子里</p>
+                  <p>如图:</p>
+                ￼<img src="img/leadto2.png" width="250" style="margin: 0 auto;display: block;">
+                ￼
+                <p class="twoemcontent">如果盒子因为需求，必须要超出自己的父盒子，那就不要浮动了，直接添加就行了。如果层级不够，用定位来提高。(浮动的盒子不要超出父盒子)</p>
+
+              </div>
+
+              <h3 id="sizeSetting">盒子的宽高设置</h3>
+              <div>
+
+                <strong>外层的盒子必须设置宽度，防止里面盒子掉下来(有可能发生内容盒子掉下来的盒子，都必须设置宽高)</strong>
+
+                  <p class="twoemcontent">最外层的盒子如果不设置宽度，就继承body的宽度，body继承的是浏览器窗口的宽度。</p>
+                  <p class="twoemcontent">如果不设置宽度。当缩小浏览器窗口的时候。盒子宽度变小，里面的行内(不管是定位变的，还是浮动变的，还是display：inline-block变的)盒子就会掉下来，本来是一行排列，变成两行排列</p>
+
+                <strong>里层盒子的坐标宽高设置</strong>
+
+                <p class="twoemcontent">宽高剩余法(设置宽高数值，用不完的剩余着，盒子稳定性最高)(一般最外层盒子、大盒子肯定需要设置宽高)</p>
+                  <p>大盒子，或者UI标注图上明确标注了模块的宽高，那就用宽高剩余法设置，内外边距再用padding、margin设置，注意padding会撑大盒子，最终宽度要减去padding。</p>
+
+                <p class="twoemcontent">padding（在小标签中用的很多）</p>
+                  <p>如果标签没有标注宽高，只标注了上下左右间距，推荐使用padding来设置。</p>
+                <p class="twoemcontent">margin</p>
+                  <p>当点击超链接空白处，文字不变色，那么这个时候这个空白就不能设置padding了，只能设置margin了。(用的时候，注意避免外边距塌陷)</p>
+                <p class="twoemcontent">注意：</p>
+                  <p>margin也是标签的一部分，只是不响应点击，不受背景色、背景图片影响，但它是真是存在的一片空白，如果层级造成，下面的超链接，被上层级的margin挡住，那么超链接也是不能点击的</p>
+
+              </div>
+
+
+              <!--css三大布局技术部分结束-->
+
+              <!--css布局小技巧补充-->
+              <!--CSS初始化属性-->
+              <br>
+            </div>
+
+
+            <!--0.6. CSS小知识点补充-->
+            <div>
+              <h3 id="addContent">CSS小知识点补充</h3>
+              <h3 id="css初始化">CSS初始化</h3>
+              <div>
+                <p>
+                  为了考虑到浏览器的兼容问题，其实不同浏览器对有些标签的默认值是不同的，如果没对CSS初始化往往会出现浏览器之间的页面差异
+                  挑取自己有用的就行
+                </p>
+                <strong>常见的初始化操作</strong>
+                <p>body默认margin为8，同iOS</p>
+                <p>将body，ul，li的margin 和padding 去掉</p>
+                <p>将li的liststyle 去掉</p>
+                <p>Img在IE 老版本中会渲染带上边框，border等于0</p>
+
+                <p>腾讯：</p>
+                <div class="tencent">
+                  <p>body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0}</p>
+                  <p>body{font:12px"宋体","Arial Narrow",HELVETICA;background:#fff;-webkit-text-size-adjust:100%;}</p>
+                  <p>a{color:#2d374b;text-decoration:none}</p>
+                  <p>a:hover{color:#cd0200;text-decoration:underline}</p>
+                  <p>em{font-style:normal}</p>
+                  <p>li{list-style:none}</p>
+                  <p>img{border:0;vertical-align:middle}</p>
+                  <p>table{border-collapse:collapse;border-spacing:0}</p>
+                  <p>p{word-wrap:break-word}</p>
+                </div>
+
+                <p>新浪：</p>
+                <div class="sina">
+                  <p>body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div{margin:0;padding:0;border:0;}</p>
+                  <p>body{background:#fff;color:#333;font-size:12px; margin-top:5px;font-family:"SimSun","宋体","Arial Narrow";}</p>
+                  <p>ul,ol{list-style-type:none;}</p>
+                  <p>select,input,img,select{vertical-align:middle;}</p>
+                  <p>a{text-decoration:none;}</p>
+                  <p>a:link{color:#009;}</p>
+                  <p>a:visited{color:#800080;}</p>
+                  <p>a:hover,a:active,a:focus{color:#c00;text-decoration:underline;}</p>
+                </div>
+
+                <p>淘宝：</p>
+                <div class="taobao">
+                  <p>body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }
+                  <p>body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; }
+                  <p>h1, h2, h3, h4, h5, h6{ font-size:100%; }
+                  <p>address, cite, dfn, em, var { font-style:normal; }
+                  <p>code, kbd, pre, samp { font-family:couriernew, courier, monospace; }
+                  <p>small{ font-size:12px; }
+                  <p>ul, ol { list-style:none; }
+                  <p>a { text-decoration:none; }
+                  <p>a:hover { text-decoration:underline; }
+                  <p>sup { vertical-align:text-top; }
+                  <p>sub{ vertical-align:text-bottom; }
+                  <p>legend { color:#000; }
+                  <p>fieldset, img { border:0; }
+                  <p>button, input, select, textarea { font-size:100%; }
+                  <p>table { border-collapse:collapse; border-spacing:0; }
+                </div>
+              </div>
+
+              <!--定位盒子居中显示-->
+
+              <h3 id="centerbox">定位的盒子居中显示(水平、竖直居中都可以用)</h3>
+              <p>margin:0 auto;  只能让标准流的盒子居中对齐。</p>
+              <p>定位的盒子居中：先左右走父元素盒子的一半50%，在向左走子盒子的一半(margin-left:负值。)</p>
+              <p>语法：</p>
+              <div class="bgcontent">
+                <p class="twoemcontent">.centerBox {</p>
+                <p>position: absolute;</p>
+                <p>left:50%;</p>
+                <p>margin-left:负值(本身宽度的一半);</p>
+                <p class="twoemcontent">}</p>
+              </div>
+
+              <!--标签之间的包含-->
+
+              <h3 id="container">标签包含规范(flow是文档流的意思)</h3>
+              <p>div可以包含所有的标签。</p>
+              <p>tr、li、dd里可以包含文档流</p>
+              <p>h1可以包含p，div等标签。</p>
+              <p>p标签不能包含div h1等标签。</p>
+              <p class="sixemcontent">P、h标签里可以包含其他的行内元素</p>
+              <br>
+              <p>行内元素尽量包含行内元素，行内元素不要包含块元素。</p>
+              <div  class="scrollDivImage">
+                <img src="img/bqbhgf.png" alt="" width="528">
+              </div>
+
+              <p  class="twoemcontent">从图中发现：正规的规范里只有行内元素和块元素，行内块元素只是便于理解，自己搞出来的一个名词。</p>
+
+
+
+              <!--规避脱标-->
+              <h3 id="auto">auto属性规避脱标</h3>
+              <p class="twoemcontent">由于浮动，定位都脱离了标准流，会对网页布局造成一定的影响</p>
+              <p>尽量使用标准流。</p>
+              <p>标准流解决不了的使用浮动。</p>
+              <p>浮动解决不了的使用定位。</p>
+              <div class="bgcontent">
+                <p>margin-left:auto;使图片冲到最右边</p>
+                <p>margin-right:auto;使图片冲到最左边</p>
+                <p>margin: 0 auto;使图片居中</p>
+              </div>
+
+
+              <!--css可见性-->
+
+              <h3 id="visibility">Css可见性</h3>
+
+              <div class="bgcontent">
+                <p>overflow:hidden;   隐藏溢出的那部分</p>
+                <p>visibility:hidden;   隐藏元素 &nbsp;&nbsp;隐藏之后还占据原来的位置。</p>
+                <p>display:none/block;      隐藏/显示元素  &nbsp;&nbsp;隐藏之后不占据原来的位置，常配合js使用。</p>
+                <p>opacity: 0;					隐藏盒子，而且占位置。</p>
+                <p>Position/top/left/...-999px 隐藏盒子，不占位置。</p>
+                <p>或者用margin-left设置为负值也行</p>
+
+              </div>
+
+
+
+
+              <!--内容移除-->
+              <h3 id="alogo">a标签做logo，内容移除（网页优化，为了SEO）</h3>
+              <p class="twoemcontent">使用text-indent:-5000em;</p>
+              <div class="bgcontent">
+                <p>display:inline-block;</p>
+                <p>text-indent:-5000em;</p>
+              </div>
+              <p>注意：设置em,当大于7位数，设置px,当大于8位数。会出现bug，页面中的超链接不能被点击</p>
+              <p class="twoemcontent">将元素高度设置为0,使用内边距将盒子撑开，给盒子使用overflow:hidden;将文字隐藏。</p>
+              <div class="bgcontent">
+                <p>height:0px;</p>
+                <p>padding-top:100px;</p>
+                <p>overflow:hidden;</p>
+              </div>
+
+              <!--精灵图-->
+
+              <h3 id="jinglingtu">精灵图</h3>
+              <p class="twoemcontent">来源</p>
+              <p>当用户访问一个网站时，需要向服务器发送请求，网页上的每张图像都要经过一次请求才能展现给用户。</p>
+              <p>然而，一个网页中往往会应用很多小的背景图像作为修饰，当网页中的图像过多时，服务器就会频繁地接受和发送请求，这将大大降低页面的加载速度。为了有效地减少服务器接受和发送请求的次数，提高页面的加载速度，出现了CSS精灵技术（也称CSS Sprites）。</p>
+              <p>简单地说，CSS精灵是一种处理网页背景图像的方式。它将一个页面涉及到的所有零星背景图像都集中到一张大图中去，然后将大图应用于网页，这样，当用户访问该页面时，只需向服务发送一次请求，网页中的背景图像即可全部展示出来。通常情况下，这个由很多小的背景图像合成的大图被称为精灵图，比如下面的淘宝的</p>
+              <div align="center">
+                <img src="img/tbjlt.png" alt="" width="300">
+              </div>
+              <br>
+
+              <p class="twoemcontent">工作原理</p>
+              <p>CSS 精灵其实是将网页中的一些背景图像整合到一张大图中（精灵图）。然而，各个网页元素通常只需要精灵图中不同位置的某个小图，要想精确定位到精灵图中的某个小图，就需要使用CSS的background-image、background-repeat和background-position属性进行背景定位，其中最关键的是使用background-position属性精确地定位。</p>
+              <br>
+
+              <p class="twoemcontent">使用方法</p>
+              <p>精灵图向左向上为负，深入第四坐标系为正值。scrollview向左向上偏移为正，深入第二坐标系为正。</p>
+              <p>精灵图用firework，只能用打开的方式，不能使用导入得方式打开</p>
+              <p>firework图片为了获取坐标，可以右键通过剪切新建图层，然后就会精准选中，显示精准坐标。</p>
+              <p>但是这个时候，有个问题，此时这个图片会被移到了一个新建的图层上，是不能被选中复制粘贴不了的，在工具栏--窗口--图层，选中它的图层，再复制粘贴</p>
+              <br>
+
+              <p class="twoemcontent redColor">实际应用中，精灵图的一个实用技巧：</p>
+              <p>首先，使用一张精灵图的标签，类里都包含一个特有的子串，比如：icon</p>
+              <p>然后，属性检查器，<span class="bgcontent">［class ^= icon］ {background: url}</span></p>
+              <p>最后，我们在各自的标签中设置背景时，直接改变background-position</p>
+
+              <br>
+
+
+
+              <p class="twoemcontent">制作精灵图</p>
+
+              <p>新建文件，背景记得选择透明色</p>
+              <p>一般都靠一边排序</p>
+              <p>为了节省画布大小，排的密一点，但不要太密</p>
+              <p>导出没有png就选另存为，说是因为png支持透明背景(拼合png说是跟png差不多)</p>
+
+
+
+            </div>
+
+            <!--京东案例总结-->
+            <div id="JD">
+            <h3>京东案例总结</h3>
+
+              <h3 id="built-project">WebStorm的使用及项目搭建</h3>
+              <div>
+                <strong>webstrom编辑器</strong>
+                <p class="twoemcontent">新建文件</p>
+                    <p>h5的兼容(h5格式，是向下版本兼容的)</p>
+                    <p>不写后缀名</p>
+                    <p>可以直接右击，新建文件，也可以在本地新建文档，重命名比如index.html</p>
+                    <p>没有虚拟文件夹的说法，webstrom中可以直接创建实体文件夹，文件夹内新建文件夹，web中会自动显示出来，不用拖动</p>
+                <p class="twoemcontent">文件编码格式</p>
+                    <p>webstrom右下角会有文件编码显示，默认GBK，去设置 --编辑器--文件编码，</p>
+                    <p>project encoding 改为utf8</p>
+                    <p>底部默认文件编码 选为utf8</p>
+
+                <p class="twoemcontent">颜色设置</p>
+                    <p>在我们设置颜色之后，在最左边的边栏里，先有个小正方形显示我们设置的颜色，那个是能点击的，进去之后可以选取颜色</p>
+                <p class="twoemcontent">webs出现乱码，设置，外观，文字默认文字选择了不支持汉字的语言类型，默认微软雅黑就行</p>
+                <p class="twoemcontent">webs支持五大浏览器，谷歌，欧朋，ie，火狐，苹果直接打开 (当然mac没有IE)</p>
+                <p class="twoemcontent">webs支持ememt语法(应该是内置ememt插件)</p>
+                <p class="twoemcontent">火狐有两个插件：1.吸色 2.截屏(全网页截屏、可视区域截屏、网页选中区域截屏、屏幕选中区域截屏)，截屏插件的名字好像就叫网页截屏</p>
+
+                <strong>项目搭建(原则：结构样式行为分离)：</strong>
+
+                <p class="twoemcontent">各一个文件夹</p>
+                <table border="1" cellspacing="0" cellpadding="5">
+                  <tr>
+                    <td>html</td>
+                    <td>核心文件</td>
+                    <td>index.html（主页面，取名，语义化。可以将index.html放在所有文件夹外面）</td>
+                  </tr>
+                  <tr>
+                    <td>css</td>
+                    <td>控制样式</td>
+                    <td>css文件可以分为通用模块(可以取名叫base.css基础样式、global。css全局样式、public)，特定功能模块</td>
+                  </tr>
+                  <tr>
+                    <td>image</td>
+                    <td>图片</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>js</td>
+                    <td>js文件，音视频</td>
+                    <td></td>
+                  </tr>
+                </table>
+
+
+                <strong>站点</strong>
+                <p class="twoemcontent">行内人有个叫法：站点。</p>
+                <p class="twoemcontent">站点 == 项目 == 项目文件夹 == （根目录）</p>
+              </div>
+
+              <h3 id="ico">ico图标</h3>
+              <div>
+                   <strong>图标</strong>
+                   <p class="twoemcontent">图标和图片不一样，格式都不一样.ico</p><br>
+
+                   <strong>用途</strong>
+                   <p class="twoemcontent"><span class="bgcontent">1.网页title前面的icon图标</span></p>
+                   <p class="twoemcontent">2.更换桌面文件夹图标：文件夹右键自定义里可以自定义文件夹的图标，但是只识别图标，不识别图片</p>
+                   <p class="twoemcontent">3.应用程序图标也可以右键更换</p>
+                   <strong>获取</strong>
+                   <p class="twoemcontent"><span class="bgcontent">1.网站名(带www.)/favicon.ico，比如：www.taobao.com/favicon.ico 获取网站的title前面的icon</span></p>
+                   <p class="twoemcontent">2.图片如果很小，可以通过改变后缀名，来改成图标</p>
+                   <p class="twoemcontent">3.bitbug.net在线制作ico图标（补充一下：Placehold.it制作占位符网站，可以通过改url里的参数定制图片的大小、内容）</p>
+
+
+                   <strong>favicon.ico图标</strong>
+                   <p class="twoemcontent">favicon.ico一般也放在文件夹外，与index.html同级</p>
+                   <p class="twoemcontent">写法：</p>
+                   <p><span class="bgcontent">link rel="shortcut icon" href="favicon.ico"/> //shortcut可写可不写</span></p>
+              </div>
+
+              <h3 id="init">初始化解析</h3>
+              <div>
+                <p class="twoemcontent">css可抽取的类也不算多，京东也就抽了几个，其他的样式，不怎么通用的也没必要写在公共初始化里，增加类选择器了</p>
+                <p class="twoemcontent">京东这个以后可以直接拿来用，很通用：<a href="additionalContent/jdcssinit.txt" target="_blank">jdcssinit.text</a></p>
+              </div>
+
+
+              <h3 id="framework">实战中的盒子框架</h3>
+              <div>
+                <p class="twoemcontent">写网页跟开发ios差不多，第一步，也是最重要的一步，解剖分析页面布局</p>
+
+                <h4>外层盒子布局</h4>
+                <p class="twoemcontent">1. 通栏和版心两个说法，版心是盒子设置居中(按照新浪的做法：通栏和版心都是固定宽高居中的，拉伸和缩小浏览器窗口的时候，只是改变的版心两边的空白处)</p>
+                <p class="twoemcontent">2.从上往下，每一行都是个通栏或者版心盒子，然后在里面从左到右，对行内块盒子排列布局。(从左往右的盒子，感觉明明可以转行内块排列，但是老师都是用float：left，不晓得为啥)</p>
+                <p class="twoemcontent">3.根据内容有无关联，内容一致性，决定相邻的内容要不要放在一个盒子里。很多盒子同级排列布局的时候，最好别脱标，偶尔几个还行，多了就很麻烦。</p>
+
+
+                <h4>功能盒子布局：三层蛋糕模型</h4>
+                <p class="twoemcontent">先做普通的标签，再做有点复杂的标签，再做更复杂的标签，一步一步来，先把框架搞出来，再给一些特别的部分加一些东西。</p>
+                <p class="twoemcontent">京东右上角，先做出一个纯字体的ul标签，再给一些li加东西(加三角)，再加手机图标</p>
+
+                <p class="twoemcontent">先框架再补充，三层蛋糕模型</p>
+
+              </div>
+
+              <h3 id="tagSelected">实战中标签的选择</h3>
+              <div>
+                <strong>根据语义化选择标签</strong>
+
+                <p class="twoemcontent">以表的形式存在的或者好几个超链接、图片是并列等级水平、垂直排列的，都建议用ul、table等语义化标签。而table标签一般用来盛放文字。</p>
+
+                <p class="twoemcontent">功能性不强的模块(至于判断功能强不强，就是看承载的业务量以及是否是重要板块，用户的点击量)，简单来做，比如京东搜索框下面那个，可以用ul>li>a，来做，但是没必要，费时费力，直接用a就行</p>
+
+                <strong>实际开发小标签的使用</strong>
+
+                <p class="twoemcontent">小标签应用的还挺多的，因为没大标签那么多属性，加载快一点。在一些不需要语义化的地方，用小标签s i em盛放一些小东西、小图片，</p>
+                <p class="twoemcontent">注意：</p>
+                <p>我们要在css初始化的时候，将这些小标签的一些特殊样式，比如加粗，倾斜，删除线，去掉</p>
+                <p class="twoemcontent">语法：</p>
+                <div class="bgcontent">
+                  <p class="twoemcontent">s, i, em {      //s删除线、i/em斜体</p>
+                  <p>font-style: normal;</p>
+                  <p>text-decoration: none;</p>
+                  <p class="twoemcontent">}</p>
+                </div>
+
+
+                <p class="twoemcontent">应用场景：</p>
+                <p class="twoemcontent">如果出现图文混排，几个字和一张小图标一体，我们一般用定位来解决这个图片。使用文档流当然也能，但是相对来说定位简单。</p>
+              </div>
+
+              <h4 id="textSign">实战中特殊符号的使用</h4>
+              <div>
+                在开发中，我们可以使用输入法中的一些特殊符号，来做一些小图标。
+                比如：
+                ◇ 来做上下左右箭头
+                | 来做竖线等等。
+
+              </div>
+
+              <h3 id="studyPoint">京东实战中的技术点</h3>
+              <div>
+                <strong>4*4表，ul的制作</strong><br>
+                <img src="img/jdbg.png" style="margin: 0 auto; width: 200px;display: block;">
+                <p class="twoemcontent">表，根据标签语义化，建议使用ul,table标签来做，但是table一般都是盛放文字的，所以这里用ul来做。</p>
+                <p class="twoemcontent">这个表格的一个技术点：让一行显示四个li，设置ul的宽度>四个li的宽度，小于五个li的宽度。</p>
+
+              </div>
+
+          </div>
+
+
+
+          <!--CSS布局代码调试-->
+          <div>
+            <strong>代码调试：</strong>
+
+            <p class="twoemcontent">经常出现的问题：优先级问题</p>
+            <p class="twoemcontent redColor">当我们设置的属性，优先级不够的时候，在浏览器检查元素，会出现横线。注意优先级问题</p>
+            <p class="twoemcontent redColor">当我们设置的属性，属性名字出错，设置的值出错，浏览器检查元素，属性的前面会出现黄色警告符号</p>
+
+
+            <p class="twoemcontent">webstorm代码中如果有问题，在最右边，右上角会有红色警告，然后在下面一段段标志中，会有红色的横线，点击红色的，会直接定位跳转到代码问题处。不过它能检测到的只是标签对应上的问题。比如多了个&lt;号，少了个&gt;号</p>
+            <br>
+            <p class="twoemcontent">检查元素：</p>
+                 <p>ctrl + shift + c (打开调试台) = 打开调试台点击工具栏最左边那个按钮，选中变色。此时鼠标滑动到网页中的文字或者图片，源码就会自动活动到元素所在位置</p>
+            <br>
+            <p class="twoemcontent">检查网页</p>
+                 <p>查看网页布局：commond + -/+  放大和缩小网页。谷歌的缩小有问题，把别人的布局搞乱了都，不如Safari</p>
+            <br>
+            <p class="twoemcontent">如果看着属性、代码是在看不出问题，换个浏览器运行试试，如果没问题，那么你这个浏览器就该清楚缓存了</p>
+
+            <p class="twoemcontent">前端解决问题的两大方法: 清缓存，重启电脑</p>
+          </div>
+
+
+
+        </div>
+    </div>
+
+
+
+    <script>
+
+    function foldTag(foldTagId,foldSignId) {
+
+        var traget = document.getElementById(foldTagId);
+
+        var signI = document.getElementById(foldSignId);
+        //style.display获取的只是行内样式表中的属性，因为我们是在css文件中写的，所以每次第一次取出来都是""
+        if(traget.style.display == "block"){
+
+            traget.style.display="none";
+            signI.style.height = "16px";
+            signI.style.width = "8px";
+            signI.style.marginTop = "-8px";
+
+        }else{
+
+            traget.style.display="block";
+            signI.style.height = "7px";
+            signI.style.width = "16px";
+            signI.style.marginTop = "-4px";
+
+
+
+        }
+        return false;
+
+    }
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
