@@ -3,7 +3,7 @@
 # Site settings
 title: Tenloy's Blog
 SEOTitle: Tenloy's Blog
-header-img: img/home-bg.png
+header-img: img/head_bg/head_bg_2.jpg
 email: luotengoto@163.com
 description: "iOS开发 | Tenloy，iOS Developer | Tenloy的个人博客呀"
 keyword: "Tenloy, iOS, Tenloy Blog, 博客，Swift, 编译, 计算机"
@@ -14,12 +14,12 @@ baseurl: ""                             # for example, '/blog' if your blog host
 
 # avatar and Favicon
 # avatar: http://7u2ho6.com1.z0.glb.clouddn.com/site-avatar.png
-favicon: favicon.ico
+favicon: img/favicon.ico
 
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "你有多自律，就会有多自由"
+sidebar-about-description: "iOS Developer \n 你有多自律，就会有多自由"
 sidebar-avatar: /img/avatar.png      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
@@ -36,7 +36,7 @@ github_username:    Tenloy
 
 
 # Build settings
-paginate: 10
+paginate: 15
 plugins: [jekyll-paginate]
 # gems: [jekyll-paginate]
 

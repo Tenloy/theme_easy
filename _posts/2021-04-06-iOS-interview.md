@@ -3,7 +3,7 @@ layout:     post
 title:      "iOS-interview"
 subtitle:   ""
 author:     "Tenloy"
-header-img: "img/bg-1.png"
+header-img: "img/head_bg/head_bg_6.jpg"
 header-mask:  0.5
 catalog: true
 tags:
