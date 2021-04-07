@@ -3,7 +3,7 @@
 # Site settings
 title: Tenloy's Blog
 SEOTitle: Tenloy's Blog
-header-img: img/head_bg/head_bg_2.jpg
+header-img: img/head_bg/head_bg_1.png
 email: luotengoto@163.com
 description: "iOS开发 | Tenloy，iOS Developer | Tenloy的个人博客呀"
 keyword: "Tenloy, iOS, Tenloy Blog, 博客，Swift, 编译, 计算机"
@@ -19,7 +19,8 @@ favicon: img/favicon.ico
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "iOS Developer \n 你有多自律，就会有多自由"
+sidebar-about-description: "iOS Developer"
+sidebar-about-description-ext: "你有多自律，就会有多自由"
 sidebar-avatar: /img/avatar.png      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
