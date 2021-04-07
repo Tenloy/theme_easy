@@ -14,7 +14,7 @@ baseurl: ""                             # for example, '/blog' if your blog host
 
 # avatar and Favicon
 # avatar: http://7u2ho6.com1.z0.glb.clouddn.com/site-avatar.png
-favicon: https://tenloy.github.io/img/favicon.ico
+favicon: /img/favicon.ico
 
 
 # Sidebar settings
@@ -63,3 +63,5 @@ plugins: [jekyll-paginate]
 #    href: "https://chenshuyao.cn/"
 #  }
 #]
+
+exclude: ["/notes"]
