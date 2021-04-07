@@ -3,9 +3,9 @@
 # Site settings
 title: Tenloy's Blog
 SEOTitle: Tenloy's Blog
-header-img: img/head_bg/head_bg_1.png
+header-img: https://tenloy.github.io/img/favicon.ico
 email: luotengoto@163.com
-description: "iOS开发 | Tenloy，iOS Developer | Tenloy的个人博客呀"
+description: "iOS开发 | Tenloy，iOS Developer | Tenloy的个人博客"
 keyword: "Tenloy, iOS, Tenloy Blog, 博客，Swift, 编译, 计算机"
 url: "https://tenloy.github.io/"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
