@@ -53,13 +53,13 @@ gitalk:
 
 
 # Friends
-friends: [
-  {
-    title: "wfm's github",
-    href: "https://wfm19970.github.io/"
-  },
-  {
-    title: "chenshuyao's blog",
-    href: "https://chenshuyao.cn/"
-  }
-]
+#friends: [
+#  {
+#    title: "wfm's github",
+#    href: "https://wfm19970.github.io/"
+#  },
+#  {
+#    title: "chenshuyao's blog",
+#    href: "https://chenshuyao.cn/"
+#  }
+#]
