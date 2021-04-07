@@ -45,7 +45,7 @@ _strongString = nil;
 NSLog(@"%@", _weakString);
 ```
 
-![TaggedPoint](../img/interview/TaggedPoint.png)
+![TaggedPoint](/img/interview/TaggedPoint.png)
 
 ### 2.2 KVO
 
@@ -158,7 +158,7 @@ objc_msgSend()函数会依据接受者（调用方法的对象）的类型和选
 
 #### 2.5.5 消息转发
 
-![消息转发](../img/interview/消息转发.png)
+![消息转发](/img/interview/消息转发.png)
 
 消息转发分为两大阶段。第一阶段叫做“动态方法解析（dynamic method resolution）”，或者叫“动态方法决议”。第二阶段涉及到“完整的消息转发机制（full forwarding mechanism）”，或者叫“完整的消息转发原理”。
 
@@ -416,7 +416,7 @@ union isa_t
 
 - weak哈希表怎么保存键值对的，说说哈希表的实现，以什么作为key保存到哈希表的
 
-![SideTables](../img/interview/SideTables.png)
+![SideTables](/img/interview/SideTables.png)
 
 ##### 5) C指针需要自己管理释放
 
@@ -676,7 +676,7 @@ https://juejin.cn/post/6844903901037084686
 
 ### 5.1 概念
 
-<img src="../img/interview/Thread.png" alt="Thread" style="zoom:70%;" />
+<img src="/img/interview/Thread.png" alt="Thread" style="zoom:70%;" />
 
 ### 5.2 多线程的几种方案
 
