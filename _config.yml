@@ -42,24 +42,24 @@ plugins: [jekyll-paginate]
 
 
 # Gitalk
-gitalk:
-  enable: true    #是否开启Gitalk评论
-  clientID: a84c2a57837302767371                            #生成的clientID
-  clientSecret: 847046720bec629fbd3580d8f3cc617ab9d3a27a    #生成的clientSecret
-  repo: Tenloy.github.io    #仓库名称
-  owner: Tenloy    #github用户名
-  admin: Tenloy
+#gitalk:
+#  enable: true    #是否开启Gitalk评论
+#  clientID: a84c2a57837302767371                            #生成的clientID
+#  clientSecret: 847046720bec629fbd3580d8f3cc617ab9d3a27a    #生成的clientSecret
+#  repo: Tenloy.github.io    #仓库名称
+#  owner: Tenloy    #github用户名
+#  admin: Tenloy
   # distractionFreeMode: true #是否启用类似FB的阴影遮罩
 
 
 # Friends
-friends: [
-  {
-    title: "wfm's github",
-    href: "https://wfm19970.github.io/"
-  },
-  {
-    title: "chenshuyao's blog",
-    href: "https://chenshuyao.cn/"
-  }
-]
+#friends: [
+#  {
+#    title: "wfm's github",
+#    href: "https://wfm19970.github.io/"
+#  },
+#  {
+#    title: "chenshuyao's blog",
+#    href: "https://chenshuyao.cn/"
+#  }
+#]
