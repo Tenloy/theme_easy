@@ -50,16 +50,3 @@ gitalk:
   owner: Tenloy    #github用户名
   admin: Tenloy
   # distractionFreeMode: true #是否启用类似FB的阴影遮罩
-
-
-# Friends
-#friends: [
-#  {
-#    title: "wfm's github",
-#    href: "https://wfm19970.github.io/"
-#  },
-#  {
-#    title: "chenshuyao's blog",
-#    href: "https://chenshuyao.cn/"
-#  }
-#]
